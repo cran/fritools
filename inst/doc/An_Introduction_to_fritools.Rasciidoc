@@ -1,0 +1,16 @@
+= An Introduction to fritools
+:Date: 2021-01-05, 15:31:55
+:toc2:
+
+////
+    %\VignetteIndexEntry{An Introduction to fritools}
+    %\VignetteEngine{rasciidoc::rasciidoc}
+    %\VignetteEncoding{UTF-8}
+////
+
+This is not a vignette at all as *fritools* is just a set of 
+miscellaneous utilities, tools and helper functions written for the  
+Forest Research Institute of the State Baden-Wuerttemberg, Germany.
+
+*fritools* does not use any other packages than those in the R Core.
+It does not import or depend on any third party package.
