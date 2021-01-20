@@ -4,12 +4,14 @@
 \alias{search_files}
 \title{Search Files for a Pattern}
 \usage{
-search_files(what, verbose = TRUE, ...)
+search_files(what, verbose = TRUE, exclude = NULL, ...)
 }
 \arguments{
 \item{what}{A regex pattern for which to search.}
 
 \item{verbose}{Be verbose?}
+
+\item{exclude}{A regular expression for excluding files.}
 
 \item{...}{Arguments passed to \code{\link{list.files}}.}
 }
@@ -22,7 +24,22 @@ This is an approximation of unix find and grep.
 }
 \examples{
 write.csv(mtcars, file.path(tempdir(), "mtcars.csv"))
-write.csv(iris, file.path(tempdir(), "iris.csv"))
+ for (i in 0:9) {
+     write.csv(iris, file.path(tempdir(), paste0("iris", i, ".csv")))
+ }
 search_files(what = "Mazda", path = tempdir(), pattern = "^.*\\\\.csv$")
 search_files(what = "[Ss]etosa", path = tempdir(), pattern = "^.*\\\\.csv$")
+x <- search_files(path = tempdir(),
+                  pattern = "^.*\\\\.csv$",
+                  exclude = "[2-9]\\\\.csv$",
+                  what = "[Ss]etosa")
+summary(x)
+summary(x, type = "what")
+summary(x, type = "matches")
 }
+\seealso{
+Other file searching functions: 
+\code{\link{find_files}()},
+\code{\link{summary.filesearch}()}
+}
+\concept{file searching functions}

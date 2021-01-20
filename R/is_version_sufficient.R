@@ -2,11 +2,10 @@
 #'
 #' Just a wrapper to \code{\link{compareVersion}}, I regularly forget how to use
 #' it.
-#' @param available The version available.
+#' @param installed The version available.
 #' @param required The version required.
 #' @return  \code{\link{TRUE}}, if so,  \code{\link{FALSE}} otherwise.
 #' @export
-#' @keywords internal
 #' @examples
 #' is_version_sufficient(installed = "1.0.0", required = "2.0.0")
 #' is_version_sufficient(installed = "1.0.0", required = "1.0.0")

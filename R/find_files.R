@@ -18,6 +18,7 @@
 #'       given.
 #'
 #' @export
+#' @family file searching functions
 #' @return a character vector of file names.
 #' @examples
 #' #% create some files

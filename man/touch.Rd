@@ -23,4 +23,3 @@ touch(file)
 t2 <- file.mtime(file)
 t1 < t2
 }
-\keyword{internal}

@@ -13,7 +13,6 @@
 #' @seealso \code{\link[codetools:checkUsageEnv]{checkUsageEnv in codetools}}.
 #' @return invisible(TRUE)
 #' @export
-#' @keywords internal
 #' @examples
 #' load_internal_functions("fritools")
 load_internal_functions <- function(package, ...) {

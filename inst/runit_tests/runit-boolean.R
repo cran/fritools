@@ -41,3 +41,28 @@ test_is_not_false <- function() {
 if (interactive()) {
     test_is_not_false()
 }
+
+test_is_false <- function() {
+    expectation <- TRUE
+    result <- is_false(FALSE)
+    RUnit::checkIdentical(result, expectation)
+}
+if (interactive()) {
+    test_is_false()
+}
+
+test_is_null_or_true <- function() {
+    expectation <- TRUE
+    result <- is_null_or_true(TRUE)
+    result <- is_null_or_true(NULL)
+    RUnit::checkIdentical(result, expectation)
+
+    expectation <- FALSE
+    result <- is_null_or_true(FALSE)
+    RUnit::checkIdentical(result, expectation)
+    result <- is_null_or_true("not true")
+    RUnit::checkIdentical(result, expectation)
+}
+if (interactive()) {
+    test_is_null_or_true()
+}

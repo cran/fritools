@@ -37,4 +37,10 @@ get_run_r_tests()
 set_run_r_tests(TRUE, force = TRUE)
 get_run_r_tests()
 }
-\keyword{internal}
+\seealso{
+Other test helpers: 
+\code{\link{is_running_on_fvafrcu_machines}()},
+\code{\link{is_running_on_gitlab_com}()},
+\code{\link{set_run_r_tests}()}
+}
+\concept{test helpers}

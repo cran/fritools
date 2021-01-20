@@ -1,8 +1,8 @@
 #' Is the Machine Running the Current R Process Owned by FVAFRCU?
 #'
 #' @return A logical.
+#' @family test helpers
 #' @export
-#' @keywords internal
 is_running_on_fvafrcu_machines <- function() {
     sys_info <- Sys.info()
     r <- sys_info[["nodename"]] %in% c("h6", "h7") &&
@@ -17,14 +17,19 @@ is_running_on_fvafrcu_machines <- function() {
 #' \url{https://about.gitlab.com}.
 #' This check is an approximation only.
 #' @param verbose Be verbose?
-#' @return A logical.
+#' @template return_boolean
+#' @family test helpers
 #' @export
-#' @keywords internal
 is_running_on_gitlab_com <- function(verbose = TRUE) {
-    r <- grepl("^runner-[0-9]*-project-[0-9]*-concurrent-[0-9]*$",
-               Sys.info()[["nodename"]]) && .Platform[["OS.type"]] == "unix"
-    if (isTRUE(verbose))
-        message(paste(Sys.info()[["nodename"]], .Platform[["OS.type"]]))
+    gitlab_pattern <- paste0("^runner-.*-project-.*-",
+                             "concurrent-.*$")
+    r <-  grepl(gitlab_pattern, Sys.info()[["nodename"]]) &&
+        .Platform[["OS.type"]] == "unix"
+    if (isTRUE(verbose) && !r) {
+        msg <- paste(Sys.info()[["nodename"]], .Platform[["OS.type"]])
+        attr(r, "message") <- msg
+        message(msg)
+    }
     return(r)
 }
 
@@ -34,8 +39,8 @@ is_running_on_gitlab_com <- function(verbose = TRUE) {
 #' @param force Overwrite the variable if already set?
 #' @return The value RUN_R_TESTS is set to, \code{\link{NULL}} if nothing is
 #' done.
+#' @family test helpers
 #' @export
-#' @keywords internal
 #' @examples
 #' set_run_r_tests(is_running_on_fvafrcu_machines())
 #' get_run_r_tests()
@@ -60,11 +65,11 @@ set_run_r_tests  <- function(x, force = FALSE) {
 #' @param stop_on_failure Throw an error instead of returning
 #' \code{\link{FALSE}} if RUN_R_TESTS is not set or cannot be converted to
 #' boolean.
+#' @family test helpers
 #' @return The value RUN_R_TESTS is set to, converted to boolean.
 #' \code{\link{FALSE}} if RUN_R_TESTS is not set or cannot be converted to
 #' boolean.
 #' @export
-#' @keywords internal
 #' @examples
 #' set_run_r_tests("", force = TRUE) # make sure it is not set.
 #' try(get_run_r_tests())

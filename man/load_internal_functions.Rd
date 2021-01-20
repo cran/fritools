@@ -30,4 +30,3 @@ load_internal_functions("fritools")
 \seealso{
 \code{\link[codetools:checkUsageEnv]{checkUsageEnv in codetools}}.
 }
-\keyword{internal}

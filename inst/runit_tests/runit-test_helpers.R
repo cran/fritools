@@ -3,16 +3,20 @@ test_is_running <- function() {
     message("These functions can't be tested, as the result differs on",
             "different machines")
     expectation <- if (result <- is_running_on_fvafrcu_machines()) {
-       TRUE
+        TRUE
     } else {
         FALSE
     }
     RUnit::checkIdentical(result, expectation)
+
+    ## this is tested direct via .gitlab-ci/gitlab-com.R and a call to it in
+    ## .gitlab-ci.yml
     expectation <- if (result <- is_running_on_gitlab_com()) {
-       TRUE
+        TRUE
     } else {
         FALSE
     }
+    attributes(result) <- NULL
     RUnit::checkIdentical(result, expectation)
 }
 if (interactive()) {

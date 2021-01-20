@@ -12,4 +12,3 @@ is_windows()
 \description{
 Is the System Running a Windows Machine?
 }
-\keyword{internal}

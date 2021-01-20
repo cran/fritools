@@ -7,9 +7,9 @@
 is_version_sufficient(installed, required)
 }
 \arguments{
-\item{required}{The version required.}
+\item{installed}{The version available.}
 
-\item{available}{The version available.}
+\item{required}{The version required.}
 }
 \value{
 \code{\link{TRUE}}, if so,  \code{\link{FALSE}} otherwise.
@@ -24,4 +24,3 @@ is_version_sufficient(installed = "1.0.0", required = "1.0.0")
 is_version_sufficient(installed = get_package_version("base"),
                       required = "3.5.2")
 }
-\keyword{internal}

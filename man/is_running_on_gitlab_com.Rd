@@ -10,11 +10,18 @@ is_running_on_gitlab_com(verbose = TRUE)
 \item{verbose}{Be verbose?}
 }
 \value{
-A logical.
+\code{\link[base:TRUE]{TRUE}} on success, 
+\code{\link[base:FALSE]{FALSE}} otherwise.
 }
 \description{
 Check whether the current machine is located on
 \url{https://about.gitlab.com}.
 This check is an approximation only.
 }
-\keyword{internal}
+\seealso{
+Other test helpers: 
+\code{\link{get_run_r_tests}()},
+\code{\link{is_running_on_fvafrcu_machines}()},
+\code{\link{set_run_r_tests}()}
+}
+\concept{test helpers}

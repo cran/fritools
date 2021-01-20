@@ -68,3 +68,9 @@ find_files(path = tempdir(), pattern = paste0("^", basename(files[1]), "$"))
 #\% file_names and path given: file_names beats path
 try(find_files(file_names = tempfile(), path = tempdir()))
 }
+\seealso{
+Other file searching functions: 
+\code{\link{search_files}()},
+\code{\link{summary.filesearch}()}
+}
+\concept{file searching functions}

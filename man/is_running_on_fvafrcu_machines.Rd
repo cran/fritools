@@ -12,4 +12,10 @@ A logical.
 \description{
 Is the Machine Running the Current R Process Owned by FVAFRCU?
 }
-\keyword{internal}
+\seealso{
+Other test helpers: 
+\code{\link{get_run_r_tests}()},
+\code{\link{is_running_on_gitlab_com}()},
+\code{\link{set_run_r_tests}()}
+}
+\concept{test helpers}
