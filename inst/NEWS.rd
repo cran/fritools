@@ -1,6 +1,19 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 1.2.0}{
+\itemize{
+\item Skipping tests for \code{search_files()} if R has not at least version 4.0.0.
+\item Add function \code{r_cmd_install()} as a quick alternative to \code{devtools::install()}.
+\code{devtools} calling \code{callr}, calling \code{processx::run} seemed too bloated for
+such a simple task.
+\item Add function \code{compare_vectors()} which returns a side-by-side comparison of
+two vectors.
+\item Updated test\_helper to recognize machines running at the Forest Research
+Institute of the state of Baden-Wuerttemberg.
+}
+}
+
 \section{Changes in version 1.1.0}{
 \itemize{
 \item Fixed buggy regular expression in \code{is_running_on_gitlab_com()}

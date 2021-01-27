@@ -21,6 +21,7 @@ After installation, please read the help page:
 help("fritools-package", package = "fritools")
 ```
 
+
 ```
 #> Utilities for the Forest Research Institute of the State
 #> Baden-Wuerttemberg

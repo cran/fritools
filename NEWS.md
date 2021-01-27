@@ -1,3 +1,14 @@
+# fritools 1.2.0
+
+* Skipping tests for `search_files()` if R has not at least version 4.0.0.
+* Add function `r_cmd_install()` as a quick alternative to `devtools::install()`.
+  `devtools` calling `callr`, calling `processx::run` seemed too bloated for 
+  such a simple task.
+* Add function `compare_vectors()` which returns a side-by-side comparison of 
+  two vectors.
+* Updated test\_helper to recognize machines running at the Forest Research
+  Institute of the state of Baden-Wuerttemberg.
+
 # fritools 1.1.0
 
 * Fixed buggy regular expression in `is_running_on_gitlab_com()`

@@ -5,9 +5,17 @@
 #' @export
 is_running_on_fvafrcu_machines <- function() {
     sys_info <- Sys.info()
-    r <- sys_info[["nodename"]] %in% c("h6", "h7") &&
-        sys_info[["effective_user"]] == "qwer" &&
-        .Platform[["OS.type"]] == "unix"
+    h <- sys_info[["nodename"]] %in% c("h6", "h7") &&
+        .Platform[["OS.type"]] == "unix" &&
+        sys_info[["effective_user"]] == "qwer"
+    v <- grepl("^fvafr.*CU.*$", sys_info[["nodename"]]) &&
+        .Platform[["OS.type"]] == "unix" &&
+        sys_info[["effective_user"]] %in% c("dominik.cullmann",
+                                            "dominik", "nik")
+    w <- grepl("^FVAFR-PC.*$", sys_info[["nodename"]]) &&
+        is_windows() &&
+        sys_info[["effective_user"]] == "dominik.cullmann"
+    r <-  h || v || w
     return(r)
 }
 
