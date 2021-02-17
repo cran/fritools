@@ -63,7 +63,7 @@ r_cmd_check <- function(..., path = ".", defaults = c("--no-build-vignettes"),
 #'
 #' \code{\link[devtools:install]{devtools::install}} by defaults first builds
 #' the tarball. Then it calls
-#' \code{\link[callr:rcmd]{callr::rcmd}}, which allows for a lot of options
+#' \code{\link[callr:rcmd]{callr::rcmd}}, which allows for a lot of options.
 #'
 #' @param ... Arguments passed to \command{CMD INSTALL}.
 #' @param r_args Arguments passed to \command{R}.
@@ -81,7 +81,8 @@ r_cmd_install <- function(..., path = ".",
     if (isTRUE(try_tarball)) {
         tarball <- tryCatch(get_current_tarball(path), error = identity)
         if (inherits(tarball, "error")) {
-            warning(tarball[["message"]], " using ", path, ".")
+            warning(tarball[["message"]], " using directorty `",
+                    normalizePath(path, mustWork = TRUE), "`.")
             what <- path
         } else {
             what <- tarball

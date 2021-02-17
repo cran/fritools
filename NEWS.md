@@ -1,10 +1,24 @@
+# fritools 1.3.0
+
+* Extended `is_running_on_fvafrcu_machines()` to catch a new machine.
+* Added function `with_dir()` as this is often the only function I import from
+  package `withr` making `withr` a dependency.
+* Added function `get_boolean_envvar()`, `get_run_r_tests()` is
+  now a wrapper to that.
+* Added function `is_of_length_zero()`.
+* Added function `get_unique_string()`.
+* Added function `is_r_cmd_check()`.
+* Added function `run_r_tests_for_known_hosts()`.
+* Added functions `get_path()` and `set_path()`.
+* The `matrix` returned by `compare_vectors` now has named rows.
+
 # fritools 1.2.0
 
 * Skipping tests for `search_files()` if R has not at least version 4.0.0.
-* Add function `r_cmd_install()` as a quick alternative to `devtools::install()`.
+* Added function `r_cmd_install()` as a quick alternative to `devtools::install()`.
   `devtools` calling `callr`, calling `processx::run` seemed too bloated for 
   such a simple task.
-* Add function `compare_vectors()` which returns a side-by-side comparison of 
+* Added function `compare_vectors()` which returns a side-by-side comparison of 
   two vectors.
 * Updated test\_helper to recognize machines running at the Forest Research
   Institute of the state of Baden-Wuerttemberg.

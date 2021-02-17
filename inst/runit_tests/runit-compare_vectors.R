@@ -29,9 +29,25 @@ test_compare_vectors <- function() {
                     "Porsche 914-2", "Toyota Corolla", "Toyota Corona",
                     "Valiant",
                     "Volvo 142E"), .Dim = c(32L, 2L),
-                  .Dimnames = list(NULL, c("cars", "carz")))
+                  .Dimnames = list(c("AMC Javelin", "Cadillac Fleetwood",
+                                     "Camaro Z28", "Chrysler Imperial",
+                                     "Datsun 710", "Dodge Challenger",
+                                     "Duster 360", "Ferrari Dino", "Fiat 128",
+                                     "Fiat X1-9", "Ford Pantera L",
+                                     "Honda Civic", "Hornet 4 Drive",
+                                     "Hornet Sportabout", "Lincoln Continental",
+                                     "Lotus Europa", "Maserati Bora",
+                                     "Mazda RX4", "Mazda RX4 Wag", "Merc 230",
+                                     "Merc 240D", "Merc 280", "Merc 280C",
+                                     "Merc 450SE", "Merc 450SL", "Merc 450SLC",
+                                     "Pontiac Firebird", "Porsche 914-2",
+                                     "Toyota Corolla", "Toyota Corona",
+                                     "Valiant", "Volvo 142E"),
+                                   c("cars", "carz")))
     result <- compare_vectors(cars, carz)
     RUnit::checkIdentical(result, expectation)
+    RUnit::checkIdentical(sort(intersect(cars, carz)),
+                          row.names(result)[complete.cases(result)])
 }
 if (interactive()) {
     test_compare_vectors()

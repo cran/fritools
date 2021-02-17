@@ -20,8 +20,10 @@ This check is an approximation only.
 }
 \seealso{
 Other test helpers: 
+\code{\link{get_boolean_envvar}()},
 \code{\link{get_run_r_tests}()},
 \code{\link{is_running_on_fvafrcu_machines}()},
+\code{\link{run_r_tests_for_known_hosts}()},
 \code{\link{set_run_r_tests}()}
 }
 \concept{test helpers}

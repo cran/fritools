@@ -17,7 +17,16 @@ test_is_running <- function() {
         FALSE
     }
     attributes(result) <- NULL
+
     RUnit::checkIdentical(result, expectation)
+
+    # Well, that's ...
+    result <- run_r_tests_for_known_hosts()
+    expectation <-
+        is_running_on_gitlab_com(verbose = FALSE) ||
+        is_running_on_fvafrcu_machines()
+    RUnit::checkIdentical(result, expectation)
+
 }
 if (interactive()) {
     test_is_running()

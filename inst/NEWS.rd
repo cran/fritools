@@ -1,13 +1,29 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 1.3.0}{
+\itemize{
+\item Extended \code{is_running_on_fvafrcu_machines()} to catch a new machine.
+\item Added function \code{with_dir()} as this is often the only function I import from
+package \code{withr} making \code{withr} a dependency.
+\item Added function \code{get_boolean_envvar()}, \code{get_run_r_tests()} is
+now a wrapper to that.
+\item Added function \code{is_of_length_zero()}.
+\item Added function \code{get_unique_string()}.
+\item Added function \code{is_r_cmd_check()}.
+\item Added function \code{run_r_tests_for_known_hosts()}.
+\item Added functions \code{get_path()} and \code{set_path()}.
+\item The \code{matrix} returned by \code{compare_vectors} now has named rows.
+}
+}
+
 \section{Changes in version 1.2.0}{
 \itemize{
 \item Skipping tests for \code{search_files()} if R has not at least version 4.0.0.
-\item Add function \code{r_cmd_install()} as a quick alternative to \code{devtools::install()}.
+\item Added function \code{r_cmd_install()} as a quick alternative to \code{devtools::install()}.
 \code{devtools} calling \code{callr}, calling \code{processx::run} seemed too bloated for
 such a simple task.
-\item Add function \code{compare_vectors()} which returns a side-by-side comparison of
+\item Added function \code{compare_vectors()} which returns a side-by-side comparison of
 two vectors.
 \item Updated test\_helper to recognize machines running at the Forest Research
 Institute of the state of Baden-Wuerttemberg.

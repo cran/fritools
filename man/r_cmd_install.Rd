@@ -30,6 +30,6 @@ The return value of \code{\link{system2}}.
 \description{
 \code{\link[devtools:install]{devtools::install}} by defaults first builds
 the tarball. Then it calls
-\code{\link[callr:rcmd]{callr::rcmd}}, which allows for a lot of options
+\code{\link[callr:rcmd]{callr::rcmd}}, which allows for a lot of options.
 }
 \keyword{internal}

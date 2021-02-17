@@ -1,6 +1,52 @@
+#' Get a Boolean Environment Variable
+#'
+#' A convenience wrapper to \code{\link{Sys.getenv}}.
+#'
+#' As \code{\link{Sys.getenv}} seems to always return a character vector, the
+#' \code{\link{class}} of the value you set it to does not matter.
+#' @param x The name of the Environment Variable.
+#' @param stop_on_failure Throw an error instead of returning
+#' \code{\link{FALSE}} if the environment variable is not set or cannot be
+#' converted to boolean.
+#' @family test helpers
+#' @return The value the environment variable is set to, converted to boolean.
+#' \code{\link{FALSE}} if the environment variable is not set or cannot be
+#' converted to boolean.
+#' @export
+#' @examples
+#' message("See\n example(\"get_run_r_tests\", package = \"fritools\")")
+get_boolean_envvar <- function(x, stop_on_failure = FALSE) {
+    r <- Sys.getenv(x)
+    if (identical(r, "")) {
+        if (isTRUE(stop_on_failure)) {
+            throw(paste("Environment variable", x, "is not set."))
+        } else {
+            r <- FALSE
+        }
+    } else {
+        # Sys.getenv seems to always return a character vector.
+        # So we first try to convert to numeric to take care of "0" and "1".
+        # But this will crash for strings like "TRUE" and "FALSE", so we need to
+        # try only.
+        r <- tryCatch(as.numeric(r), warning = function(w) return(r))
+        r <- as.logical(r)
+        if (is.na(r)) {
+            if (isTRUE(stop_on_failure)) {
+                throw(paste("Environment variable", x, "is set to",
+                            "a value not interpretable as boolean."))
+            } else {
+                r <- FALSE
+            }
+        } else {
+            ## do nothing: r is set and not NA.
+        }
+    }
+    return(r)
+}
+
 #' Is the Machine Running the Current R Process Owned by FVAFRCU?
 #'
-#' @return A logical.
+#' @template return_boolean
 #' @family test helpers
 #' @export
 is_running_on_fvafrcu_machines <- function() {
@@ -10,11 +56,11 @@ is_running_on_fvafrcu_machines <- function() {
         sys_info[["effective_user"]] == "qwer"
     v <- grepl("^fvafr.*CU.*$", sys_info[["nodename"]]) &&
         .Platform[["OS.type"]] == "unix" &&
-        sys_info[["effective_user"]] %in% c("dominik.cullmann",
-                                            "dominik", "nik")
-    w <- grepl("^FVAFR-PC.*$", sys_info[["nodename"]]) &&
-        is_windows() &&
-        sys_info[["effective_user"]] == "dominik.cullmann"
+        sys_info[["effective_user"]] %in%
+        c("dominik.cullmann", "dominik", "nik")
+    w <- (grepl("^FVAFR-PC.*$", sys_info[["nodename"]]) ||
+          grepl("^L-FVAFR-NB84223$", sys_info[["nodename"]])
+      ) && is_windows() && sys_info[["effective_user"]] == "dominik.cullmann"
     r <-  h || v || w
     return(r)
 }
@@ -66,13 +112,10 @@ set_run_r_tests  <- function(x, force = FALSE) {
 
 #' Get System Variable RUN_R_TESTS
 #'
-#' Convenience wrapper to \code{\link{Sys.getenv}}.
+#' A convenience wrapper to
+#' \code{\link{get_boolean_envvar}("RUN_R_TESTS")}.
 #'
-#' As \code{\link{Sys.getenv}} seems to always return a character vector, the
-#' \code{\link{class}} of the value you set it to does not matter.
-#' @param stop_on_failure Throw an error instead of returning
-#' \code{\link{FALSE}} if RUN_R_TESTS is not set or cannot be converted to
-#' boolean.
+#' @inheritParams get_boolean_envvar
 #' @family test helpers
 #' @return The value RUN_R_TESTS is set to, converted to boolean.
 #' \code{\link{FALSE}} if RUN_R_TESTS is not set or cannot be converted to
@@ -80,9 +123,11 @@ set_run_r_tests  <- function(x, force = FALSE) {
 #' @export
 #' @examples
 #' set_run_r_tests("", force = TRUE) # make sure it is not set.
-#' try(get_run_r_tests())
+#' get_run_r_tests()
+#' try(get_run_r_tests(stop_on_failure = TRUE))
 #' set_run_r_tests("A", force = TRUE) # "A" is not boolean.
-#' try(get_run_r_tests())
+#' get_run_r_tests()
+#' try(get_run_r_tests(stop_on_failure = TRUE))
 #' set_run_r_tests(4213, force = TRUE) # All numbers apart from 0 are TRUE
 #' get_run_r_tests()
 #' set_run_r_tests("0", force = TRUE) # 0 (and "0") is FALSE
@@ -92,30 +137,26 @@ set_run_r_tests  <- function(x, force = FALSE) {
 #' set_run_r_tests(TRUE, force = TRUE)
 #' get_run_r_tests()
 get_run_r_tests <- function(stop_on_failure = FALSE) {
-    r <- Sys.getenv("RUN_R_TESTS")
-    if (identical(r, "")) {
-        if (isTRUE(stop_on_failure)) {
-            throw("Environment variable RUN_R_TESTS is not set.")
-        } else {
-            r <- FALSE
-        }
-    } else {
-        # Sys.getenv seems to always return a character vector.
-        # So we first try to convert to numeric to take care of "0" and "1".
-        # But this will crash for strings like "TRUE" and "FALSE", so we need to
-        # try only.
-        r <- tryCatch(as.numeric(r), warning = function(w) return(r))
-        r <- as.logical(r)
-        if (is.na(r)) {
-            if (isTRUE(stop_on_failure)) {
-                throw(paste("Environment variable RUN_R_TESTS is set to",
-                            "a value not interpretable as boolean."))
-            } else {
-                r <- FALSE
-            }
-        } else {
-            ## do nothing: r is set and not NA.
-        }
-    }
+    r <- get_boolean_envvar("RUN_R_TESTS", stop_on_failure = stop_on_failure)
     return(r)
+}
+
+#' Enforce the Environment Variable RUN_R_TESTS to TRUE on Known Hosts
+#'
+#' This should go into \code{\link{.onLoad}} to force tests on known hosts.
+#' @template return_invisibly_null
+#' @export
+#' @family test helpers
+#' @inherit set_run_r_tests return
+#' @examples
+#' get_run_r_tests()
+#' if (isFALSE(get_run_r_tests())) {
+#'     run_r_tests_for_known_hosts()
+#'     get_run_r_tests()
+#' }
+run_r_tests_for_known_hosts <- function() {
+    r <- set_run_r_tests(is_running_on_fvafrcu_machines() ||
+                         is_running_on_gitlab_com(verbose = FALSE),
+                     force = TRUE)
+    return(invisible(r))
 }

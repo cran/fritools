@@ -1,4 +1,4 @@
-if (fritools::get_run_r_tests()) {
+if (get_boolean_envvar("IS_RUNIT")) {
     if (interactive()) pkgload::load_all(".")
     test_is_batch <- function() {
         result <- system("R --vanilla --silent -e 'fritools::is_batch()'",
