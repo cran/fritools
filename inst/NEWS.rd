@@ -1,6 +1,15 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 1.4.0}{
+\itemize{
+\item Added function \code{split_code_file()}.
+\item Added function \code{weighted_variance()}.
+\item Added function \code{tapply()} to fix the base version which will not digest
+\code{data.frame}s as input.
+}
+}
+
 \section{Changes in version 1.3.0}{
 \itemize{
 \item Extended \code{is_running_on_fvafrcu_machines()} to catch a new machine.

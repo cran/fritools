@@ -1,3 +1,10 @@
+# fritools 1.4.0
+
+* Added function `split_code_file()`.
+* Added function `weighted_variance()`.
+* Added function `tapply()` to fix the base version which will not digest
+  `data.frame`s as input.
+
 # fritools 1.3.0
 
 * Extended `is_running_on_fvafrcu_machines()` to catch a new machine.
