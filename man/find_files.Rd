@@ -32,7 +32,7 @@ exist).}
 are found?}
 }
 \value{
-a character vector of file names.
+A character vector of file names.
 }
 \description{
 Look for files on disk, either scanning a vector of names or searching for
@@ -69,8 +69,9 @@ find_files(path = tempdir(), pattern = paste0("^", basename(files[1]), "$"))
 try(find_files(file_names = tempfile(), path = tempdir()))
 }
 \seealso{
-Other file searching functions: 
+Other searching functions: 
 \code{\link{search_files}()},
+\code{\link{search_rows}()},
 \code{\link{summary.filesearch}()}
 }
-\concept{file searching functions}
+\concept{searching functions}

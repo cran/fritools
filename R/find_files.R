@@ -18,8 +18,8 @@
 #'       given.
 #'
 #' @export
-#' @family file searching functions
-#' @return a character vector of file names.
+#' @family searching functions
+#' @return A character vector of file names.
 #' @examples
 #' #% create some files
 #' files <- unname(sapply(file.path(tempdir(), paste0(sample(letters, 10),

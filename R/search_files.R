@@ -8,7 +8,7 @@
 #' @export
 #' @return \link[base:invisible]{Invisibly} a vector of names of files
 #' containing the pattern given by \bold{what}.
-#' @family file searching functions
+#' @family searching functions
 #' @examples
 #' write.csv(mtcars, file.path(tempdir(), "mtcars.csv"))
 #'  for (i in 0:9) {
@@ -23,6 +23,7 @@
 #' summary(x)
 #' summary(x, type = "what")
 #' summary(x, type = "matches")
+#' try(search_files(what = "ABC", path = tempdir(), pattern = "^.*\\.csv$"))
 search_files <- function(what, verbose = TRUE, exclude = NULL, ...) {
     files <- list.files(..., full.names = TRUE)
     if (! is.null(exclude))
@@ -31,28 +32,36 @@ search_files <- function(what, verbose = TRUE, exclude = NULL, ...) {
     for (file in files) {
         lines <- suppressWarnings(readLines(file))
         hits <- suppressWarnings(grepl(lines, pattern = what))
-        matches <- suppressWarnings(grep(lines, pattern = what, value = TRUE))
+        matches <- suppressWarnings(grep(lines, pattern = what, value = TRUE)) 
         if (any(hits)) {
-            if (isTRUE(verbose)) message("Found `", what, "` in file ", file)
+            if (isTRUE(verbose)) message("Found `", what, "` in file ", file)  
             tmp <- cbind(file, what, matches)
             res <- rbind(res, tmp)
         }
     }
-    res <- as.data.frame(res)
-    class(res) <- c("filesearch", class(res))
-    return(invisible(res))
+    if (is.null(res)) {
+        throw(paste("Pattern", what, "not found."))
+    } else {
+        res <- as.data.frame(res)
+        class(res) <- c("filesearch", class(res))
+        return(invisible(res))
+    }
+
 }
 
 #' Summarize File Searches
 #'
-#' @param object A object returned by \code{\link{search_files}}.
+#' @param object An object returned by \code{\link{search_files}}.
 #' @param type Type of summary.
 #' @param ... Needed for compatibility.
 #' @export
 #' @return A summarized object.
-#' @family file searching functions
+#' @family searching functions
+#' @inherit search_files examples
 summary.filesearch <- function(object, ...,
                                type = c("file", "what", "matches")) {
+    if (!inherits(object, "filesearch")) 
+        throw("object is not of class `filesearch`.")
     type <- match.arg(type)
     r <- switch(type,
            "file" = {

@@ -10,6 +10,7 @@
 #' touch(path)
 #' x <- set_path(x, path)
 #' get_path(x)
+NULL
 
 
 #' @export

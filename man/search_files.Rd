@@ -36,10 +36,12 @@ x <- search_files(path = tempdir(),
 summary(x)
 summary(x, type = "what")
 summary(x, type = "matches")
+try(search_files(what = "ABC", path = tempdir(), pattern = "^.*\\\\.csv$"))
 }
 \seealso{
-Other file searching functions: 
+Other searching functions: 
 \code{\link{find_files}()},
+\code{\link{search_rows}()},
 \code{\link{summary.filesearch}()}
 }
-\concept{file searching functions}
+\concept{searching functions}

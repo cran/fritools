@@ -7,7 +7,7 @@
 \method{summary}{filesearch}(object, ..., type = c("file", "what", "matches"))
 }
 \arguments{
-\item{object}{A object returned by \code{\link{search_files}}.}
+\item{object}{An object returned by \code{\link{search_files}}.}
 
 \item{...}{Needed for compatibility.}
 
@@ -19,9 +19,26 @@ A summarized object.
 \description{
 Summarize File Searches
 }
-\seealso{
-Other file searching functions: 
-\code{\link{find_files}()},
-\code{\link{search_files}()}
+\examples{
+write.csv(mtcars, file.path(tempdir(), "mtcars.csv"))
+ for (i in 0:9) {
+     write.csv(iris, file.path(tempdir(), paste0("iris", i, ".csv")))
+ }
+search_files(what = "Mazda", path = tempdir(), pattern = "^.*\\\\.csv$")
+search_files(what = "[Ss]etosa", path = tempdir(), pattern = "^.*\\\\.csv$")
+x <- search_files(path = tempdir(),
+                  pattern = "^.*\\\\.csv$",
+                  exclude = "[2-9]\\\\.csv$",
+                  what = "[Ss]etosa")
+summary(x)
+summary(x, type = "what")
+summary(x, type = "matches")
+try(search_files(what = "ABC", path = tempdir(), pattern = "^.*\\\\.csv$"))
 }
-\concept{file searching functions}
+\seealso{
+Other searching functions: 
+\code{\link{find_files}()},
+\code{\link{search_files}()},
+\code{\link{search_rows}()}
+}
+\concept{searching functions}

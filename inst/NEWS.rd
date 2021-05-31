@@ -1,6 +1,15 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 2.0.0}{
+\itemize{
+\item \strong{\code{search_files()} now throws an error if no matches are found.}
+\item Added function \code{search_rows()}.
+\item Added function \code{is_success()}.
+\item Added function \code{convert_umlauts_to_tex()}.
+}
+}
+
 \section{Changes in version 1.4.0}{
 \itemize{
 \item Added function \code{split_code_file()}.

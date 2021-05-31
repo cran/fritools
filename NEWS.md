@@ -1,3 +1,10 @@
+# fritools 2.0.0
+
+* **`search_files()` now throws an error if no matches are found.**
+* Added function `search_rows()`.
+* Added function `is_success()`.
+* Added function `convert_umlauts_to_tex()`.
+
 # fritools 1.4.0
 
 * Added function `split_code_file()`.

@@ -8,6 +8,9 @@ test_weighted_variance <- function() {
     expectation <- 0.0571555555555556
     result <- weighted_variance(x = x, weights = wt)
     RUnit::checkEquals(result, expectation)
+    result <-  weighted_variance(x = x, weights = wt, weights_counts = TRUE)
+    RUnit::checkEquals(result, Inf)
+
 }
 
 if (interactive()) {

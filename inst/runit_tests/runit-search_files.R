@@ -9,6 +9,10 @@ if (fritools::is_version_sufficient(fritools::get_package_version("base"),
         for (i in 0:9) {
             write.csv(iris, file.path(path, paste0("iris", i, ".csv")))
         }
+        RUnit::checkException(search_files(what = "FOO", path = path, 
+                                           verbose = FALSE,
+                                           pattern = ".*\\.csv$"))
+        RUnit::checkException(summary.filesearch("foo"))
         found <- search_files(what = "Mazda", path = path, verbose = FALSE,
                               pattern = ".*\\.csv$")
         result <- as.character(summary(found))
