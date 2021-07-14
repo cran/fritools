@@ -4,14 +4,14 @@
 \alias{tapply}
 \title{Apply a Function Over a Ragged Array}
 \usage{
-tapply(X, INDEX, FUN = NULL, ..., default = NA, simplify = TRUE)
+tapply(object, index, func = NULL, ..., default = NA, simplify = TRUE)
 }
 \arguments{
-\item{X}{See \code{\link[base:tapply]{base::tapply}}.}
+\item{object}{See \code{\link[base:tapply]{base::tapply}} \emph{X}.}
 
-\item{INDEX}{See \code{\link[base:tapply]{base::tapply}}.}
+\item{index}{See \code{\link[base:tapply]{base::tapply}} \emph{INDEX}.}
 
-\item{FUN}{See \code{\link[base:tapply]{base::tapply}}.}
+\item{func}{See \code{\link[base:tapply]{base::tapply}} \emph{FUN}.}
 
 \item{...}{See \code{\link[base:tapply]{base::tapply}}.}
 
@@ -50,17 +50,25 @@ all.equal(w, t, check.attributes = FALSE)
 message("But how do you pass those weights?")
 # we define a wrapper to pass the column names for a data.frame:
 weighted_mean <- function(df, x, w) {
-    weighted.mean(df[[x]], df[[w]])
+    stats::weighted.mean(df[[x]], df[[w]])
 }
-if (RUnit::checkIdentical(weighted.mean(mtcars[["mpg"]], mtcars[["wt"]]),
+if (RUnit::checkIdentical(stats::weighted.mean(mtcars[["mpg"]],
+                                               mtcars[["wt"]]),
                           weighted_mean(mtcars, "mpg", "wt")))
     message("Works!")
 message("base::tapply can't deal with data.frames:")
 try(base::tapply(X = mtcars, INDEX = list(mtcars[["cyl"]], mtcars[["vs"]]),
                  FUN = weighted_mean, x = "mpg", w = "wt"))
-wm <- fritools::tapply(X = mtcars, INDEX = list(mtcars[["cyl"]],
+wm <- fritools::tapply(object = mtcars, index = list(mtcars[["cyl"]],
                                                 mtcars[["vs"]]),
-                       FUN = weighted_mean, x = "mpg", w = "wt")
+                       func = weighted_mean, x = "mpg", w = "wt")
 subset <- mtcars[mtcars[["cyl"]] == 6 & mtcars[["vs"]] == 0, c("mpg", "wt")]
 stats::weighted.mean(subset[["mpg"]], subset[["wt"]]) == wm
 }
+\seealso{
+Other bits and pieces.: 
+\code{\link{golden_ratio}()},
+\code{\link{strip_off_attributes}()},
+\code{\link{weighted_variance}()}
+}
+\concept{bits and pieces.}

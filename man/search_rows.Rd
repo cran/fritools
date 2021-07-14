@@ -17,8 +17,8 @@ search_rows(x, pattern = ".*", include_row_names = TRUE)
 All rows where the pattern was found in at least one column.
 }
 \description{
-I sometimes need to see whether all rows of a matrix-like structure
-containing a search pattern. 
+I sometimes need to see which rows of a matrix-like structure
+contain a string matched by a search pattern.
 This somewhat similar to writing a matrix-like structure to disk and then
 using \code{\link{search_files}} on it.
 }
@@ -29,9 +29,11 @@ search_rows(x = mtcars, pattern = p, include_row_names = FALSE)
 try(search_rows(x = mtcars, pattern = "ABC"))
 }
 \seealso{
-Other searching functions: 
+Other searching functions.: 
+\code{\link{compare_vectors}()},
+\code{\link{file_modified_last}()},
 \code{\link{find_files}()},
 \code{\link{search_files}()},
 \code{\link{summary.filesearch}()}
 }
-\concept{searching functions}
+\concept{searching functions.}

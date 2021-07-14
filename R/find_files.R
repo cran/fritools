@@ -3,6 +3,11 @@
 #' Look for files on disk, either scanning a vector of names or searching for
 #' files with \code{\link{list.files}} and throw an error if no files are found.
 #'
+#' This is a wrapper to either \code{\link{file.exists}} or
+#' \code{\link{list.files}}, that ensures that (some) files exists. This may
+#' come handy if you want to perform some kind of file manipulation e.g. with
+#' one of the functions listed under \cr
+#' \strong{See Also} \emph{Other file utilities:}.
 #' @param file_names character vector of file names (to be checked if the files
 #'        exist).
 #' @param path see \code{\link{list.files}}.
@@ -10,7 +15,7 @@
 #' @param all_files see \code{\link{list.files}}, argument \code{all.files}.
 #' @param recursive see \code{\link{list.files}}.
 #' @param ignore_case see \code{\link{list.files}}, argument \code{ignore.case}.
-#' @param find_all Throw an error if not all files (given by \emph{file_names}
+#' @param find_all Throw an error if not all files (given by \emph{file_names})
 #' are found?
 #'
 #' @note This is merely a wrapper around \code{\link{file.exists}} or
@@ -18,7 +23,8 @@
 #'       given.
 #'
 #' @export
-#' @family searching functions
+#' @family searching functions.
+#' @family file utilities.
 #' @return A character vector of file names.
 #' @examples
 #' #% create some files

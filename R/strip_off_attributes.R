@@ -2,6 +2,7 @@
 #'
 #' @param x An object.
 #' @return The object.
+#' @family bits and pieces.
 #' @seealso \code{\link[base:unname]{base::unname}}
 #' @export
 #' @examples

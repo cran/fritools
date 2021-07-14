@@ -2,7 +2,7 @@
 % Please edit documentation in R/touch.R
 \name{touch}
 \alias{touch}
-\title{Mock the Unix \command{touch} utility}
+\title{Mock the Unix \command{touch} Utility}
 \usage{
 touch(path)
 }
@@ -22,4 +22,17 @@ t1 <- file.mtime(file)
 touch(file)
 t2 <- file.mtime(file)
 t1 < t2
+file <- file.path(tempfile(), "path", "not", "there.txt")
+touch(file)
+file.exists(file)
 }
+\seealso{
+Other file utilities.: 
+\code{\link{file_modified_last}()},
+\code{\link{find_files}()},
+\code{\link{get_unique_string}()},
+\code{\link{paths}},
+\code{\link{search_files}()},
+\code{\link{split_code_file}()}
+}
+\concept{file utilities.}

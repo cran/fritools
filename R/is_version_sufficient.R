@@ -5,6 +5,9 @@
 #' @param installed The version available.
 #' @param required The version required.
 #' @return  \code{\link{TRUE}}, if so,  \code{\link{FALSE}} otherwise.
+#' @family logical helpers.
+#' @family package functions.
+#' @family version functions.
 #' @export
 #' @examples
 #' is_version_sufficient(installed = "1.0.0", required = "2.0.0")

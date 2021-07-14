@@ -2,7 +2,7 @@
 % Please edit documentation in R/split_code_file.R
 \name{split_code_file}
 \alias{split_code_file}
-\title{Split a Code File Into Multiple Files Each Containing a Single Function}
+\title{Split a Code File Into Multiple Files}
 \usage{
 split_code_file(
   file,
@@ -27,6 +27,7 @@ files.
 }
 \description{
 I tend to find files with dozens of functions. They don't read well.
+So I split a code file into multiple files each containing a single function.
 }
 \examples{
 infile <- system.file("files", "test_helpers.R", package = "fritools")
@@ -38,3 +39,13 @@ paths <- split_code_file(file = infile)
    file.show(paths[2])
 }
 }
+\seealso{
+Other file utilities.: 
+\code{\link{file_modified_last}()},
+\code{\link{find_files}()},
+\code{\link{get_unique_string}()},
+\code{\link{paths}},
+\code{\link{search_files}()},
+\code{\link{touch}()}
+}
+\concept{file utilities.}

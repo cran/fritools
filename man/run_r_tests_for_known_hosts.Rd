@@ -2,7 +2,7 @@
 % Please edit documentation in R/test_helpers.R
 \name{run_r_tests_for_known_hosts}
 \alias{run_r_tests_for_known_hosts}
-\title{Enforce the Environment Variable RUN_R_TESTS to TRUE on Known Hosts}
+\title{Force Testing on Known Hosts}
 \usage{
 run_r_tests_for_known_hosts()
 }
@@ -11,6 +11,9 @@ run_r_tests_for_known_hosts()
 \code{\link[base:NULL]{NULL}}.
 }
 \description{
+Enforce the environment variable RUN_R_TESTS to TRUE on known hosts.
+}
+\details{
 This should go into \code{\link{.onLoad}} to force tests on known hosts.
 }
 \examples{
@@ -21,11 +24,13 @@ if (isFALSE(get_run_r_tests())) {
 }
 }
 \seealso{
-Other test helpers: 
+Other test helpers.: 
 \code{\link{get_boolean_envvar}()},
 \code{\link{get_run_r_tests}()},
+\code{\link{is_cran}()},
+\code{\link{is_r_cmd_check}()},
 \code{\link{is_running_on_fvafrcu_machines}()},
 \code{\link{is_running_on_gitlab_com}()},
 \code{\link{set_run_r_tests}()}
 }
-\concept{test helpers}
+\concept{test helpers.}

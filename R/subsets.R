@@ -7,6 +7,7 @@
 #' @param n The size of the set.
 #' @param k The number of subsets.
 #' @return A vector of k sizes of the subsets.
+#' @family subsetting functions.
 #' @export
 #' @examples
 #' subset_sizes(n = 100, k = 6)
@@ -33,10 +34,13 @@ subset_sizes <- function(n, k) {
 
 #' Determine Indices and Sizes of Subsets
 #'
+#' Create starting and stopping indices for subsets defined by
+#' \code{\link{subset_sizes}}.
 #' @param n The size of the set.
 #' @param k The number of subsets.
 #' @return A matrix with starting index, size, and stopping index for each
 #' subset.
+#' @family subsetting functions.
 #' @export
 #' @examples
 #' index_groups(n = 100, k = 6)

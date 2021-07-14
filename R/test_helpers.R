@@ -8,10 +8,11 @@
 #' @param stop_on_failure Throw an error instead of returning
 #' \code{\link{FALSE}} if the environment variable is not set or cannot be
 #' converted to boolean.
-#' @family test helpers
+#' @family test helpers.
+#' @family operating system functions.
 #' @return The value the environment variable is set to, converted to boolean.
 #' \code{\link{FALSE}} if the environment variable is not set or cannot be
-#' converted to boolean.
+#' converted to boolean. But see \strong{Arguments}: \emph{stop_on_failure}.
 #' @export
 #' @examples
 #' message("See\n example(\"get_run_r_tests\", package = \"fritools\")")
@@ -44,11 +45,15 @@ get_boolean_envvar <- function(x, stop_on_failure = FALSE) {
     return(r)
 }
 
-#' Is the Machine Running the Current R Process Owned by FVAFRCU?
+#' Is the Machine Running the Current \R Process Owned by FVAFRCU?
 #'
+#' Is the machine running the current \R process known to me?
 #' @template return_boolean
-#' @family test helpers
+#' @family test helpers.
+#' @family logical helpers.
 #' @export
+#' @examples
+#' is_running_on_fvafrcu_machines()
 is_running_on_fvafrcu_machines <- function() {
     sys_info <- Sys.info()
     h <- sys_info[["nodename"]] %in% c("h6", "h7") &&
@@ -72,8 +77,11 @@ is_running_on_fvafrcu_machines <- function() {
 #' This check is an approximation only.
 #' @param verbose Be verbose?
 #' @template return_boolean
-#' @family test helpers
+#' @family logical helpers.
+#' @family test helpers.
 #' @export
+#' @examples
+#' is_running_on_gitlab_com()
 is_running_on_gitlab_com <- function(verbose = TRUE) {
     gitlab_pattern <- paste0("^runner-.*-project-.*-",
                              "concurrent-.*$")
@@ -87,13 +95,15 @@ is_running_on_gitlab_com <- function(verbose = TRUE) {
     return(r)
 }
 
-#' Set System Variable RUN_R_TESTS
+#' Set the System Variable RUN_R_TESTS
 #'
+#' A convenience wrapper to  \code{\link{Sys.getenv}} for setting
+#' \kbd{RUN_R_TESTS}.
 #' @param x A logical, typically some function output.
 #' @param force Overwrite the variable if already set?
 #' @return The value RUN_R_TESTS is set to, \code{\link{NULL}} if nothing is
 #' done.
-#' @family test helpers
+#' @family test helpers.
 #' @export
 #' @examples
 #' set_run_r_tests(is_running_on_fvafrcu_machines())
@@ -116,7 +126,9 @@ set_run_r_tests  <- function(x, force = FALSE) {
 #' \code{\link{get_boolean_envvar}("RUN_R_TESTS")}.
 #'
 #' @inheritParams get_boolean_envvar
-#' @family test helpers
+#' @family test helpers.
+#' @family operating system functions.
+#' @family logical helpers.
 #' @return The value RUN_R_TESTS is set to, converted to boolean.
 #' \code{\link{FALSE}} if RUN_R_TESTS is not set or cannot be converted to
 #' boolean.
@@ -141,12 +153,14 @@ get_run_r_tests <- function(stop_on_failure = FALSE) {
     return(r)
 }
 
-#' Enforce the Environment Variable RUN_R_TESTS to TRUE on Known Hosts
+#' Force Testing on Known Hosts
+#'
+#' Enforce the environment variable RUN_R_TESTS to TRUE on known hosts.
 #'
 #' This should go into \code{\link{.onLoad}} to force tests on known hosts.
 #' @template return_invisibly_null
 #' @export
-#' @family test helpers
+#' @family test helpers.
 #' @inherit set_run_r_tests return
 #' @examples
 #' get_run_r_tests()

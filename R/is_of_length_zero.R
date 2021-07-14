@@ -5,6 +5,7 @@
 #' @param class An optional character vector of length 1 giving the class. See
 #' \emph{examples}.
 #' @template return_boolean
+#' @family logical helpers.
 #' @export
 #' @examples
 #' x <- ""; length(x); is_of_length_zero(x)

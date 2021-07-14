@@ -10,9 +10,9 @@
 #' @param package_name The package's name.
 #' @param overwrite [boolean(1)]\cr Overwrite options already set?
 #' @param ... See \code{\link{options}}.
-#' @return invisible(TRUE)
+#' @template return_invisibly_true
 #' @export
-#' @family option functions
+#' @family option functions.
 #' @examples
 #' options("cleanr" = NULL)
 #' defaults <- list(max_file_width = 80, max_file_length = 300,
@@ -59,7 +59,7 @@ set_options <- function(..., package_name = .packages()[1], overwrite = TRUE) {
 #' @param remove_names [boolean(1)]\cr Remove the names?
 #' @param flatten_list [boolean(1)]\cr Return a vector?
 #' @return A (possibly named) list or a vector.
-#' @family option functions
+#' @family option functions.
 #' @export
 #' @examples
 #' example("set_options", package = "fritools")
@@ -84,13 +84,16 @@ get_options <- function(..., package_name = .packages()[1],
 
 #' Opt-out Via Option
 #'
+#' Check whether or not a package option (set via \code{\link{set_options}})
+#' \emph{force} is not set or set to \code{\link[base:TRUE]{TRUE}}.
 #' @param x The option under which an element \code{"force"} is to be searched
 #' for.
 #' @export
 #' @return \code{\link[base:TRUE]{TRUE}} if option \code{x[["force"]]} is either
 #' \code{\link[base:TRUE]{TRUE}} or \code{\link[base:NULL]{NULL}} (i.e. not set
 #' at all).
-#' @family option functions
+#' @family option functions.
+#' @family logical helpers.
 #' @export
 #' @examples
 #' is_force()

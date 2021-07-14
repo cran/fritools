@@ -13,5 +13,15 @@ convert_umlauts_to_tex(x)
 A string with the umlauts converted to plain TeX.
 }
 \description{
-Tex Codes for German Umlauts
+Convert German umlauts in a string to their plain TeX representation.
 }
+\examples{
+string <- paste("this is \u00e4 string")
+print(string)
+print(convert_umlauts_to_tex(string))
+}
+\seealso{
+Other German umlaut converters.: 
+\code{\link{convert_umlauts_to_ascii}()}
+}
+\concept{German umlaut converters.}

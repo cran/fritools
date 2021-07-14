@@ -18,12 +18,35 @@ Check whether the current machine is located on
 \url{https://about.gitlab.com}.
 This check is an approximation only.
 }
+\examples{
+is_running_on_gitlab_com()
+}
 \seealso{
-Other test helpers: 
+Other logical helpers.: 
+\code{\link{get_run_r_tests}()},
+\code{\link{is_batch}()},
+\code{\link{is_cran}()},
+\code{\link{is_false}()},
+\code{\link{is_force}()},
+\code{\link{is_installed}()},
+\code{\link{is_not_false}()},
+\code{\link{is_null_or_true}()},
+\code{\link{is_of_length_zero}()},
+\code{\link{is_r_cmd_check}()},
+\code{\link{is_r_package_installed}()},
+\code{\link{is_running_on_fvafrcu_machines}()},
+\code{\link{is_success}()},
+\code{\link{is_version_sufficient}()},
+\code{\link{is_windows}()}
+
+Other test helpers.: 
 \code{\link{get_boolean_envvar}()},
 \code{\link{get_run_r_tests}()},
+\code{\link{is_cran}()},
+\code{\link{is_r_cmd_check}()},
 \code{\link{is_running_on_fvafrcu_machines}()},
 \code{\link{run_r_tests_for_known_hosts}()},
 \code{\link{set_run_r_tests}()}
 }
-\concept{test helpers}
+\concept{logical helpers.}
+\concept{test helpers.}

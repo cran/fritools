@@ -23,3 +23,8 @@ equal as possible.
 subset_sizes(n = 100, k = 6)
 subset_sizes(n = 2, k = 6)
 }
+\seealso{
+Other subsetting functions.: 
+\code{\link{index_groups}()}
+}
+\concept{subsetting functions.}

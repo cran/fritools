@@ -16,3 +16,13 @@ start with the current date.
 \examples{
 replicate(20, get_unique_string())
 }
+\seealso{
+Other file utilities.: 
+\code{\link{file_modified_last}()},
+\code{\link{find_files}()},
+\code{\link{paths}},
+\code{\link{search_files}()},
+\code{\link{split_code_file}()},
+\code{\link{touch}()}
+}
+\concept{file utilities.}

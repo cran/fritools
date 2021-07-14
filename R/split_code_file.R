@@ -1,6 +1,7 @@
-#' Split a Code File Into Multiple Files Each Containing a Single Function
+#' Split a Code File Into Multiple Files
 #'
 #' I tend to find files with dozens of functions. They don't read well.
+#' So I split a code file into multiple files each containing a single function.
 #' @param file The code file to be split.
 #' @param output_directory Where to create the new files.
 #' @param encoding The encoding passed to \code{\link{source}}.
@@ -9,6 +10,7 @@
 #' @export
 #' @return \code{\link[base:invisible]{Invisibly}} a vector of paths to the new
 #' files.
+#' @family file utilities.
 #' @examples
 #' infile <- system.file("files", "test_helpers.R", package = "fritools")
 #' \dontrun{

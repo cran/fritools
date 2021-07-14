@@ -24,3 +24,33 @@ is_version_sufficient(installed = "1.0.0", required = "1.0.0")
 is_version_sufficient(installed = get_package_version("base"),
                       required = "3.5.2")
 }
+\seealso{
+Other logical helpers.: 
+\code{\link{get_run_r_tests}()},
+\code{\link{is_batch}()},
+\code{\link{is_cran}()},
+\code{\link{is_false}()},
+\code{\link{is_force}()},
+\code{\link{is_installed}()},
+\code{\link{is_not_false}()},
+\code{\link{is_null_or_true}()},
+\code{\link{is_of_length_zero}()},
+\code{\link{is_r_cmd_check}()},
+\code{\link{is_r_package_installed}()},
+\code{\link{is_running_on_fvafrcu_machines}()},
+\code{\link{is_running_on_gitlab_com}()},
+\code{\link{is_success}()},
+\code{\link{is_windows}()}
+
+Other package functions.: 
+\code{\link{get_package_version}()},
+\code{\link{is_r_package_installed}()},
+\code{\link{load_internal_functions}()}
+
+Other version functions.: 
+\code{\link{get_package_version}()},
+\code{\link{is_r_package_installed}()}
+}
+\concept{logical helpers.}
+\concept{package functions.}
+\concept{version functions.}

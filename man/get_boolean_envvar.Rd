@@ -16,7 +16,7 @@ converted to boolean.}
 \value{
 The value the environment variable is set to, converted to boolean.
 \code{\link{FALSE}} if the environment variable is not set or cannot be
-converted to boolean.
+converted to boolean. But see \strong{Arguments}: \emph{stop_on_failure}.
 }
 \description{
 A convenience wrapper to \code{\link{Sys.getenv}}.
@@ -29,11 +29,22 @@ As \code{\link{Sys.getenv}} seems to always return a character vector, the
 message("See\n example(\"get_run_r_tests\", package = \"fritools\")")
 }
 \seealso{
-Other test helpers: 
+Other test helpers.: 
 \code{\link{get_run_r_tests}()},
+\code{\link{is_cran}()},
+\code{\link{is_r_cmd_check}()},
 \code{\link{is_running_on_fvafrcu_machines}()},
 \code{\link{is_running_on_gitlab_com}()},
 \code{\link{run_r_tests_for_known_hosts}()},
 \code{\link{set_run_r_tests}()}
+
+Other operating system functions.: 
+\code{\link{get_run_r_tests}()},
+\code{\link{is_installed}()},
+\code{\link{is_r_package_installed}()},
+\code{\link{is_success}()},
+\code{\link{is_windows}()},
+\code{\link{with_dir}()}
 }
-\concept{test helpers}
+\concept{operating system functions.}
+\concept{test helpers.}

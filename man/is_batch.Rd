@@ -2,16 +2,36 @@
 % Please edit documentation in R/batch.R
 \name{is_batch}
 \alias{is_batch}
-\title{Is R Run in Batch Mode (via R CMD BATCH or Rscript)?}
+\title{Is R Run in Batch Mode (via \command{R CMD BATCH} or \command{Rscript})?}
 \usage{
 is_batch()
 }
 \value{
-A boolean.
+\code{\link[base:TRUE]{TRUE}} on success, 
+\code{\link[base:FALSE]{FALSE}} otherwise.
 }
 \description{
-Is R Run in Batch Mode (via R CMD BATCH or Rscript)?
+Just a wrapper to \code{\link{interactive}}.
 }
 \examples{
 is_batch()
 }
+\seealso{
+Other logical helpers.: 
+\code{\link{get_run_r_tests}()},
+\code{\link{is_cran}()},
+\code{\link{is_false}()},
+\code{\link{is_force}()},
+\code{\link{is_installed}()},
+\code{\link{is_not_false}()},
+\code{\link{is_null_or_true}()},
+\code{\link{is_of_length_zero}()},
+\code{\link{is_r_cmd_check}()},
+\code{\link{is_r_package_installed}()},
+\code{\link{is_running_on_fvafrcu_machines}()},
+\code{\link{is_running_on_gitlab_com}()},
+\code{\link{is_success}()},
+\code{\link{is_version_sufficient}()},
+\code{\link{is_windows}()}
+}
+\concept{logical helpers.}

@@ -1,3 +1,12 @@
+# fritools 2.1.0
+
+* Added `convert_umlauts_to_ascii()`.
+* Added `file_last_modified()`.
+* Added `is_cran()`, a copy of `fda::CRAN()`.
+* `touch()` now creates directories as needed.
+* `get_path()` and `set_path()` now throw errors, if a path to get is not set or
+  if a path to set is already set and argument `overwrite` is not `TRUE`.
+
 # fritools 2.0.0
 
 * **`search_files()` now throws an error if no matches are found.**

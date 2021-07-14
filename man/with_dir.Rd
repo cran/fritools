@@ -25,3 +25,13 @@ temp_dir <- file.path(tempfile())
 dir.create(temp_dir)
 with_dir(temp_dir, getwd())
 }
+\seealso{
+Other operating system functions.: 
+\code{\link{get_boolean_envvar}()},
+\code{\link{get_run_r_tests}()},
+\code{\link{is_installed}()},
+\code{\link{is_r_package_installed}()},
+\code{\link{is_success}()},
+\code{\link{is_windows}()}
+}
+\concept{operating system functions.}

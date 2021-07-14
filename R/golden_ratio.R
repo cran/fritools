@@ -1,9 +1,10 @@
 #' Calculate the Golden Ratio
 #'
+#' Divide a length using the golden ratio.
 #' @param x The sum of the two quantities to be in the golden ratio.
 #' @return A numeric vector of length 2, containing the two quantities \emph{a}
-#' and \emph{b}, \emph{a}  being
-#' the larger.
+#' and \emph{b}, \emph{a}  being the larger.
+#' @family bits and pieces.
 #' @export
 #' @examples
 #' golden_ratio(10)

@@ -27,7 +27,7 @@ which might be less usable but easier to read.}
 A named vector of memory usages.
 }
 \description{
-Find Memory Hogs
+List objects in an \R environment by size.
 }
 \examples{
 va <- rep(mtcars, 1)
@@ -43,3 +43,8 @@ rm(list = names(tail(memory_hogs(decreasing = FALSE), n = 2)))
 memory_hogs(unit = "Mb")
 }
 }
+\seealso{
+Other R memory functions.: 
+\code{\link{wipe_clean}()}
+}
+\concept{R memory functions.}

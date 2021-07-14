@@ -2,7 +2,7 @@
 % Please edit documentation in R/boolean.R
 \name{is_not_false}
 \alias{is_not_false}
-\title{Test if an Object is Not \emph{FALSE}}
+\title{Is an Object Set and not Set to \code{\link[base:FALSE]{FALSE}}?}
 \usage{
 is_not_false(x, null_is_false = TRUE, ...)
 }
@@ -49,8 +49,21 @@ f <- function() {
 f()
 }
 \seealso{
-Other logical helpers: 
+Other logical helpers.: 
+\code{\link{get_run_r_tests}()},
+\code{\link{is_batch}()},
+\code{\link{is_cran}()},
 \code{\link{is_false}()},
-\code{\link{is_null_or_true}()}
+\code{\link{is_force}()},
+\code{\link{is_installed}()},
+\code{\link{is_null_or_true}()},
+\code{\link{is_of_length_zero}()},
+\code{\link{is_r_cmd_check}()},
+\code{\link{is_r_package_installed}()},
+\code{\link{is_running_on_fvafrcu_machines}()},
+\code{\link{is_running_on_gitlab_com}()},
+\code{\link{is_success}()},
+\code{\link{is_version_sufficient}()},
+\code{\link{is_windows}()}
 }
-\concept{logical helpers}
+\concept{logical helpers.}

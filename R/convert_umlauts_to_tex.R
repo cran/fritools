@@ -1,16 +1,26 @@
 #' Tex Codes for German Umlauts
 #'
+#' Convert German umlauts in a string to their plain TeX representation.
 #' @param x A string.
 #' @return A string with the umlauts converted to plain TeX.
+#' @family German umlaut converters.
 #' @export
+#' @examples
+#' string <- paste("this is \u00e4 string")
+#' print(string)
+#' print(convert_umlauts_to_tex(string))
 convert_umlauts_to_tex <- function(x) {
-    s <- iconv(x, from = "UTF-8", to = "UTF-8", sub = "Unicode")
-    s <- gsub("\u00e4", '\\\\"a{}', s)
-    s <- gsub("\u00c4", '\\\\"A{}', s)
-    s <- gsub("\u00f6", '\\\\"o{}', s)
-    s <- gsub("\u00d6", '\\\\"O{}', s)
-    s <- gsub("\u00fc", '\\\\"u{}', s)
-    s <- gsub("\u00dc", '\\\\"U{}', s)
-    s <- gsub("\u00df", '\\\\ss{}', s)
+    if (is_windows()) {
+        s <- iconv(x, from = "UTF-8", to = "UTF-8", sub = "Unicode")
+    } else {
+        s <- iconv(x, to = "UTF-8", sub = "Unicode")
+    }
+    s <- gsub("\u00e4", "\\\\\u0022a{}", s)
+    s <- gsub("\u00c4", "\\\\\u0022A{}", s)
+    s <- gsub("\u00f6", "\\\\\u0022o{}", s)
+    s <- gsub("\u00d6", "\\\\\u0022O{}", s)
+    s <- gsub("\u00fc", "\\\\\u0022u{}", s)
+    s <- gsub("\u00dc", "\\\\\u0022U{}", s)
+    s <- gsub("\u00df", "\\\\ss{}", s)
     return(s)
 }

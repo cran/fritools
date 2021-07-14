@@ -11,5 +11,35 @@ is_r_cmd_check()
 \code{\link[base:FALSE]{FALSE}} otherwise.
 }
 \description{
-Is the Current R Process an \command{R CMD check}?
+Check for system variables to guess whether or not this is an
+\command{R CMD check}.
 }
+\seealso{
+Other logical helpers.: 
+\code{\link{get_run_r_tests}()},
+\code{\link{is_batch}()},
+\code{\link{is_cran}()},
+\code{\link{is_false}()},
+\code{\link{is_force}()},
+\code{\link{is_installed}()},
+\code{\link{is_not_false}()},
+\code{\link{is_null_or_true}()},
+\code{\link{is_of_length_zero}()},
+\code{\link{is_r_package_installed}()},
+\code{\link{is_running_on_fvafrcu_machines}()},
+\code{\link{is_running_on_gitlab_com}()},
+\code{\link{is_success}()},
+\code{\link{is_version_sufficient}()},
+\code{\link{is_windows}()}
+
+Other test helpers.: 
+\code{\link{get_boolean_envvar}()},
+\code{\link{get_run_r_tests}()},
+\code{\link{is_cran}()},
+\code{\link{is_running_on_fvafrcu_machines}()},
+\code{\link{is_running_on_gitlab_com}()},
+\code{\link{run_r_tests_for_known_hosts}()},
+\code{\link{set_run_r_tests}()}
+}
+\concept{logical helpers.}
+\concept{test helpers.}

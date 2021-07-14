@@ -28,7 +28,7 @@ exist).}
 
 \item{ignore_case}{see \code{\link{list.files}}, argument \code{ignore.case}.}
 
-\item{find_all}{Throw an error if not all files (given by \emph{file_names}
+\item{find_all}{Throw an error if not all files (given by \emph{file_names})
 are found?}
 }
 \value{
@@ -37,6 +37,13 @@ A character vector of file names.
 \description{
 Look for files on disk, either scanning a vector of names or searching for
 files with \code{\link{list.files}} and throw an error if no files are found.
+}
+\details{
+This is a wrapper to either \code{\link{file.exists}} or
+\code{\link{list.files}}, that ensures that (some) files exists. This may
+come handy if you want to perform some kind of file manipulation e.g. with
+one of the functions listed under \cr
+\strong{See Also} \emph{Other file utilities:}.
 }
 \note{
 This is merely a wrapper around \code{\link{file.exists}} or
@@ -69,9 +76,20 @@ find_files(path = tempdir(), pattern = paste0("^", basename(files[1]), "$"))
 try(find_files(file_names = tempfile(), path = tempdir()))
 }
 \seealso{
-Other searching functions: 
+Other searching functions.: 
+\code{\link{compare_vectors}()},
+\code{\link{file_modified_last}()},
 \code{\link{search_files}()},
 \code{\link{search_rows}()},
 \code{\link{summary.filesearch}()}
+
+Other file utilities.: 
+\code{\link{file_modified_last}()},
+\code{\link{get_unique_string}()},
+\code{\link{paths}},
+\code{\link{search_files}()},
+\code{\link{split_code_file}()},
+\code{\link{touch}()}
 }
-\concept{searching functions}
+\concept{file utilities.}
+\concept{searching functions.}

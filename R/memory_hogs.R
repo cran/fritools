@@ -1,5 +1,6 @@
 #' Find Memory Hogs
 #'
+#' List objects in an \R environment by size.
 #' @param unit  The unit to use.
 #' @param envir  The environment where to look for objects.
 #' @param return_numeric  Return a numeric vector? If set to
@@ -8,6 +9,7 @@
 #' @param ... Arguments passed to \code{\link{order}}, defaults to
 #' \code{decreasing = FALSE}.
 #' @return A named vector of memory usages.
+#' @family R memory functions.
 #' @export
 #' @examples
 #' va <- rep(mtcars, 1)

@@ -30,8 +30,7 @@ call_safe(whoami::email_address, dependency = "this_is_not_installed",
           fallback = "nobar@nowhere.com")
 }
 \seealso{
-Other call functions: 
+Other call functions.: 
 \code{\link{call_conditionally}()}
 }
-\concept{call functions}
-\keyword{internal}
+\concept{call functions.}

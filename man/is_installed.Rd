@@ -2,7 +2,7 @@
 % Please edit documentation in R/installed.R
 \name{is_installed}
 \alias{is_installed}
-\title{Is an External Program Installed}
+\title{Is an External Program Installed?}
 \usage{
 is_installed(program)
 }
@@ -14,9 +14,37 @@ is_installed(program)
 \code{\link[base:FALSE]{FALSE}} otherwise.
 }
 \description{
-Is an External Program Installed
+Is an external program installed?
 }
 \examples{
 is_installed("R")
 is_installed("probably_not_installed")
 }
+\seealso{
+Other logical helpers.: 
+\code{\link{get_run_r_tests}()},
+\code{\link{is_batch}()},
+\code{\link{is_cran}()},
+\code{\link{is_false}()},
+\code{\link{is_force}()},
+\code{\link{is_not_false}()},
+\code{\link{is_null_or_true}()},
+\code{\link{is_of_length_zero}()},
+\code{\link{is_r_cmd_check}()},
+\code{\link{is_r_package_installed}()},
+\code{\link{is_running_on_fvafrcu_machines}()},
+\code{\link{is_running_on_gitlab_com}()},
+\code{\link{is_success}()},
+\code{\link{is_version_sufficient}()},
+\code{\link{is_windows}()}
+
+Other operating system functions.: 
+\code{\link{get_boolean_envvar}()},
+\code{\link{get_run_r_tests}()},
+\code{\link{is_r_package_installed}()},
+\code{\link{is_success}()},
+\code{\link{is_windows}()},
+\code{\link{with_dir}()}
+}
+\concept{logical helpers.}
+\concept{operating system functions.}

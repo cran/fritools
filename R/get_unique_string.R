@@ -4,6 +4,7 @@
 #' start with the current date.
 #' @export
 #' @return A fairly unique string.
+#' @family file utilities.
 #' @examples
 #' replicate(20, get_unique_string())
 get_unique_string <- function() {

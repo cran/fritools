@@ -2,6 +2,7 @@ if (fritools::is_version_sufficient(fritools::get_package_version("base"),
                                     "4.0.0")) {
     if (interactive()) pkgload::load_all(".")
     test_search_files <- function() {
+        unlink(dir(tempdir(), full.names = TRUE))
         path <- tempdir()
         data(mtcars)
         data(iris)
@@ -9,7 +10,7 @@ if (fritools::is_version_sufficient(fritools::get_package_version("base"),
         for (i in 0:9) {
             write.csv(iris, file.path(path, paste0("iris", i, ".csv")))
         }
-        RUnit::checkException(search_files(what = "FOO", path = path, 
+        RUnit::checkException(search_files(what = "FOO", path = path,
                                            verbose = FALSE,
                                            pattern = ".*\\.csv$"))
         RUnit::checkException(summary.filesearch("foo"))

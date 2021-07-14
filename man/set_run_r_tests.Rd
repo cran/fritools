@@ -2,7 +2,7 @@
 % Please edit documentation in R/test_helpers.R
 \name{set_run_r_tests}
 \alias{set_run_r_tests}
-\title{Set System Variable RUN_R_TESTS}
+\title{Set the System Variable RUN_R_TESTS}
 \usage{
 set_run_r_tests(x, force = FALSE)
 }
@@ -16,7 +16,8 @@ The value RUN_R_TESTS is set to, \code{\link{NULL}} if nothing is
 done.
 }
 \description{
-Set System Variable RUN_R_TESTS
+A convenience wrapper to  \code{\link{Sys.getenv}} for setting
+\kbd{RUN_R_TESTS}.
 }
 \examples{
 set_run_r_tests(is_running_on_fvafrcu_machines())
@@ -25,11 +26,13 @@ set_run_r_tests(TRUE, force = TRUE)
 get_run_r_tests()
 }
 \seealso{
-Other test helpers: 
+Other test helpers.: 
 \code{\link{get_boolean_envvar}()},
 \code{\link{get_run_r_tests}()},
+\code{\link{is_cran}()},
+\code{\link{is_r_cmd_check}()},
 \code{\link{is_running_on_fvafrcu_machines}()},
 \code{\link{is_running_on_gitlab_com}()},
 \code{\link{run_r_tests_for_known_hosts}()}
 }
-\concept{test helpers}
+\concept{test helpers.}

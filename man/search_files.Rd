@@ -17,10 +17,10 @@ search_files(what, verbose = TRUE, exclude = NULL, ...)
 }
 \value{
 \link[base:invisible]{Invisibly} a vector of names of files
-containing the pattern given by \bold{what}.
+containing the pattern given by \code{what}.
 }
 \description{
-This is an approximation of unix find and grep.
+This is an approximation of \kbd{unix} \command{find} and \command{grep}.
 }
 \examples{
 write.csv(mtcars, file.path(tempdir(), "mtcars.csv"))
@@ -39,9 +39,20 @@ summary(x, type = "matches")
 try(search_files(what = "ABC", path = tempdir(), pattern = "^.*\\\\.csv$"))
 }
 \seealso{
-Other searching functions: 
+Other searching functions.: 
+\code{\link{compare_vectors}()},
+\code{\link{file_modified_last}()},
 \code{\link{find_files}()},
 \code{\link{search_rows}()},
 \code{\link{summary.filesearch}()}
+
+Other file utilities.: 
+\code{\link{file_modified_last}()},
+\code{\link{find_files}()},
+\code{\link{get_unique_string}()},
+\code{\link{paths}},
+\code{\link{split_code_file}()},
+\code{\link{touch}()}
 }
-\concept{searching functions}
+\concept{file utilities.}
+\concept{searching functions.}

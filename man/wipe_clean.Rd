@@ -14,7 +14,7 @@ A character vector containing the names of objects removed, but
 called for its side effect of removing all objects from the environment.
 }
 \description{
-Remove All Objects From an Environment
+Wipe an environment, typically \code{\link{.GlobalEnv}}, clean.
 }
 \examples{
 e <- new.env()
@@ -25,3 +25,8 @@ wipe_clean(envir = e)
 ls(envir = e)
 RUnit::checkIdentical(length(ls(envir = e)), 0L)
 }
+\seealso{
+Other R memory functions.: 
+\code{\link{memory_hogs}()}
+}
+\concept{R memory functions.}

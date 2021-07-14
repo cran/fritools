@@ -4,11 +4,11 @@
 #'
 #' @param x The object to be tested.
 #' @return \code{\link[base:TRUE]{TRUE}} if the object is set to
-#' code{\link[base:FALSE]{FALSE}},
+#' \code{\link[base:FALSE]{FALSE}},
 #' \code{\link[base:FALSE]{FALSE}}
 #' otherwise.
 #' @export
-#' @family logical helpers
+#' @family logical helpers.
 #' @examples
 #' is_false("not false")
 #' is_false(FALSE)
@@ -22,24 +22,26 @@ is_false <- function(x) {
 }
 
 
-#' Is an Object \emph{TRUE} or  \emph{NULL}
+#' Is an Object \code{\link[base:TRUE]{TRUE}} or \code{\link[base:NULL]{NULL}}?
 #'
-#'
+#' Is an object \code{\link[base:TRUE]{TRUE}} or \code{\link[base:NULL]{NULL}}?
 #' @param x The object to be tested.
 #' @return \code{\link[base:TRUE]{TRUE}} if the object is set to
-#' code{\link[base:TRUE]{TRUE}} or  code{\link[base:NULL]{NULL}},
+#' \code{\link[base:TRUE]{TRUE}} or \code{\link[base:NULL]{NULL}},
 #' \code{\link[base:FALSE]{FALSE}}
 #' otherwise.
 #' @export
-#' @family logical helpers
-#' @seealso \code{\link{is_force}}
+#' @family logical helpers.
 #' @examples
-#' is_false("not false")
-#' is_false(FALSE)
+#' is_null_or_true("true") # FALSE
+#' is_null_or_true(TRUE) # TRUE
+#' is_null_or_true(NULL) # TRUE
+#' suppressWarnings(rm("not_defined"))
+#' try(is_null_or_true(not_defined)) # error
 is_null_or_true <- function(x)
     return(isTRUE(x) || is.null(x))
 
-#' Test if an Object is Not \emph{FALSE}
+#' Is an Object Set and not Set to \code{\link[base:FALSE]{FALSE}}?
 #'
 #' Sometimes you need to know whether or not an object exists and is not set to
 #' \code{\link[base:FALSE]{FALSE}} (and possibly not
@@ -54,7 +56,7 @@ is_null_or_true <- function(x)
 #' \code{\link[base:FALSE]{FALSE}}
 #' otherwise.
 #' @export
-#' @family logical helpers
+#' @family logical helpers.
 #' @examples
 #' a  <- 1
 #' is_not_false(a)

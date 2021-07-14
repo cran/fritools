@@ -17,7 +17,7 @@
 A summarized object.
 }
 \description{
-Summarize File Searches
+A custom summary function for objects returned by \code{\link{search_files}}.
 }
 \examples{
 write.csv(mtcars, file.path(tempdir(), "mtcars.csv"))
@@ -36,9 +36,11 @@ summary(x, type = "matches")
 try(search_files(what = "ABC", path = tempdir(), pattern = "^.*\\\\.csv$"))
 }
 \seealso{
-Other searching functions: 
+Other searching functions.: 
+\code{\link{compare_vectors}()},
+\code{\link{file_modified_last}()},
 \code{\link{find_files}()},
 \code{\link{search_files}()},
 \code{\link{search_rows}()}
 }
-\concept{searching functions}
+\concept{searching functions.}

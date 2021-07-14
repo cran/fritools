@@ -16,9 +16,15 @@ A matrix with starting index, size, and stopping index for each
 subset.
 }
 \description{
-Determine Indices and Sizes of Subsets
+Create starting and stopping indices for subsets defined by
+\code{\link{subset_sizes}}.
 }
 \examples{
 index_groups(n = 100, k = 6)
 index_groups(n = 2, k = 6)
 }
+\seealso{
+Other subsetting functions.: 
+\code{\link{subset_sizes}()}
+}
+\concept{subsetting functions.}

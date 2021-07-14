@@ -13,4 +13,7 @@ if (get_run_r_tests() && ! is_running_on_gitlab_com()) {
                      "have done with checkmate, see fritools::is_not_false.")
         RUnit::checkTrue(result, msg = msg)
     }
+    if (interactive()) {
+        test_only_pure_r()
+    }
 }

@@ -8,8 +8,9 @@ get_script_path()
 }
 \value{
 A vector of \code{\link{length}} 1 and \code{\link{mode}}
-character giving the name of the R code file if R was run via R CMD BATCH or
-Rscript.
+character giving the name of the R code file if R was run via
+\command{R CMD BATCH} or
+\command{Rscript}.
 }
 \description{
 This is just a wrapper for \code{\link{get_rscript_script_path}} and
@@ -18,3 +19,10 @@ This is just a wrapper for \code{\link{get_rscript_script_path}} and
 \examples{
 get_script_path()
 }
+\seealso{
+Other script path getter functions.: 
+\code{\link{get_r_cmd_batch_script_path}()},
+\code{\link{get_rscript_script_path}()},
+\code{\link{get_script_name}()}
+}
+\concept{script path getter functions.}

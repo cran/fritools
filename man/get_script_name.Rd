@@ -11,14 +11,23 @@ get_script_name(default = "interactive_R_session")
 }
 \value{
 A vector of \code{\link{length}} 1 and \code{\link{mode}}
-character giving the name of the R code file if R was run via R CMD BATCH or
-Rscript, the given default otherwise.
+character giving the name of the R code file if R was run via
+\command{R CMD BATCH} or
+\command{Rscript}, the given default otherwise.
 }
 \description{
-The code file name is retrieved only for R CMD BATCH and Rscript,
+The code file name is retrieved only for \command{R CMD BATCH} and
+\command{Rscript},
 if R is used interactively, the name is set to \code{default},
 even if you're working with code stored in a (named) file on disk.
 }
 \examples{
 get_script_name(default = 'foobar.R')
 }
+\seealso{
+Other script path getter functions.: 
+\code{\link{get_r_cmd_batch_script_path}()},
+\code{\link{get_rscript_script_path}()},
+\code{\link{get_script_path}()}
+}
+\concept{script path getter functions.}

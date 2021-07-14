@@ -29,7 +29,7 @@ interest.}
 \item{weight}{The name of the column in \code{x} giving the weights.}
 }
 \description{
-Calculate a Weighted Variance
+Calculate a weighted variance.
 }
 \details{
 The  \code{\link{data.frame}} method is meant for use with
@@ -49,6 +49,14 @@ weighted_variance(x = x, weights = weights, weights_counts = FALSE)
 weighted_variance(x = data.frame(x, wt), var = "x",
                              weight = "wt")
 # apply by groups:
-fritools::tapply(X = mtcars, INDEX = list(mtcars[["cyl"]], mtcars[["vs"]]),
-                       FUN = weighted_variance, var = "mpg", w = "wt")
+fritools::tapply(object = mtcars,
+                 index = list(mtcars[["cyl"]], mtcars[["vs"]]),
+                 func = weighted_variance, var = "mpg", w = "wt")
 }
+\seealso{
+Other bits and pieces.: 
+\code{\link{golden_ratio}()},
+\code{\link{strip_off_attributes}()},
+\code{\link{tapply}()}
+}
+\concept{bits and pieces.}

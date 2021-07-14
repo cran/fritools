@@ -11,7 +11,7 @@ is_false(x)
 }
 \value{
 \code{\link[base:TRUE]{TRUE}} if the object is set to
-code{\link[base:FALSE]{FALSE}},
+\code{\link[base:FALSE]{FALSE}},
 \code{\link[base:FALSE]{FALSE}}
 otherwise.
 }
@@ -23,8 +23,21 @@ is_false("not false")
 is_false(FALSE)
 }
 \seealso{
-Other logical helpers: 
+Other logical helpers.: 
+\code{\link{get_run_r_tests}()},
+\code{\link{is_batch}()},
+\code{\link{is_cran}()},
+\code{\link{is_force}()},
+\code{\link{is_installed}()},
 \code{\link{is_not_false}()},
-\code{\link{is_null_or_true}()}
+\code{\link{is_null_or_true}()},
+\code{\link{is_of_length_zero}()},
+\code{\link{is_r_cmd_check}()},
+\code{\link{is_r_package_installed}()},
+\code{\link{is_running_on_fvafrcu_machines}()},
+\code{\link{is_running_on_gitlab_com}()},
+\code{\link{is_success}()},
+\code{\link{is_version_sufficient}()},
+\code{\link{is_windows}()}
 }
-\concept{logical helpers}
+\concept{logical helpers.}

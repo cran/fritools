@@ -11,12 +11,18 @@ golden_ratio(x)
 }
 \value{
 A numeric vector of length 2, containing the two quantities \emph{a}
-and \emph{b}, \emph{a}  being
-the larger.
+and \emph{b}, \emph{a}  being the larger.
 }
 \description{
-Calculate the Golden Ratio
+Divide a length using the golden ratio.
 }
 \examples{
 golden_ratio(10)
 }
+\seealso{
+Other bits and pieces.: 
+\code{\link{strip_off_attributes}()},
+\code{\link{tapply}()},
+\code{\link{weighted_variance}()}
+}
+\concept{bits and pieces.}

@@ -7,6 +7,7 @@
 #' @param new The new working directory.
 #' @param code Code to execute in the temporary working directory.
 #' @return The results of the evaluation of the \code{code} argument.
+#' @family operating system functions.
 #' @export
 #' @examples
 #' temp_dir <- file.path(tempfile())

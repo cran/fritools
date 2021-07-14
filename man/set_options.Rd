@@ -14,7 +14,8 @@ set_options(..., package_name = .packages()[1], overwrite = TRUE)
 \item{overwrite}{[boolean(1)]\cr Overwrite options already set?}
 }
 \value{
-invisible(TRUE)
+\code{\link[base:invisible]{Invisibly}}
+\code{\link[base:TRUE]{TRUE}}.
 }
 \description{
 A convenience function for \code{\link{options}}.
@@ -34,8 +35,8 @@ set_options(package_name = "cleanr", check_return = NULL, max_lines = 4000)
 get_options(package_name = "cleanr")
 }
 \seealso{
-Other option functions: 
+Other option functions.: 
 \code{\link{get_options}()},
 \code{\link{is_force}()}
 }
-\concept{option functions}
+\concept{option functions.}

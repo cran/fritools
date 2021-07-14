@@ -11,18 +11,23 @@ if (interactive()) {
 
 test_tapply <- function() {
     weighted_mean <- function(df, x, w) {
-        weighted.mean(df[[x]], df[[w]])
+        stats::weighted.mean(df[[x]], df[[w]])
     }
     data("mtcars")
-    wm <- fritools::tapply(X = mtcars, INDEX = list(mtcars[["cyl"]],
+    wm <- fritools::tapply(object = mtcars, index = list(mtcars[["cyl"]],
                                                     mtcars[["vs"]]),
-                           FUN = weighted_mean, x = "mpg", w = "wt")
-    cyl <- 6
-    vs <- 0
-    subset <- mtcars[mtcars[["cyl"]] == cyl & mtcars[["vs"]] == vs,
-                     c("mpg", "wt")]
-    RUnit::checkIdentical(stats::weighted.mean(subset[["mpg"]], subset[["wt"]]),
-                          wm[as.character(cyl), as.character(vs)])
+                           func = weighted_mean, x = "mpg", w = "wt")
+    for (cyl in c(4, 6, 8)) {
+        for (vs in c(0, 1)) {
+            subset <- mtcars[mtcars[["cyl"]] == cyl & mtcars[["vs"]] == vs,
+                             c("mpg", "wt")]
+            if (interactive()) print(stats::weighted.mean(subset[["mpg"]],
+                                                          subset[["wt"]]))
+            RUnit::checkIdentical(stats::weighted.mean(subset[["mpg"]],
+                                                       subset[["wt"]]),
+                                  wm[as.character(cyl), as.character(vs)])
+        }
+    }
 
 }
 

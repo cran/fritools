@@ -2,16 +2,13 @@
 #'
 #' Load objects not exported from a package's namespace.
 #'
-#' The files to be checked get sourced, which means they have to contain R code
-#' producing no errors. If we want to check the source code of a package, we
-#' need to load the package \emph{and} be able to run all its internals in our
-#' environment.
 #'
 #' @param package The name of the package as a string.
 #' @param ... Arguments passed to \code{\link{ls}}, all.names = TRUE could be a
 #' good idea.
-#' @seealso \code{\link[codetools:checkUsageEnv]{checkUsageEnv in codetools}}.
-#' @return invisible(TRUE)
+#' @seealso \code{\link[codetools:checkUsageEnv]{codetools::checkUsageEnv}.
+#' @template return_invisibly_true
+#' @family package functions.
 #' @export
 #' @examples
 #' load_internal_functions("fritools")

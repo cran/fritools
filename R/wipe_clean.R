@@ -1,9 +1,11 @@
 #' Remove All Objects From an Environment
 #'
+#' Wipe an environment, typically \code{\link{.GlobalEnv}}, clean.
 #' @param environment The environment that should be wiped clean.
 #' @return A character vector containing the names of objects removed, but
 #' called for its side effect of removing all objects from the environment.
 #' @export
+#' @family R memory functions.
 #' @examples
 #' e <- new.env()
 #' assign("a", 1, envir = e)

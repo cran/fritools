@@ -1,8 +1,10 @@
 #' Calculate a Weighted Variance
 #'
+#' Calculate a weighted variance.
 #' @param x A numeric \code{\link{vector}} or \code{\link{data.frame}}.
 #' @param ... Other arguments ignored.
 #' @export
+#' @family bits and pieces.
 weighted_variance <- function(x, ...) {
     UseMethod("weighted_variance", x)
 }
@@ -37,7 +39,7 @@ weighted_variance.numeric <- function(x, weights, weights_counts = NULL, ...) {
                 is_counts <- weights_counts
             }
             if (is_counts) {
-                if (isTRUE(all.equal(sum(weights), 1)) && 
+                if (isTRUE(all.equal(sum(weights), 1)) &&
                     isTRUE(weights_counts)
                 )
                     message("You forced the weights to be counts, ",
@@ -46,7 +48,7 @@ weighted_variance.numeric <- function(x, weights, weights_counts = NULL, ...) {
                 variance <- (x - mean)^2 %*% weights / (sum(weights) - 1)
                 variance <- as.numeric(variance)
             } else {
-                if (!isTRUE(all.equal(sum(weights), 1)) && 
+                if (!isTRUE(all.equal(sum(weights), 1)) &&
                     isFALSE(weights_counts)
                 )
                     message("You forced the weights not to be counts, ",
@@ -74,8 +76,9 @@ weighted_variance.numeric <- function(x, weights, weights_counts = NULL, ...) {
 #' weighted_variance(x = data.frame(x, wt), var = "x",
 #'                              weight = "wt")
 #' # apply by groups:
-#' fritools::tapply(X = mtcars, INDEX = list(mtcars[["cyl"]], mtcars[["vs"]]),
-#'                        FUN = weighted_variance, var = "mpg", w = "wt")
-weighted_variance.data.frame <- function(x, var, weight, ...) {
+#' fritools::tapply(object = mtcars,
+#'                  index = list(mtcars[["cyl"]], mtcars[["vs"]]),
+#'                  func = weighted_variance, var = "mpg", w = "wt")
+weighted_variance.data.frame <- function(x, var, weight, ...) {# Exclude Linting
     return(weighted_variance(x = x[[var]], weights = x[[weight]], ...))
 }

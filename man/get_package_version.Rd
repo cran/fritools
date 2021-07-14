@@ -24,4 +24,21 @@ conversion to \code{\link{package_version}}.
 \examples{
 get_package_version("base")
 try(get_package_version("mgcv"))
+utils::compareVersion("1000.0.0", get_package_version("base"))
+utils::compareVersion("1.0", get_package_version("base"))
+# from ?is_version_sufficient:
+is_version_sufficient(installed = get_package_version("base"),
+                      required = "1.0")
 }
+\seealso{
+Other version functions.: 
+\code{\link{is_r_package_installed}()},
+\code{\link{is_version_sufficient}()}
+
+Other package functions.: 
+\code{\link{is_r_package_installed}()},
+\code{\link{is_version_sufficient}()},
+\code{\link{load_internal_functions}()}
+}
+\concept{package functions.}
+\concept{version functions.}

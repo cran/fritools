@@ -14,11 +14,24 @@ A matrix containing the side-by-side comparison.
 }
 \description{
 Side-by-side comparison of two vectors.
+The vectors get sorted and are compared element-wise.
+So the result will be as long as the union of the two vectors plus their
+number of values unique to one of them.
 }
 \examples{
 data(mtcars)
 cars <- rownames(mtcars)
 carz <- cars[-grep("Merc", cars)]
 cars <- cars[nchar(cars) < 15]
+cars <- c(cars, "foobar")
 compare_vectors(cars, carz)
 }
+\seealso{
+Other searching functions.: 
+\code{\link{file_modified_last}()},
+\code{\link{find_files}()},
+\code{\link{search_files}()},
+\code{\link{search_rows}()},
+\code{\link{summary.filesearch}()}
+}
+\concept{searching functions.}

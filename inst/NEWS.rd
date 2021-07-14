@@ -1,6 +1,17 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 2.1.0}{
+\itemize{
+\item Added \code{convert_umlauts_to_ascii()}.
+\item Added \code{file_last_modified()}.
+\item Added \code{is_cran()}, a copy of \code{fda::CRAN()}.
+\item \code{touch()} now creates directories as needed.
+\item \code{get_path()} and \code{set_path()} now throw errors, if a path to get is not set or
+if a path to set is already set and argument \code{overwrite} is not \code{TRUE}.
+}
+}
+
 \section{Changes in version 2.0.0}{
 \itemize{
 \item \strong{\code{search_files()} now throws an error if no matches are found.}

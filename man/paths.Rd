@@ -8,14 +8,15 @@
 \usage{
 get_path(x)
 
-set_path(x, path, must_work = TRUE)
+set_path(x, path, overwrite = FALSE)
 }
 \arguments{
 \item{x}{An object.}
 
 \item{path}{The path to be set.}
 
-\item{must_work}{See \code{\link{normalizePath}}'s argument \code{mustWork}.}
+\item{overwrite}{Overwrite an existing \emph{path} attribute instead of
+throwing an error?}
 }
 \value{
 For \code{get_path} the value of \code{attr(x, "path")}.
@@ -33,3 +34,13 @@ touch(path)
 x <- set_path(x, path)
 get_path(x)
 }
+\seealso{
+Other file utilities.: 
+\code{\link{file_modified_last}()},
+\code{\link{find_files}()},
+\code{\link{get_unique_string}()},
+\code{\link{search_files}()},
+\code{\link{split_code_file}()},
+\code{\link{touch}()}
+}
+\concept{file utilities.}

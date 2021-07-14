@@ -30,8 +30,8 @@ A convenience function for \code{\link{getOption}}.
 example("set_options", package = "fritools")
 }
 \seealso{
-Other option functions: 
+Other option functions.: 
 \code{\link{is_force}()},
 \code{\link{set_options}()}
 }
-\concept{option functions}
+\concept{option functions.}

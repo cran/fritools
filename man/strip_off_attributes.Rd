@@ -23,4 +23,10 @@ strip_off_attributes(y)
 }
 \seealso{
 \code{\link[base:unname]{base::unname}}
+
+Other bits and pieces.: 
+\code{\link{golden_ratio}()},
+\code{\link{tapply}()},
+\code{\link{weighted_variance}()}
 }
+\concept{bits and pieces.}

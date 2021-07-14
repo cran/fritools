@@ -2,7 +2,7 @@
 % Please edit documentation in R/test_helpers.R
 \name{is_running_on_fvafrcu_machines}
 \alias{is_running_on_fvafrcu_machines}
-\title{Is the Machine Running the Current R Process Owned by FVAFRCU?}
+\title{Is the Machine Running the Current \R Process Owned by FVAFRCU?}
 \usage{
 is_running_on_fvafrcu_machines()
 }
@@ -11,14 +11,37 @@ is_running_on_fvafrcu_machines()
 \code{\link[base:FALSE]{FALSE}} otherwise.
 }
 \description{
-Is the Machine Running the Current R Process Owned by FVAFRCU?
+Is the machine running the current \R process known to me?
+}
+\examples{
+is_running_on_fvafrcu_machines()
 }
 \seealso{
-Other test helpers: 
+Other test helpers.: 
 \code{\link{get_boolean_envvar}()},
 \code{\link{get_run_r_tests}()},
+\code{\link{is_cran}()},
+\code{\link{is_r_cmd_check}()},
 \code{\link{is_running_on_gitlab_com}()},
 \code{\link{run_r_tests_for_known_hosts}()},
 \code{\link{set_run_r_tests}()}
+
+Other logical helpers.: 
+\code{\link{get_run_r_tests}()},
+\code{\link{is_batch}()},
+\code{\link{is_cran}()},
+\code{\link{is_false}()},
+\code{\link{is_force}()},
+\code{\link{is_installed}()},
+\code{\link{is_not_false}()},
+\code{\link{is_null_or_true}()},
+\code{\link{is_of_length_zero}()},
+\code{\link{is_r_cmd_check}()},
+\code{\link{is_r_package_installed}()},
+\code{\link{is_running_on_gitlab_com}()},
+\code{\link{is_success}()},
+\code{\link{is_version_sufficient}()},
+\code{\link{is_windows}()}
 }
-\concept{test helpers}
+\concept{logical helpers.}
+\concept{test helpers.}

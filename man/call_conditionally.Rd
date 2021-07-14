@@ -44,7 +44,7 @@ call_conditionally(get_package_version,
                    fallback = "0.0")
 }
 \seealso{
-Other call functions: 
+Other call functions.: 
 \code{\link{call_safe}()}
 }
-\concept{call functions}
+\concept{call functions.}

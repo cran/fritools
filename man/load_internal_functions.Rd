@@ -13,20 +13,21 @@ load_internal_functions(package, ...)
 good idea.}
 }
 \value{
-invisible(TRUE)
+\code{\link[base:invisible]{Invisibly}}
+\code{\link[base:TRUE]{TRUE}}.
 }
 \description{
 Load objects not exported from a package's namespace.
-}
-\details{
-The files to be checked get sourced, which means they have to contain R code
-producing no errors. If we want to check the source code of a package, we
-need to load the package \emph{and} be able to run all its internals in our
-environment.
 }
 \examples{
 load_internal_functions("fritools")
 }
 \seealso{
-\code{\link[codetools:checkUsageEnv]{checkUsageEnv in codetools}}.
+
+
+Other package functions.: 
+\code{\link{get_package_version}()},
+\code{\link{is_r_package_installed}()},
+\code{\link{is_version_sufficient}()}
 }
+\concept{package functions.}

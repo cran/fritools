@@ -13,7 +13,7 @@
 #' @param harden Set to \code{\link{TRUE}} to return \code{fallback} if
 #' \code{\link{do.call}} fails.
 #' @return The return value of \code{f} or \code{fallback}.
-#' @family call functions
+#' @family call functions.
 #' @export
 #' @examples
 #' call_conditionally(get_package_version,
@@ -50,9 +50,8 @@ call_conditionally <- function(f, condition, fallback, ..., harden = FALSE) {
 #'
 #' @inheritParams call_conditionally
 #' @param dependency The external dependency, see \emph{Examples}.
-#' @keywords internal
 #' @return The return value of \code{f} or \code{fallback}.
-#' @family call functions
+#' @family call functions.
 #' @export
 #' @examples
 #' call_safe(whoami::email_address, dependency = "whoami",

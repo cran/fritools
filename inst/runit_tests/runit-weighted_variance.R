@@ -19,9 +19,9 @@ if (interactive()) {
 
 test_weighted_variance_df <- function() {
 
-    result <- fritools::tapply(X = mtcars, INDEX = list(mtcars[["cyl"]],
+    result <- fritools::tapply(object = mtcars, index = list(mtcars[["cyl"]],
                                                         mtcars[["vs"]]),
-                     FUN = weighted_variance, var = "mpg", w = "wt",
+                     func = weighted_variance, var = "mpg", w = "wt",
                      weights_counts = FALSE)
     expectation <- structure(c(NA, 0.376572372584046, 6.83915727277488,
                                19.1830134992249, 1.94117209543316, NA),

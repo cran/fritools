@@ -5,7 +5,7 @@ if (fritools::is_version_sufficient(fritools::get_package_version("base"),
         string <- c("\u00e4", "\u00c4", "\u00f6", "\u00d6", "\u00fc", "\u00dc",
                     "\u00df")
         expectation <- c("\\\"a{}", "\\\"A{}", "\\\"o{}", "\\\"O{}", "\\\"u{}",
-                         "\\\"U{}",            "\\ss{}") 
+                         "\\\"U{}",            "\\ss{}")
         result <- convert_umlauts_to_tex(string)
         RUnit::checkIdentical(result, expectation)
     }

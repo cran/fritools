@@ -4,6 +4,7 @@
 #' \code{\link{attr}}.
 #' @name paths
 #' @param x An object.
+#' @family file utilities.
 #' @examples
 #' x <- 2
 #' path <- tempfile()
@@ -18,16 +19,31 @@ NULL
 #' @aliases get_path
 #' @return For \code{get_path} the value of \code{attr(x, "path")}.
 get_path <- function(x) {
-    return(attr(x, "path"))
+    path <- attr(x, "path")
+    if (is.null(path)) {
+        throw(paste0("No `path` attribute set on ",
+                     deparse(substitute(x)), "."))
+    } else {
+        path <- normalizePath(path, mustWork = TRUE)
+        if (!utils::file_test(op = "-f", path))
+            throw("`path` is a directory, not a file.")
+    }
+    return(path)
 }
 
 #' @export
 #' @param path The path to be set.
-#' @param must_work See \code{\link{normalizePath}}'s argument \code{mustWork}.
+#' @param overwrite Overwrite an existing \emph{path} attribute instead of
+#' throwing an error?
 #' @rdname paths
 #' @aliases set_path
 #' @return For \code{set_path} the modified object.
-set_path <- function(x, path, must_work = TRUE) {
-    attr(x, "path") <- normalizePath(path, mustWork = must_work)
+set_path <- function(x, path, overwrite = FALSE) {
+    if (!is.null(attr(x, "path")) && ! isTRUE(overwrite)) {
+        throw("Attribute `path` already set, skipping!")
+    }
+    attr(x, "path") <- normalizePath(path, mustWork = TRUE)
+    if (!utils::file_test(op = "-f", path))
+        throw("`path` is a directory, not a file.")
     return(x)
 }
