@@ -1,3 +1,8 @@
+# fritools 2.2.0
+
+* Added functions to read an write (bulks of) CSV files.
+* Added `csv2csv()`, which converts German to standard CSV.
+
 # fritools 2.1.0
 
 * Added `convert_umlauts_to_ascii()`.

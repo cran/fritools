@@ -77,7 +77,6 @@ get_script_name <- function(default = "interactive_R_session") {
 #' Just a wrapper to \code{\link{interactive}}.
 #' @export
 #' @template return_boolean
-#' @examples
 #' @family logical helpers.
 #' @examples
 #' is_batch()

@@ -1,6 +1,13 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 2.2.0}{
+\itemize{
+\item Added functions to read an write (bulks of) CSV files.
+\item Added \code{csv2csv()}, which converts German to standard CSV.
+}
+}
+
 \section{Changes in version 2.1.0}{
 \itemize{
 \item Added \code{convert_umlauts_to_ascii()}.

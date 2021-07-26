@@ -6,7 +6,7 @@
 #' @param package The name of the package as a string.
 #' @param ... Arguments passed to \code{\link{ls}}, all.names = TRUE could be a
 #' good idea.
-#' @seealso \code{\link[codetools:checkUsageEnv]{codetools::checkUsageEnv}.
+#' @seealso \code{\link[codetools:checkUsageEnv]{codetools::checkUsageEnv}}.
 #' @template return_invisibly_true
 #' @family package functions.
 #' @export

@@ -4,7 +4,6 @@
 #' @return \bold{x} with the umlauts converted to ascii.
 #' @family German umlaut converters.
 #' @export
-#' @examples
 convert_umlauts_to_ascii <- function(x) {
     UseMethod("convert_umlauts_to_ascii", x)
 }
@@ -16,11 +15,7 @@ convert_umlauts_to_ascii <- function(x) {
 #' print(string)
 #' print(convert_umlauts_to_ascii(string))
 convert_umlauts_to_ascii.character <- function(x) { # Exclude Linting
-    if (is_windows()) {
-        s <- iconv(x, from = "UTF-8", to = "UTF-8", sub = "Unicode")
-    } else {
-        s <- iconv(x, to = "UTF-8", sub = "Unicode")
-    }
+    s <- iconv(enc2native(x), to = "UTF-8", sub = "unicode")
     s <- gsub("\u00e4", "ae", s)
     s <- gsub("\u00c4", "Ae", s)
     s <- gsub("\u00f6", "oe", s)
@@ -48,6 +43,6 @@ convert_umlauts_to_ascii.data.frame <- function(x) { # Exclude Linting
     }
     df <- data.frame(lapply(x, f))
     attributes(df) <- attributes(x)
-    names(df) <- convert_umlauts_to_ascii(names(df))
+    names(df) <- convert_umlauts_to_ascii(names(x))
     return(df)
 }

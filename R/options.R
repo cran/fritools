@@ -27,7 +27,8 @@
 #' set_options(package_name = "cleanr", check_return = NULL, max_lines = 4000)
 #' get_options(package_name = "cleanr")
 set_options <- function(..., package_name = .packages()[1], overwrite = TRUE) {
-    checkmate::qassert(overwrite, "B1")
+    if (requireNamespace("checkmate", quietly = TRUE))
+        checkmate::qassert(overwrite, "B1")
     option_list <- list(...)
     if (length(option_list) == 1L && is.list(option_list))
         option_list <- unlist(option_list, recursive = FALSE)
@@ -65,8 +66,10 @@ set_options <- function(..., package_name = .packages()[1], overwrite = TRUE) {
 #' example("set_options", package = "fritools")
 get_options <- function(..., package_name = .packages()[1],
                         remove_names = FALSE, flatten_list = TRUE) {
-    checkmate::qassert(remove_names, "B1")
-    checkmate::qassert(flatten_list, "B1")
+    if (requireNamespace("checkmate", quietly = TRUE)) {
+        checkmate::qassert(remove_names, "B1")
+        checkmate::qassert(flatten_list, "B1")
+    }
     if (missing(...)) {
         option_list <- getOption(package_name)
     } else {

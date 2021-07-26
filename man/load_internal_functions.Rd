@@ -23,7 +23,7 @@ Load objects not exported from a package's namespace.
 load_internal_functions("fritools")
 }
 \seealso{
-
+\code{\link[codetools:checkUsageEnv]{codetools::checkUsageEnv}}.
 
 Other package functions.: 
 \code{\link{get_package_version}()},
