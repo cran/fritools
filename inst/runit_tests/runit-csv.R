@@ -8,9 +8,7 @@ has_digest <- fritools:::has_digest
 adjust_expectation <- function(x) {
     # We need to adjust path to the current tempdir() and hence the hash value.
     res <- x
-    attr(res, "path") <- normalizePath(file.path(tempdir(),
-                                                 basename(attr(res, "path"))),
-                                  mustWork = TRUE)
+    attr(res, "path") <- file.path(tempdir(), basename(attr(res, "path")))
     if (has_digest()) res <- set_hash(res)
     return(res)
 }
@@ -40,8 +38,7 @@ if (interactive()) {
 test_csv <- function() {
     #% provide data
     unlink(dir(tempdir(), full.names = TRUE))
-    f <- normalizePath(file.path(tempdir(), paste0("a", ".csv")),
-                       mustWork = FALSE)
+    f <- file.path(tempdir(), paste0("a", ".csv"))
     cars <- mtcars[1:2, TRUE]
     a <- write_csv(cars, file = f)
     RUnit::checkTrue(file.exists(f))

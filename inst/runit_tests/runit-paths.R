@@ -8,13 +8,12 @@ test_paths <- function() {
     # path does not exists
     RUnit::checkException(set_path(x, tempfile()))
     # externally set path
-    attr(x, "path") <- normalizePath(tempdir(), mustWork = FALSE)
+    attr(x, "path") <- tempdir()
     # path is a directory
     RUnit::checkException(get_path(x))
     # create a file
     tempfile <- tempfile()
     touch(tempfile)
-    tempfile <- normalizePath(tempfile)
     # path already set
     RUnit::checkException(set_path(x, tempfile()))
     # overwrite

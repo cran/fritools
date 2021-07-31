@@ -1,13 +1,13 @@
-064f293a2aa54b35ed3c7e0a54743d6f *DESCRIPTION
+d835594c3dd808d7e9b50903b743251b *DESCRIPTION
 118378ffc218706b51a2d1e2868ba4b5 *LICENSE
 9525e357c3717bffee43a5d53a948877 *NAMESPACE
-19af35abc548b35602c1fd57df3189df *NEWS.md
+3022a58b2404b2f32f5f196feb2f90bc *NEWS.md
 feb07e36e87063d11e7f66cabdf97279 *R/batch.R
 107ca5b82e0944b7a69abde3f1425c66 *R/boolean.R
 869f54d56ce7b3b31e10d484b66cf36d *R/call.R
 12b24309799550adbe7723b7ded6678f *R/compare_vectors.R
 b50673f4facb05c47480ed442840a4d0 *R/convert_umlauts_to_ascii.R
-607fefff6978e3f3f14861635c74b1ea *R/convert_umlauts_to_tex.R
+341cfa0e67bdcf36274ed410ef8431f7 *R/convert_umlauts_to_tex.R
 419690402853bdfa7c3a8c74ac7b6089 *R/csv.R
 aff9dc312141fdf0439812380ae9b9b2 *R/file_modified_last.R
 5cc8ab241ca64958262bafaf81894c5b *R/find_files.R
@@ -25,7 +25,7 @@ ebf7c7d4ae93c23e7be467dded60006d *R/is_windows.R
 4423e07bbda907ab9967d78053c71341 *R/load_internal_functions.R
 0218a90df41892c6e56dc90cce4ddf6a *R/memory_hogs.R
 22260789549f8435707cd68c18c138a0 *R/options.R
-89eeac35dd31c1b47df6af715026944d *R/paths.R
+1d256903eb1b430f7883ef64d0ecd9dd *R/paths.R
 b27f754026eb35878b755494c3dc7bc2 *R/r.R
 5ecf5b86b634ee5691d559edf47d461a *R/search_files.R
 9757dd545e9ecb4bede07b95c084822e *R/search_rows.R
@@ -42,7 +42,7 @@ ac6bfb4f189d8cf2f33864f5086ca58e *R/with_dir.R
 b683bc3ebebbfa7ae9982a1aa3373bbe *R/zzz.R
 c7b5b356badc5d951a7d5b0450bd18e8 *README.md
 51dc30b32d47970cd77d08e3d6bb5f6b *build/vignette.rds
-c9222d8a0d5df52e41d6a6bfad469c00 *inst/NEWS.rd
+3e5a9a7edab15d1adbd8c8c447425c9c *inst/NEWS.rd
 781c29e9b10af61697c35dc4ed57683a *inst/WORDLIST
 b0f50d2d102ef639191db59759150703 *inst/doc/An_Introduction_to_fritools.Rmd
 d7c3008f329a6b76e6402b27db6aaf93 *inst/doc/An_Introduction_to_fritools.html
@@ -53,7 +53,7 @@ e7efe8f358540c3674be2e6e14b8516a *inst/runit_tests/runit-batch.R
 ebd6c0d9471594713eb9f874e60a0448 *inst/runit_tests/runit-compare_vectors.R
 83c926ca2f8ba1dc1c8b9eeb9911bfaa *inst/runit_tests/runit-convert_umlauts_to_ascii.R
 ebbc86f69d911755af33b2562afd458e *inst/runit_tests/runit-convert_umlauts_to_tex.R
-2c18ea8a48b804dd19306d064322b6cc *inst/runit_tests/runit-csv.R
+9418f5eb896d31441c9a1b82e8f78569 *inst/runit_tests/runit-csv.R
 9d53bd75d77eb6df28794072e7a33807 *inst/runit_tests/runit-file_modified_last.R
 da1ede8c19096c9379fb5f2de6108330 *inst/runit_tests/runit-find_files.R
 cc4a49f1b5172eda5a722ae998a11dd0 *inst/runit_tests/runit-get_package_version.R
@@ -67,9 +67,9 @@ c70b7d242ad783dcdfcbb83876cd406e *inst/runit_tests/runit-installed.R
 778f5f668bc9519a94fd467c949f048c *inst/runit_tests/runit-is_version_sufficient.R
 7174c926b434e9c60cef3d880327ba50 *inst/runit_tests/runit-is_windows.R
 1e593656ef6a15c99d12007a5e981b78 *inst/runit_tests/runit-load_internal_functions.R
-06690e8db0fe1b244e3013fac2eaf7cd *inst/runit_tests/runit-memory_hogs.R
+adf4cfd672c5f65ae24f9fd3789a1a88 *inst/runit_tests/runit-memory_hogs.R
 9b6d6525bbdf040c44ac04ba7ef29706 *inst/runit_tests/runit-options.R
-d8803bcb57c5943b5d08da83f64f84db *inst/runit_tests/runit-paths.R
+1662e73af13d114e7795100aa5eef154 *inst/runit_tests/runit-paths.R
 b041496bc5f1468d2bb4ae6d8875f544 *inst/runit_tests/runit-r.R
 fa5ae1bca7e49f43e9ad3c1cb06b3451 *inst/runit_tests/runit-search_files.R
 576666e39d81b5e783faf6357644bae5 *inst/runit_tests/runit-search_rows.R
@@ -82,7 +82,8 @@ faddb5fa047df3f50e1fe406e5897a63 *inst/runit_tests/runit-tapply.R
 4cffab5bb2758d8bed7341fc3760517a *inst/runit_tests/runit-touch.R
 9eb4e192530ebcd659c728eb678c5b04 *inst/runit_tests/runit-weighted_variance.R
 2f486726d5b6184b63a7a47076cdfb9f *inst/runit_tests/runit-wipe_clean.R
-1dfdda04c48b0a616325af09e9b0f8c1 *inst/runit_tests/runit-with_dir.R
+d47a7d2f6f9940823fc90402336c91e4 *inst/runit_tests/runit-with_dir.R
+78c7840822bbbc7ce860a15e35bf0193 *inst/tinytest/test_fritools.R
 68b329da9893e34099c7d8ad5cb9c940 *inst/vignettes_code/An_Introduction_to_fritools.R
 07a46175efc13cc0aaeadbe3935a46bb *man/bulk_read_csv.Rd
 aab00f69260e0f4ef383f020e0abfa65 *man/bulk_write_csv.Rd
@@ -145,5 +146,7 @@ a92aa9b7385c8d8b0fd7d4dd31c4aced *man/weighted_variance.Rd
 a23aa9caff6cd301400bf2fcf019b27c *man/with_dir.Rd
 867b363e05216939238f4390dd861e59 *tests/runit.R
 5ad93694abdc286ae88a23f782c34f6a *tests/testthat.R
-405d3f9ea4618612504cabcd5248786a *tests/testthat/test-throw.R
+9d954d77a55f41314a8436f5b7c76461 *tests/testthat/test-csv.R
+44b80af97e2b6a6b77b5997ee7ae9d3a *tests/testthat/test-throw.R
+ea8a92e8c496289ddb0ce0c194d9c6d8 *tests/tinytest.R
 b0f50d2d102ef639191db59759150703 *vignettes/An_Introduction_to_fritools.Rmd

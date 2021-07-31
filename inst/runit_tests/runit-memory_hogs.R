@@ -1,5 +1,5 @@
 if (interactive()) pkgload::load_all(".")
-if (get_run_r_tests()) {
+if (get_run_r_tests() && !fritools::is_windows()) {
     test_memory_hogs <- function() {
         e <- new.env()
         assign("va", rep(mtcars, 1), envir = e)
@@ -27,8 +27,8 @@ if (get_run_r_tests()) {
         expectation <- c(va = "4424 bytes", vd = "352824 bytes")
         RUnit::checkTrue(all(expectation %in% result))
     }
-}
-if (interactive()) {
-    rm(list = ls(pattern = "v[a-d]"))
-    test_memory_hogs()
+    if (interactive()) {
+        rm(list = ls(pattern = "v[a-d]"))
+        test_memory_hogs()
+    }
 }

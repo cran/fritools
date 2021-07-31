@@ -1,4 +1,3 @@
-testthat::context("Testing fritools:::throw()")
 testthat::test_that("throw the fritools exception", {
                         error_message <- "hello, testthat"
                         string <- "hello, testthat"

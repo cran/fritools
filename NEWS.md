@@ -1,3 +1,8 @@
+# fritools 2.2.1
+
+* Fixed function `convert_umlauts_to_tex()`.
+* Fixed unit test that threw an error when running unit test on CRAN M1mac.
+
 # fritools 2.2.0
 
 * Added functions to read an write (bulks of) CSV files.

@@ -1,6 +1,13 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 2.2.1}{
+\itemize{
+\item Fixed function \code{convert_umlauts_to_tex()}.
+\item Fixed unit test that threw an error when running unit test on CRAN M1mac.
+}
+}
+
 \section{Changes in version 2.2.0}{
 \itemize{
 \item Added functions to read an write (bulks of) CSV files.

@@ -24,7 +24,8 @@ get_path <- function(x) {
         throw(paste0("No `path` attribute set on ",
                      deparse(substitute(x)), "."))
     } else {
-        path <- normalizePath(path, mustWork = TRUE)
+        if (!file.exists(path))
+            throw("`path` does not exists.")
         if (!utils::file_test(op = "-f", path))
             throw("`path` is a directory, not a file.")
     }
@@ -42,7 +43,11 @@ set_path <- function(x, path, overwrite = FALSE) {
     if (!is.null(attr(x, "path")) && ! isTRUE(overwrite)) {
         throw("Attribute `path` already set, skipping!")
     }
-    attr(x, "path") <- normalizePath(path, mustWork = TRUE)
+    if (!file.exists(path)) {
+        warning("Use\n `attr(x, \"path\") <- path`\ninstead.")
+        throw("`path` does not exists.")
+    }
+    attr(x, "path") <- path
     if (!utils::file_test(op = "-f", path))
         throw("`path` is a directory, not a file.")
     return(x)

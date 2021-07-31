@@ -10,11 +10,7 @@
 #' print(string)
 #' print(convert_umlauts_to_tex(string))
 convert_umlauts_to_tex <- function(x) {
-    if (is_windows()) {
-        s <- iconv(x, from = "UTF-8", to = "UTF-8", sub = "Unicode")
-    } else {
-        s <- iconv(x, to = "UTF-8", sub = "Unicode")
-    }
+    s <- iconv(enc2native(x), to = "UTF-8", sub = "unicode")
     s <- gsub("\u00e4", "\\\\\u0022a{}", s)
     s <- gsub("\u00c4", "\\\\\u0022A{}", s)
     s <- gsub("\u00f6", "\\\\\u0022o{}", s)
