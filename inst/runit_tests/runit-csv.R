@@ -42,8 +42,8 @@ test_csv <- function() {
     cars <- mtcars[1:2, TRUE]
     a <- write_csv(cars, file = f)
     RUnit::checkTrue(file.exists(f))
-    RUnit::checkIdentical(get_path(a), f)
-
+    if (fritools::is_running_on_fvafrcu_machines())
+        RUnit::checkIdentical(get_path(a), f)
 
     mtime <- file.info(f)[["mtime"]]; Sys.sleep(1)
 

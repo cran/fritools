@@ -6,7 +6,7 @@
 #' @param output_directory Where to create the new files.
 #' @param encoding The encoding passed to \code{\link{source}}.
 #' @param write_to_disk Set the output_directory to
-#' \code{dirname(output_directory)}? Just a shortcut.
+#' \code{dirname(file)}? Just a shortcut.
 #' @export
 #' @return \code{\link[base:invisible]{Invisibly}} a vector of paths to the new
 #' files.

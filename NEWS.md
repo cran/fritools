@@ -1,3 +1,9 @@
+# fritools 2.3.0
+
+* Added functions `is_files_current()` and `is_difftime_less()`.
+* Added function `is_valid_primary_key()` from `wehamr`.
+* Function `convert_umlauts_to_ascii()` now converts `rownames`, too.
+
 # fritools 2.2.1
 
 * Fixed function `convert_umlauts_to_tex()`.

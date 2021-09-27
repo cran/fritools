@@ -19,7 +19,7 @@ split_code_file(
 \item{encoding}{The encoding passed to \code{\link{source}}.}
 
 \item{write_to_disk}{Set the output_directory to
-\code{dirname(output_directory)}? Just a shortcut.}
+\code{dirname(file)}? Just a shortcut.}
 }
 \value{
 \code{\link[base:invisible]{Invisibly}} a vector of paths to the new
@@ -44,6 +44,7 @@ Other file utilities.:
 \code{\link{file_modified_last}()},
 \code{\link{find_files}()},
 \code{\link{get_unique_string}()},
+\code{\link{is_difftime_less}()},
 \code{\link{paths}},
 \code{\link{search_files}()},
 \code{\link{touch}()}

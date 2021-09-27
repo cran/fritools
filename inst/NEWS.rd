@@ -1,6 +1,14 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 2.3.0}{
+\itemize{
+\item Added functions \code{is_files_current()} and \code{is_difftime_less()}.
+\item Added function \code{is_valid_primary_key()} from \code{wehamr}.
+\item Function \code{convert_umlauts_to_ascii()} now converts \code{rownames}, too.
+}
+}
+
 \section{Changes in version 2.2.1}{
 \itemize{
 \item Fixed function \code{convert_umlauts_to_tex()}.

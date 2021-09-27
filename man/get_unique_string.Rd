@@ -20,6 +20,7 @@ replicate(20, get_unique_string())
 Other file utilities.: 
 \code{\link{file_modified_last}()},
 \code{\link{find_files}()},
+\code{\link{is_difftime_less}()},
 \code{\link{paths}},
 \code{\link{search_files}()},
 \code{\link{split_code_file}()},

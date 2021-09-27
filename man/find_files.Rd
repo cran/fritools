@@ -86,6 +86,7 @@ Other searching functions.:
 Other file utilities.: 
 \code{\link{file_modified_last}()},
 \code{\link{get_unique_string}()},
+\code{\link{is_difftime_less}()},
 \code{\link{paths}},
 \code{\link{search_files}()},
 \code{\link{split_code_file}()},

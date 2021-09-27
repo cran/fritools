@@ -44,5 +44,6 @@ convert_umlauts_to_ascii.data.frame <- function(x) { # Exclude Linting
     df <- data.frame(lapply(x, f))
     attributes(df) <- attributes(x)
     names(df) <- convert_umlauts_to_ascii(names(x))
+    colnames(df) <- convert_umlauts_to_ascii(colnames(x))
     return(df)
 }
