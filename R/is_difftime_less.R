@@ -4,8 +4,8 @@
 #'
 #' @param time1 See \code{\link{difftime}}.
 #' @param time2 See \code{\link{difftime}}.
-#' @param less_than The number of \bold{units} that would be too much of a 
-#' difference. 
+#' @param less_than The number of \bold{units} that would be too much of a
+#' difference.
 #' @param units See \code{\link{difftime}}.
 #' @param verbose Be verbose?
 #' @param visible Set to \code{\link{FALSE}} to return
@@ -26,12 +26,12 @@
 #' print(is_difftime_less(a, c, verbose = TRUE))
 #' try(is_difftime_less(a, b, stop_on_error = TRUE))
 #' is_difftime_less(a, c, verbose = TRUE, stop_on_error = TRUE)
-is_difftime_less <- function(time1, time2, less_than = 1, units = "days", 
+is_difftime_less <- function(time1, time2, less_than = 1, units = "days",
                              verbose = FALSE, visible = !verbose,
                              stop_on_error = FALSE) {
     res <- NULL
     if (abs(difftime(time1, time2, units = units)) >= less_than) {
-        msg <- paste0("Time difference between ", time1, " and ", time2, 
+        msg <- paste0("Time difference between ", time1, " and ", time2,
                 "\nis at least ", less_than, " ", units, ".")
         if (isTRUE(stop_on_error)) {
             throw(msg)
@@ -43,7 +43,7 @@ is_difftime_less <- function(time1, time2, less_than = 1, units = "days",
         }
     } else {
         if (isTRUE(verbose)) {
-            msg <- paste0("Time difference between ", time1, " and ", time2, 
+            msg <- paste0("Time difference between ", time1, " and ", time2,
                           "\nis less than ", less_than, " ", units, ".")
             message(msg)
         }

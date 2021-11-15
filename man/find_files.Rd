@@ -9,9 +9,10 @@ find_files(
   path = ".",
   pattern = ".*\\\\.[RrSs]$|.*\\\\.[RrSs]nw$",
   all_files = TRUE,
-  recursive = TRUE,
+  recursive = FALSE,
   ignore_case = FALSE,
-  find_all = FALSE
+  find_all = FALSE,
+  select = NA
 )
 }
 \arguments{
@@ -30,6 +31,12 @@ exist).}
 
 \item{find_all}{Throw an error if not all files (given by \emph{file_names})
 are found?}
+
+\item{select}{A named list of numerical vectors of maximum length 2 named
+\code{min} and/or \code{max}.
+If given, file searching will be restricted to file attributes corresponding
+to the names in the list ranging between \code{min} and \code{max}. See
+\emph{examples}.}
 }
 \value{
 A character vector of file names.
@@ -74,6 +81,12 @@ find_files(path = tempdir(),
 find_files(path = tempdir(), pattern = paste0("^", basename(files[1]), "$"))
 #\% file_names and path given: file_names beats path
 try(find_files(file_names = tempfile(), path = tempdir()))
+#\% select by file size:
+write.csv(mtcars, file.path(tempdir(), "mtcars.csv"))
+find_files(path = tempdir(), pattern = ".*")
+find_files(path = tempdir(), pattern = ".*",
+           select = list(size = c(min = 1000))
+           )
 }
 \seealso{
 Other searching functions.: 

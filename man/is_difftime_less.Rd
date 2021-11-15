@@ -19,7 +19,7 @@ is_difftime_less(
 
 \item{time2}{See \code{\link{difftime}}.}
 
-\item{less_than}{The number of \bold{units} that would be too much of a 
+\item{less_than}{The number of \bold{units} that would be too much of a
 difference.}
 
 \item{units}{See \code{\link{difftime}}.}

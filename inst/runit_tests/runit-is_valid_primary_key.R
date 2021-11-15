@@ -13,4 +13,3 @@ test_is_valid_primary_key <- function() {
 if (interactive()) {
     test_is_valid_primary_key()
 }
-

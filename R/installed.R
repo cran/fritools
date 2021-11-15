@@ -30,7 +30,11 @@ is_r_package_installed <- function(x, version = "0") {
 #' @family operating system functions.
 #' @export
 #' @examples
-#' is_installed("R")
+#' if (is_running_on_fvafrcu_machines() || is_running_on_gitlab_com()) {
+#'     # NOTE: There are CRAN machines where neither "R" nor "R-devel" is in
+#'     # the path, so we skipt this example on unkown machines.
+#'     is_installed("R")
+#' }
 #' is_installed("probably_not_installed")
 is_installed <- function(program) {
     is_installed <- nchar(Sys.which(program)) > 0

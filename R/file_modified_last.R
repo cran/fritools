@@ -17,7 +17,7 @@
 #' file_modified_last(path = tempdir(), pattern = "\\.txt$")
 #' file_modified_last(path = tempdir(), pattern = "\\.txt$", recursive = TRUE)
 file_modified_last <- function(...) {
-    lf <- list.files(..., full.names = TRUE)
+    lf <- find_files(...)
     mtime <- file.info(lf)["mtime"]
     i <- order(mtime[["mtime"]], decreasing = TRUE)[1]
     newest <- normalizePath(rownames(mtime)[i], mustWork = TRUE)

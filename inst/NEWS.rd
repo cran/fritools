@@ -1,6 +1,15 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 2.4.0}{
+\itemize{
+\item Added argument \code{select} to function \code{find_files()}. This allows us to select
+files by their attributes, like file size.
+\item Changed argment default for \code{recursive} for \code{find_files()} from \code{TRUE} to
+\code{FALSE}.
+}
+}
+
 \section{Changes in version 2.3.0}{
 \itemize{
 \item Added functions \code{is_files_current()} and \code{is_difftime_less()}.

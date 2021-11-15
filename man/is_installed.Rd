@@ -17,7 +17,11 @@ is_installed(program)
 Is an external program installed?
 }
 \examples{
-is_installed("R")
+if (is_running_on_fvafrcu_machines() || is_running_on_gitlab_com()) {
+    # NOTE: There are CRAN machines where neither "R" nor "R-devel" is in
+    # the path, so we skipt this example on unkown machines.
+    is_installed("R")
+}
 is_installed("probably_not_installed")
 }
 \seealso{

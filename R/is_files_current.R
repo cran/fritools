@@ -40,7 +40,8 @@ is_files_current <- function(..., newer_than = 1, units = "week",
     } else {
         res <- TRUE
     }
-    res <- res && is_difftime_less(min(times), Sys.time(), less_than = newer_than, 
+    res <- res && is_difftime_less(min(times), Sys.time(),
+                                   less_than = newer_than,
                                    units = units)
     return(res)
 }

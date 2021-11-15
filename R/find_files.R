@@ -10,6 +10,11 @@
 #' \strong{See Also} \emph{Other file utilities:}.
 #' @param file_names character vector of file names (to be checked if the files
 #'        exist).
+#' @param select A named list of numerical vectors of maximum length 2 named
+#' \code{min} and/or \code{max}.
+#' If given, file searching will be restricted to file attributes corresponding
+#' to the names in the list ranging between \code{min} and \code{max}. See
+#' \emph{examples}.
 #' @param path see \code{\link{list.files}}.
 #' @param pattern see \code{\link{list.files}}.
 #' @param all_files see \code{\link{list.files}}, argument \code{all.files}.
@@ -50,10 +55,17 @@
 #' find_files(path = tempdir(), pattern = paste0("^", basename(files[1]), "$"))
 #' #% file_names and path given: file_names beats path
 #' try(find_files(file_names = tempfile(), path = tempdir()))
+#' #% select by file size:
+#' write.csv(mtcars, file.path(tempdir(), "mtcars.csv"))
+#' find_files(path = tempdir(), pattern = ".*")
+#' find_files(path = tempdir(), pattern = ".*",
+#'            select = list(size = c(min = 1000))
+#'            )
 find_files <- function(file_names = NA, path = ".",
                        pattern = ".*\\.[RrSs]$|.*\\.[RrSs]nw$",
-                       all_files = TRUE, recursive = TRUE,
-                       ignore_case = FALSE, find_all = FALSE) {
+                       all_files = TRUE, recursive = FALSE,
+                       ignore_case = FALSE, find_all = FALSE,
+                       select = NA) {
     if (isTRUE(is.na(file_names))) {
         file_paths <- list.files(path = path, pattern = pattern,
                                   all.files = all_files,
@@ -61,6 +73,23 @@ find_files <- function(file_names = NA, path = ".",
                                   ignore.case = ignore_case,
                                   full.names = TRUE,
                                   include.dirs = FALSE, no.. = TRUE)
+        if (!all(sapply(select, is.na))) {
+            selection <- lapply(select,
+                                function(x) {
+                                    if (!"min" %in% names(x)) x["min"] <- -Inf
+                                    if (!"max" %in% names(x)) x["max"] <- Inf
+                                    return(x)
+                                })
+            fi <- file.info(file_paths)
+            index <- rep(TRUE, length(file_paths))
+            for (i in seq(along = selection)) {
+                col <- names(selection[i])
+                index <- fi[[col]] >= selection[[i]][["min"]] &
+                    fi[[col]] <= selection[[i]][["max"]] & index
+
+            }
+            file_paths <- row.names(fi)[index]
+        }
     } else {
         files_exist <- file.exists(file_names)
         msg <- paste(paste("File", file_names[! files_exist], " not found."),

@@ -34,14 +34,15 @@ test_find_files <- function() {
     ##% all do not exist:
     RUnit::checkException(find_files(file_names = replicate(2, tempfile())))
     #% path given
-    result <- find_files(path = temp_dir)
+    result <- find_files(path = temp_dir, recursive = TRUE)
     expectation <- grep("\\.R$|\\.Rnw$", files, value = TRUE)
     RUnit::checkIdentical(result, expectation)
     ##% none found (by not searching recursively):
     RUnit::checkException(find_files(path = temp_dir, recursive = FALSE))
     ##% change pattern
     result <- find_files(path = temp_dir,
-                         pattern = ".*\\.[RrSs]$|.*\\.[RrSs]nw$|.*\\.txt")
+                         pattern = ".*\\.[RrSs]$|.*\\.[RrSs]nw$|.*\\.txt",
+                         recursive = TRUE)
     expectation <- files
     RUnit::checkIdentical(result, expectation)
     ##% find a specific file by it's basename

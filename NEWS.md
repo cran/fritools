@@ -1,3 +1,10 @@
+# fritools 2.4.0
+
+* Added argument `select` to function `find_files()`. This allows us to select
+  files by their attributes, like file size. 
+* Changed argment default for `recursive` for `find_files()` from `TRUE` to
+  `FALSE`.
+
 # fritools 2.3.0
 
 * Added functions `is_files_current()` and `is_difftime_less()`.
