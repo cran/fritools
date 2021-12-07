@@ -1,8 +1,17 @@
+# fritools 2.5.0
+
+* Added argument `differences_only` to function `compare_vectors()`.
+* Added function `is_path`.
+* Added function `fromto`.
+* Added function `find_missing_see_also` and `find_missing_family`.
+* Function `set_path` now sets a path attribute which itself has a file time
+  modification date attribute.
+
 # fritools 2.4.0
 
 * Added argument `select` to function `find_files()`. This allows us to select
   files by their attributes, like file size. 
-* Changed argment default for `recursive` for `find_files()` from `TRUE` to
+* Changed argument default for `recursive` for `find_files()` from `TRUE` to
   `FALSE`.
 
 # fritools 2.3.0

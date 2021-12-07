@@ -8,7 +8,12 @@ has_digest <- fritools:::has_digest
 adjust_expectation <- function(x) {
     # We need to adjust path to the current tempdir() and hence the hash value.
     res <- x
+    # set manually
     attr(res, "path") <- file.path(tempdir(), basename(attr(res, "path")))
+    # now update
+    res <- set_path(res,
+                    get_path(res),
+                    overwrite = TRUE)
     if (has_digest()) res <- set_hash(res)
     return(res)
 }
@@ -43,7 +48,7 @@ test_csv <- function() {
     a <- write_csv(cars, file = f)
     RUnit::checkTrue(file.exists(f))
     if (fritools::is_running_on_fvafrcu_machines())
-        RUnit::checkIdentical(get_path(a), f)
+        RUnit::checkIdentical(strip_off_attributes(get_path(a)), f)
 
     mtime <- file.info(f)[["mtime"]]; Sys.sleep(1)
 
@@ -58,15 +63,19 @@ test_csv <- function() {
                   class = "data.frame",
                   row.names = c("Mazda RX4", "Mazda RX4 Wag"),
                   csv = "standard",
-                  path = "/tmp/Rtmp7KFRod/a.csv",
-                  hash = "cd5ddd67f8aef10ab53e85b15519fdb5")
+                  path = structure("/tmp/RtmpGyKumR/a.csv",
+                                   mtime = structure(1638788464.61958,
+                                                     class = c("POSIXct",
+                                                               "POSIXt"))),
+                  hash = "062a5b662192887791002c72fd196426")
     if (!has_digest())
         expectation <- un_hash(expectation)[["object"]]
 
     #% write
     result <- write_csv(a)
     ##% check return
-    RUnit::checkIdentical(adjust_expectation(expectation), result)
+    RUnit::checkIdentical(adjust_expectation(expectation),
+                          adjust_expectation(result))
 
     ##% no writing with digest
     if (has_digest()) {
@@ -126,6 +135,9 @@ test_bulk <- function() {
 
     #% read
     bulk <- bulk_read_csv(tempdir())
+    path <- structure("/tmp/RtmpGyKumR/f1.csv",
+                      mtime = structure(1638789293.91084,
+                                        class = c("POSIXct", "POSIXt")))
     expectation <- structure(list(mpg = c(21, 21, 22.8, 21.4, 18.7),
                                   cyl = c(6L, 6L, 4L, 6L, 8L),
                                   disp = c(160L, 160L, 108L, 258L, 360L),
@@ -139,30 +151,33 @@ test_bulk <- function() {
                                   carb = c(4L, 4L, 1L, 1L, 2L)),
                              class = "data.frame",
                              row.names = c("Mazda RX4", "Mazda RX4 Wag",
-                                        "Datsun 710", "Hornet 4 Drive",
-                                        "Hornet Sportabout"),
+                                           "Datsun 710", "Hornet 4 Drive"
+                                           , "Hornet Sportabout"),
                              csv = "standard",
-                             path = "/tmp/Rtmp7jg6YM/f1.csv",
-                             hash = "66c344d384cd5c9dc85249aaa244d560")
+                             path = path,
+                             hash = "9f8cabc0eaa06329b42d697642497a29")
     if (!has_digest())
         expectation <- un_hash(expectation)[["object"]]
     RUnit::checkIdentical(bulk[["f1"]], adjust_expectation(expectation))
 
     #% write
-        result <- bulk_write_csv(bulk)
-        expectation <- bulk
-        RUnit::checkIdentical(result, expectation)
-        mtime <- file.info(list.files(tempdir(), full.names = TRUE))["mtime"]
-        Sys.sleep(1)
+    result <- bulk_write_csv(bulk)
+    expectation <- bulk
+    RUnit::checkIdentical(result, expectation)
+    dmtime <- file.info(list.files(tempdir(), full.names = TRUE))["mtime"]
+    mtime <- lapply(bulk, get_mtime)
+    mtime <- as.data.frame(do.call(c, mtime))
+    RUnit::checkTrue(all(mtime == dmtime))
 
-        bulk[["f2"]][3, 5] <- bulk[["f2"]][3, 5] + 2
-        result <- bulk_write_csv(bulk)
-        new_times <- file.info(dir(tempdir(), full.names = TRUE))["mtime"]
-        index_change <- grep("f2\\.csv", rownames(mtime))
+    Sys.sleep(1)
+
+    bulk[["f2"]][3, 5] <- bulk[["f2"]][3, 5] + 2
+    result <- bulk_write_csv(bulk)
+    new_times <- file.info(dir(tempdir(), full.names = TRUE))["mtime"]
+    index_change <-  which(rownames(mtime) == "f2")
     if (has_digest()) {
-
-        only_f2_changed <- all((mtime == new_times)[-c(index_change)]) &&
-            (mtime < new_times)[c(index_change)]
+        only_f2_changed <- all((dmtime == new_times)[-c(index_change)]) &&
+            (dmtime < new_times)[c(index_change)]
         RUnit::checkTrue(only_f2_changed)
     } else {
         RUnit::checkTrue(all(mtime < new_times))

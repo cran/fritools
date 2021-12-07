@@ -58,3 +58,25 @@ test_find_files <- function() {
 if (interactive()) {
     test_find_files()
 }
+
+test_find_selection <- function() {
+    #% create some files
+    temp_dir <- tempfile()
+    if (interactive()) unlink(temp_dir, recursive = TRUE)
+    path <- file.path(temp_dir, "foo")
+    dir.create(path, recursive = TRUE)
+    files <- sort(unname(sapply(file.path(path,
+                                          paste0(sample(letters, 10),
+                                                 ".", c("R", "Rnw", "txt"))),
+                                touch)))
+    write.csv(mtcars, file.path(path, "mtcars.csv"))
+    find_files(path = path, pattern = ".*")
+    result <- find_files(path = path, pattern = ".*",
+                         select = list(size = c(min = 1000))
+                         )
+    expectation <- list.files(path, full.names = TRUE, pattern = "mtcars")
+    RUnit::checkIdentical(result, expectation)
+}
+if (interactive()) {
+    test_find_selection()
+}

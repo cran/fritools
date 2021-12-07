@@ -19,7 +19,17 @@ test_paths <- function() {
     # overwrite
     x <- set_path(x, tempfile, overwrite = TRUE)
     result <- get_path(x)
-    RUnit::checkIdentical(result, tempfile)
+    RUnit::checkIdentical(strip_off_attributes(result), tempfile)
+    # csv
+    a <- write_csv(mtcars, tempfile)
+    RUnit::checkIdentical(get_mtime(a), file.mtime(tempfile))
+    # change something
+    a[1, 1] <- 0.0
+    a <- write_csv(a)
+    RUnit::checkIdentical(get_mtime(a), file.mtime(get_path(a)))
+    # wrong path set
+    attr(x, "path") <- tempfile()
+     RUnit::checkException(get_path(x))
 }
 
 if (interactive()) {

@@ -1,11 +1,22 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 2.5.0}{
+\itemize{
+\item Added argument \code{differences_only} to function \code{compare_vectors()}.
+\item Added function \code{is_path}.
+\item Added function \code{fromto}.
+\item Added function \code{find_missing_see_also} and \code{find_missing_family}.
+\item Function \code{set_path} now sets a path attribute which itself has a file time
+modification date attribute.
+}
+}
+
 \section{Changes in version 2.4.0}{
 \itemize{
 \item Added argument \code{select} to function \code{find_files()}. This allows us to select
 files by their attributes, like file size.
-\item Changed argment default for \code{recursive} for \code{find_files()} from \code{TRUE} to
+\item Changed argument default for \code{recursive} for \code{find_files()} from \code{TRUE} to
 \code{FALSE}.
 }
 }
