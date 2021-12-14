@@ -14,16 +14,18 @@
 NULL
 
 #' @export
+#' @param force Force the retrieval, even if the path is not valid? Only meant
+#' for unit testing, leave alone!
 #' @rdname paths
 #' @aliases get_path
 #' @return For \code{get_path} the value of \code{attr(x, "path")}.
-get_path <- function(x) {
+get_path <- function(x, force = FALSE) {
     path <- attr(x, "path")
     if (is.null(path)) {
         throw(paste0("No `path` attribute set on ",
                      deparse(substitute(x)), "."))
     } else {
-        if (!file.exists(path)) {
+        if (!is_path(path) && !isTRUE(force)) {
             name <- deparse(substitute(x))
             throw(paste0("File `path` does not exists. ",
                         "Attribute `path` of object `", name,
@@ -31,30 +33,48 @@ get_path <- function(x) {
                         "Use\n `attr(", name, ", \"path\") <- path`\nfirst."))
         }
         if (!utils::file_test(op = "-f", path))
-            throw("`path` is a directory, not a file.")
+            throw("`path` not a file, probably a directory.")
     }
     return(path)
 }
 
 #' @export
 #' @param path The path to be set.
+#' @param action Do we have a read or write process? Passed by
+#' \code{\link{read_csv}} and \code{\link{write_csv}}. Leave alone otherwise.
 #' @param overwrite Overwrite an existing \emph{path} attribute instead of
 #' throwing an error?
 #' @rdname paths
 #' @aliases set_path
 #' @return For \code{set_path} the modified object.
-set_path <- function(x, path, overwrite = FALSE) {
+set_path <- function(x, path, action = c(NA, "read", "write"),
+                     overwrite = FALSE) {
+    #% check the path given.
     if (!is.null(attr(x, "path")) && ! isTRUE(overwrite)) {
         throw("Attribute `path` already set, skipping!")
     }
-    if (!file.exists(path)) {
+    if (!is_path(path)) {
         warning("Use\n `attr(x, \"path\") <- path`\ninstead.")
         throw("`path` does not exists.")
     }
-    attr(path, "mtime") <- file.mtime(path)
-    attr(x, "path") <- path
     if (!utils::file_test(op = "-f", path))
         throw("`path` is a directory, not a file.")
+
+    #% file modification time
+    attr(path, "mtime") <- file.mtime(path)
+    #% read/write dates
+    ##% set defaults first, will be NULL if non-existant
+    if (is.null(attr(path, "last_read"))) attr(path, "last_read") <- NA
+    if (is.null(attr(path, "last_written"))) attr(path, "last_written") <- NA
+    rw <- match.arg(action)
+    switch(rw,
+           "NA" = { # Do nothing!
+           },
+           "read" = attr(path, "last_read") <- Sys.time(),
+           "write" = attr(path, "last_written") <- Sys.time(),
+           throw("Argument `action` has unkown value!"))
+    #% add attribute
+    attr(x, "path") <- path
     return(x)
 }
 

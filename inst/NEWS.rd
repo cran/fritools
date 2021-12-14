@@ -1,6 +1,27 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 3.0.0}{
+\subsection{Major changes}{
+\itemize{
+\item Added function \code{check_ascii_file()} to check for number of lines and fields of
+an ascii file.
+This is used to now check whether files read via \code{read_csv()} are read
+completely. Otherwise an error is thrown.
+\code{bulk_read_csv()} now knows an argument \code{stop_on_error} to stop reading if one
+of the files in the bulk fails to be read.
+}
+}
+
+\subsection{Minor changes}{
+\itemize{
+\item \code{set_path()} now adds reading and writing times to the path. So we can compare
+reading times with modification times on disk.
+\item Added argument \code{force} to \code{get_path()} to enable unit testing.
+}
+}
+}
+
 \section{Changes in version 2.5.0}{
 \itemize{
 \item Added argument \code{differences_only} to function \code{compare_vectors()}.
@@ -55,11 +76,18 @@ if a path to set is already set and argument \code{overwrite} is not \code{TRUE}
 }
 
 \section{Changes in version 2.0.0}{
+\subsection{Major changes}{
 \itemize{
-\item \strong{\code{search_files()} now throws an error if no matches are found.}
+\item \code{search_files()} now throws an error if no matches are found.
+}
+}
+
+\subsection{Minor changes}{
+\itemize{
 \item Added function \code{search_rows()}.
 \item Added function \code{is_success()}.
 \item Added function \code{convert_umlauts_to_tex()}.
+}
 }
 }
 

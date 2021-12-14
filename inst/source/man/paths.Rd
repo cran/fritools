@@ -6,14 +6,20 @@
 \alias{set_path}
 \title{Set or Get the \code{path} Attribute to or from an Object}
 \usage{
-get_path(x)
+get_path(x, force = FALSE)
 
-set_path(x, path, overwrite = FALSE)
+set_path(x, path, action = c(NA, "read", "write"), overwrite = FALSE)
 }
 \arguments{
 \item{x}{An object.}
 
+\item{force}{Force the retrieval, even if the path is not valid? Only meant
+for unit testing, leave alone!}
+
 \item{path}{The path to be set.}
+
+\item{action}{Do we have a read or write process? Passed by
+\code{\link{read_csv}} and \code{\link{write_csv}}. Leave alone otherwise.}
 
 \item{overwrite}{Overwrite an existing \emph{path} attribute instead of
 throwing an error?}

@@ -1,3 +1,18 @@
+# fritools 3.0.0
+
+## Major changes
+* Added function `check_ascii_file()` to check for number of lines and fields of
+  an ascii file.
+  This is used to now check whether files read via `read_csv()` are read
+  completely. Otherwise an error is thrown.
+  `bulk_read_csv()` now knows an argument `stop_on_error` to stop reading if one
+  of the files in the bulk fails to be read.
+
+## Minor changes
+* `set_path()` now adds reading and writing times to the path. So we can compare
+  reading times with modification times on disk.
+* Added argument `force` to `get_path()` to enable unit testing.
+
 # fritools 2.5.0
 
 * Added argument `differences_only` to function `compare_vectors()`.
@@ -41,7 +56,10 @@
 
 # fritools 2.0.0
 
-* **`search_files()` now throws an error if no matches are found.**
+## Major changes
+* `search_files()` now throws an error if no matches are found.
+
+## Minor changes
 * Added function `search_rows()`.
 * Added function `is_success()`.
 * Added function `convert_umlauts_to_tex()`.

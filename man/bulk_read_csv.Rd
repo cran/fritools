@@ -4,18 +4,46 @@
 \alias{bulk_read_csv}
 \title{Bulk Read Comma Separated Files}
 \usage{
-bulk_read_csv(paths, pattern = ".*\\\\.csv$", is_latin1 = TRUE, ...)
+bulk_read_csv(
+  paths,
+  stop_on_error = FALSE,
+  is_latin1 = TRUE,
+  pattern = ".*\\\\.csv$",
+  all_files = TRUE,
+  recursive = FALSE,
+  ignore_case = FALSE,
+  find_all = FALSE,
+  select = NA,
+  ...
+)
 }
 \arguments{
 \item{paths}{A vector of file paths or the directory to find files.}
 
-\item{pattern}{The pattern to identify comma separated files with.
-Ignored, if \code{paths} is not a directory.}
+\item{stop_on_error}{Stop if any of the files is not read? Warn and continue
+otherwise.}
 
 \item{is_latin1}{Are the files encoded in "Latin1"?}
 
-\item{...}{Arguments passed to \code{\link{find_files}}.
+\item{pattern}{see \code{\link{find_files}}.
 Ignored, if \code{paths} is not a directory.}
+
+\item{all_files}{see \code{\link{find_files}}.
+Ignored, if \code{paths} is not a directory.}
+
+\item{recursive}{see \code{\link{find_files}}.
+Ignored, if \code{paths} is not a directory.}
+
+\item{ignore_case}{see \code{\link{find_files}}.
+Ignored, if \code{paths} is not a directory.}
+
+\item{find_all}{see \code{\link{find_files}}.
+Ignored, if \code{paths} is not a directory.}
+
+\item{select}{see \code{\link{find_files}}.
+Ignored, if \code{paths} is not a directory.}
+
+\item{...}{Arguments passed to \code{\link{read_csv}}.}
 }
 \value{
 A named list, each element holding the contents of one \command{csv}
@@ -52,6 +80,7 @@ bulk <- bulk_read_csv(f)
 \seealso{
 Other CSV functions: 
 \code{\link{bulk_write_csv}()},
+\code{\link{check_ascii_file}()},
 \code{\link{csv2csv}()},
 \code{\link{csv}}
 }

@@ -30,6 +30,7 @@ readLines(get_path(res), n = 1)
 Other CSV functions: 
 \code{\link{bulk_read_csv}()},
 \code{\link{bulk_write_csv}()},
+\code{\link{check_ascii_file}()},
 \code{\link{csv}}
 }
 \concept{CSV functions}

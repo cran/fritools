@@ -49,12 +49,13 @@ get_boolean_envvar <- function(x, stop_on_failure = FALSE) {
 #'
 #' Is the machine running the current \R process known to me?
 #' @template return_boolean
+#' @param type An optional selection.
 #' @family test helpers
 #' @family logical helpers
 #' @export
 #' @examples
 #' is_running_on_fvafrcu_machines()
-is_running_on_fvafrcu_machines <- function() {
+is_running_on_fvafrcu_machines <- function(type = c("any", "cu", "fvafr")) {
     sys_info <- Sys.info()
     h <- sys_info[["nodename"]] %in% c("h6", "h7") &&
         .Platform[["OS.type"]] == "unix" &&
@@ -66,7 +67,12 @@ is_running_on_fvafrcu_machines <- function() {
     w <- (grepl("^FVAFR-PC.*$", sys_info[["nodename"]]) ||
           grepl("^L-FVAFR-NB84223$", sys_info[["nodename"]])
       ) && is_windows() && sys_info[["effective_user"]] == "dominik.cullmann"
-    r <-  h || v || w
+
+    r <- switch(match.arg(type),
+                "cu" = h,
+                "fva" = v || w,
+                "any" =,
+                h || v || w)
     return(r)
 }
 

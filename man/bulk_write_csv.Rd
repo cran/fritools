@@ -50,6 +50,7 @@ if (requireNamespace("digest", quietly = TRUE)) {
 \seealso{
 Other CSV functions: 
 \code{\link{bulk_read_csv}()},
+\code{\link{check_ascii_file}()},
 \code{\link{csv2csv}()},
 \code{\link{csv}}
 }

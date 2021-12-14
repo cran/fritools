@@ -29,9 +29,47 @@ test_paths <- function() {
     RUnit::checkIdentical(get_mtime(a), file.mtime(get_path(a)))
     # wrong path set
     attr(x, "path") <- tempfile()
-     RUnit::checkException(get_path(x))
+    RUnit::checkException(get_path(x))
 }
 
 if (interactive()) {
     test_paths()
+}
+
+test_path_times <- function() {
+    x <- mtcars
+    RUnit::checkException(get_mtime(x))
+    tempfile <- tempfile()
+    touch(tempfile)
+    x <- set_path(x, tempfile)
+    RUnit::checkTrue(file.mtime(tempfile) == get_mtime(x))
+    RUnit::checkTrue(is(get_mtime(x), "POSIXt"))
+    result <- get_path(x)
+    RUnit::checkTrue(is_path(result))
+    RUnit::checkTrue(is(attr(result, "mtime"), "POSIXt"))
+    RUnit::checkTrue(is.na(attr(result, "last_read")))
+    RUnit::checkTrue(is.na(attr(result, "last_written")))
+    Sys.sleep(1)
+    touch(tempfile)
+    RUnit::checkTrue(file.mtime(tempfile) > get_mtime(x))
+    x <- write_csv(x)
+    RUnit::checkIdentical(file.mtime(tempfile), get_mtime(x))
+    RUnit::checkEquals(as.character(get_mtime(x)),
+                       as.character(attr(get_path(x), "last_written")))
+    RUnit::checkTrue(is.na(attr(result, "last_read")))
+    y <- read_csv(tempfile)
+    RUnit::checkTrue(get_mtime(y) < attr(get_path(y), "last_read"))
+    RUnit::checkTrue(is.na(attr(get_path(y), "last_written")))
+    # Now we change it:
+    y[1, 2] <- y[1, 2] + 1
+    y <- write_csv(y)
+    RUnit::checkEquals(as.character(get_mtime(x)),
+                       as.character(attr(get_path(x), "last_written")))
+    # Now this is ... a feature: it hasn't changed on disc, because the content
+    # doesn't change:
+    y <- write_csv(y)
+    RUnit::checkTrue(get_mtime(y) < attr(get_path(y), "last_written"))
+}
+if (interactive()) {
+    test_path_times()
 }

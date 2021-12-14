@@ -4,7 +4,10 @@
 \alias{is_running_on_fvafrcu_machines}
 \title{Is the Machine Running the Current \R Process Owned by FVAFRCU?}
 \usage{
-is_running_on_fvafrcu_machines()
+is_running_on_fvafrcu_machines(type = c("any", "cu", "fvafr"))
+}
+\arguments{
+\item{type}{An optional selection.}
 }
 \value{
 \code{\link[base:TRUE]{TRUE}} on success, 

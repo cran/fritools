@@ -115,20 +115,36 @@ read_csv <- function(file, ...) {
     } else {
         quote <- "\""
     }
-    if (!is_false(arguments[["header"]]) && !("row.names" %in% names(arguments))
-        && is_missing_cell11(file, quote = quote)) {
-        # header not set to false and no rownames given and cell[1,1] empty
-        # string
-        arguments[["row.names"]] <- 1
+    if (!is_false(arguments[["header"]])) {
+        has_header <- TRUE
+        if (!("row.names" %in% names(arguments)) &&
+            is_missing_cell11(file, quote = quote)) {
+            # header not set to false and no rownames given and cell[1,1] empty
+            # string
+            arguments[["row.names"]] <- 1
+        }
+    } else {
+        has_header <- FALSE
+    }
+    if (is.null(arguments[["row.names"]])) {
+        if (has_header && is_missing_cell11(file, quote = quote)) {
+            has_rownames <- TRUE
+        } else {
+            has_rownames <- FALSE
+        }
+    } else {
+        has_rownames <- !is_false(arguments[["row.names"]])
     }
     if (is_german_csv(file)) {
         x <- do.call(utils::read.csv2, as.list(c(file = file, arguments)))
+        assert_read_successfully(x, file, has_header, has_rownames, sep = ";")
         attr(x, "csv") <- "german"
     } else {
         x <- do.call(utils::read.csv, as.list(c(file = file, arguments)))
+        assert_read_successfully(x, file, has_header, has_rownames, sep = ",")
         attr(x, "csv") <- "standard"
     }
-    x <- set_path(x, path = file)
+    x <- set_path(x, path = file, action = "read")
     if (has_digest()) x <- set_hash(x)
     return(x)
 }
@@ -164,7 +180,7 @@ write_csv <- function(x, file = NULL,
                       csv_type = c(NA, "standard", "german")) {
     tmp <- un_hash(x)
     if (is.null(file)) {
-        file <- get_path(x)
+        file <- get_path(x) # do not strip attributes, we need them!
     }
     csv <- match.arg(csv_type)
     if (is.na(csv)) {
@@ -185,9 +201,7 @@ write_csv <- function(x, file = NULL,
         do.call(f, list(file = file, x = x))
     }
     attr(x, "csv") <- csv
-    if (!is.null(file)) {
-        x <- set_path(x, file, overwrite = TRUE)
-    }
+    x <- set_path(x, file, action = "write", overwrite = TRUE)
     if (has_digest()) {
         res <- set_hash(x)
     } else {
@@ -201,12 +215,23 @@ write_csv <- function(x, file = NULL,
 #' Import a bunch of comma separated files or
 #' all comma separated files below a directory using
 #' \code{\link{read_csv}}.
-#' @param paths A vector of file paths or the directory to find files.
-#' @param pattern The pattern to identify comma separated files with.
-#' Ignored, if \code{paths} is not a directory.
 #' @param is_latin1 Are the files encoded in "Latin1"?
-#' @param ... Arguments passed to \code{\link{find_files}}.
+#' @param stop_on_error Stop if any of the files is not read? Warn and continue
+#' otherwise.
+#' @param paths A vector of file paths or the directory to find files.
+#' @param pattern see \code{\link{find_files}}.
 #' Ignored, if \code{paths} is not a directory.
+#' @param all_files see \code{\link{find_files}}.
+#' Ignored, if \code{paths} is not a directory.
+#' @param recursive see \code{\link{find_files}}.
+#' Ignored, if \code{paths} is not a directory.
+#' @param ignore_case see \code{\link{find_files}}.
+#' Ignored, if \code{paths} is not a directory.
+#' @param find_all see \code{\link{find_files}}.
+#' Ignored, if \code{paths} is not a directory.
+#' @param select see \code{\link{find_files}}.
+#' Ignored, if \code{paths} is not a directory.
+#' @param ... Arguments passed to \code{\link{read_csv}}.
 #' @return A named list, each element holding the contents of one \command{csv}
 #' file read by \code{\link{read_csv}}.
 #' @family CSV functions
@@ -233,21 +258,40 @@ write_csv <- function(x, file = NULL,
 #' #% pass multiple path
 #' f <- list.files(tempdir(), pattern = ".*\\.csv$", full.names = TRUE)[2:4]
 #' bulk <- bulk_read_csv(f)
-bulk_read_csv <- function(paths, pattern = ".*\\.csv$", is_latin1 = TRUE, ...) {
+bulk_read_csv <- function(paths,
+                          stop_on_error = FALSE,
+                          is_latin1 = TRUE,
+                          pattern = ".*\\.csv$", all_files = TRUE,
+                          recursive = FALSE, ignore_case = FALSE,
+                          find_all = FALSE, select = NA,
+                          ...) {
     if (identical(length(paths), 1L) && dir.exists(paths)) {
-        paths <- find_files(path = paths, pattern = pattern, ...)
+        paths <- find_files(path = paths, pattern = pattern,
+                            all_files = all_files, recursive = recursive,
+                            ignore_case = ignore_case, find_all = find_all,
+                            select = select)
     }
     res <- list()
     for (infile in paths) {
         name <- sub("\\.csv$", "", ignore.case = TRUE, basename(infile))
-        if (isTRUE(is_latin1)) {
-            res[[name]] <- read_csv(infile, fileEncoding = "Latin1")
-            res[[name]] <- convert_umlauts_to_ascii(res[[name]])
-            if (has_digest()) {
-                res[[name]] <- set_hash(res[[name]])
+        res[[name]] <- tryCatch({
+            if (isTRUE(is_latin1)) {
+                tmp <- read_csv(infile, fileEncoding = "Latin1", ...)
+                tmp <- convert_umlauts_to_ascii(tmp)
+                if (has_digest()) {
+                    tmp <- set_hash(tmp)
+                }
+            } else {
+                tmp <- read_csv(infile, ...)
             }
-        } else {
-            res[[name]] <- read_csv(infile)
+        },
+        error = identity)
+        if (inherits(res[[name]], "error")) {
+            if (isTRUE(stop_on_error)) {
+                throw("Reading file failed.", res[[name]])
+            } else {
+                warning("Reading of file ", infile, " failed.")
+            }
         }
     }
     return(res)
@@ -293,4 +337,50 @@ bulk_read_csv <- function(paths, pattern = ".*\\.csv$", is_latin1 = TRUE, ...) {
 bulk_write_csv <- function(x, ...) {
     res <- lapply(x, write_csv, ...)
     return(invisible(res))
+}
+
+#' Check the Number of Lines and Fields in a File
+#'
+#'
+#' @param path Path to a file.
+#' @param sep A character separating the fields in the file.
+#' @return A list giving the number of lines, number of fields and an boolean
+#' indicating whether all lines have the same number of fields.
+#' @family CSV functions
+#' @export
+#' @examples
+#' f <- tempfile()
+#' write.csv2(mtcars, file = f)
+#' check_ascii_file(f)
+check_ascii_file <- function(path, sep = ";") {
+    lines <- readLines(path)
+    num_lines <- length(lines)
+    num_fields <- vapply(X = lines, FUN.VALUE = numeric(1), USE.NAMES = FALSE,
+                         function(x) length(unlist(strsplit(x, split = sep)))
+                         )
+    max_fields <- max(num_fields)
+    res <- list(number_of_lines = num_lines,
+                number_of_fields = max_fields,
+                is_all_lines_all_fields =  identical(max_fields,
+                                                     min(num_fields))
+                )
+    return(res)
+}
+
+is_read_successfully <- function(x, file, is_header, is_rownames, sep) {
+    nrow <- as.integer(check_ascii_file(file, sep)[["number_of_lines"]] -
+                       as.numeric(is_header))
+    ncol <- as.integer(check_ascii_file(file, sep)[["number_of_fields"]] -
+                       as.numeric(is_rownames))
+    is_identical <- identical(nrow, nrow(x)) && identical(ncol, ncol(x))
+    return(is_identical)
+}
+
+assert_read_successfully <- function(x, file, is_header, is_rownames, sep) {
+    if (!is_read_successfully(x, file, is_header, is_rownames, sep)) {
+        warning("You might want to change argument ",
+                "(to function utils::read.csv or fritools::read_csv) ",
+                "`quote` to \"\".")
+        throw(paste0("File ", file, " not read successfully!"))
+    }
 }

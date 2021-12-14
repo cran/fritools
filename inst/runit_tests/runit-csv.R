@@ -1,22 +1,9 @@
 if (interactive()) {
-    if (exists("has_digest")) rm("has_digest")
     pkgload::load_all(".")
+} else {
+    has_digest <- fritools:::has_digest
 }
 
-has_digest <- fritools:::has_digest
-
-adjust_expectation <- function(x) {
-    # We need to adjust path to the current tempdir() and hence the hash value.
-    res <- x
-    # set manually
-    attr(res, "path") <- file.path(tempdir(), basename(attr(res, "path")))
-    # now update
-    res <- set_path(res,
-                    get_path(res),
-                    overwrite = TRUE)
-    if (has_digest()) res <- set_hash(res)
-    return(res)
-}
 
 test_csv2csv <- function() {
     unlink(dir(tempdir(), full.names = TRUE))
@@ -66,7 +53,11 @@ test_csv <- function() {
                   path = structure("/tmp/RtmpGyKumR/a.csv",
                                    mtime = structure(1638788464.61958,
                                                      class = c("POSIXct",
-                                                               "POSIXt"))),
+                                                               "POSIXt")),
+                                   last_read = structure(1639122705.98385,
+                                                         class = c("POSIXct",
+                                                                   "POSIXt")),
+                                   last_written = NA),
                   hash = "062a5b662192887791002c72fd196426")
     if (!has_digest())
         expectation <- un_hash(expectation)[["object"]]
@@ -74,8 +65,8 @@ test_csv <- function() {
     #% write
     result <- write_csv(a)
     ##% check return
-    RUnit::checkIdentical(adjust_expectation(expectation),
-                          adjust_expectation(result))
+    RUnit::checkIdentical(strip_off_attributes(expectation),
+                          strip_off_attributes(result))
 
     ##% no writing with digest
     if (has_digest()) {
@@ -85,7 +76,7 @@ test_csv <- function() {
     }
 
     ##% modify data and write to disk
-    a[1, 2] <- 300
+    a[1, 3] <- 300
     write_csv(a)
 
     ##% on a: hash not updated, still writing:
@@ -136,8 +127,11 @@ test_bulk <- function() {
     #% read
     bulk <- bulk_read_csv(tempdir())
     path <- structure("/tmp/RtmpGyKumR/f1.csv",
-                      mtime = structure(1638789293.91084,
-                                        class = c("POSIXct", "POSIXt")))
+                       mtime = structure(1638788464.61958,
+                                         class = c("POSIXct", "POSIXt")),
+                       last_read = structure(1639122705.98385,
+                                             class = c("POSIXct", "POSIXt")),
+                       last_written = NA)
     expectation <- structure(list(mpg = c(21, 21, 22.8, 21.4, 18.7),
                                   cyl = c(6L, 6L, 4L, 6L, 8L),
                                   disp = c(160L, 160L, 108L, 258L, 360L),
@@ -158,12 +152,14 @@ test_bulk <- function() {
                              hash = "9f8cabc0eaa06329b42d697642497a29")
     if (!has_digest())
         expectation <- un_hash(expectation)[["object"]]
-    RUnit::checkIdentical(bulk[["f1"]], adjust_expectation(expectation))
+    RUnit::checkIdentical(strip_off_attributes(bulk[["f1"]]),
+                          strip_off_attributes(expectation))
 
     #% write
     result <- bulk_write_csv(bulk)
     expectation <- bulk
-    RUnit::checkIdentical(result, expectation)
+    RUnit::checkIdentical(lapply(result, strip_off_attributes),
+                          lapply(expectation, strip_off_attributes))
     dmtime <- file.info(list.files(tempdir(), full.names = TRUE))["mtime"]
     mtime <- lapply(bulk, get_mtime)
     mtime <- as.data.frame(do.call(c, mtime))
@@ -182,8 +178,13 @@ test_bulk <- function() {
     } else {
         RUnit::checkTrue(all(mtime < new_times))
     }
-}
 
+    # When a file is not read.
+    file.remove(f[1])
+    bulk <- bulk_read_csv(f)
+    RUnit::checkTrue(inherits(bulk[[1]], "error"))
+    RUnit::checkException(bulk_read_csv(f, stop_on_error = TRUE))
+}
 
 if (interactive()) {
     test_bulk()
