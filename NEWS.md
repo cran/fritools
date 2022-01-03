@@ -1,6 +1,14 @@
+# fritools 3.1.0
+
+* Added a global option to pass `.GlobalEnv` as default environment to 
+  `wipe_clean()`.
+* Added calls to 'Sys.sleep(1)' to unit testing to ensure that the files' time
+  stamps are correct.
+
 # fritools 3.0.0
 
 ## Major changes
+
 * Added function `check_ascii_file()` to check for number of lines and fields of
   an ascii file.
   This is used to now check whether files read via `read_csv()` are read
@@ -9,6 +17,7 @@
   of the files in the bulk fails to be read.
 
 ## Minor changes
+
 * `set_path()` now adds reading and writing times to the path. So we can compare
   reading times with modification times on disk.
 * Added argument `force` to `get_path()` to enable unit testing.

@@ -52,21 +52,25 @@ test_path_times <- function() {
     Sys.sleep(1)
     touch(tempfile)
     RUnit::checkTrue(file.mtime(tempfile) > get_mtime(x))
+    Sys.sleep(1)
     x <- write_csv(x)
     RUnit::checkIdentical(file.mtime(tempfile), get_mtime(x))
     RUnit::checkEquals(as.character(get_mtime(x)),
                        as.character(attr(get_path(x), "last_written")))
     RUnit::checkTrue(is.na(attr(result, "last_read")))
+    Sys.sleep(1)
     y <- read_csv(tempfile)
     RUnit::checkTrue(get_mtime(y) < attr(get_path(y), "last_read"))
     RUnit::checkTrue(is.na(attr(get_path(y), "last_written")))
     # Now we change it:
     y[1, 2] <- y[1, 2] + 1
+    Sys.sleep(1)
     y <- write_csv(y)
     RUnit::checkEquals(as.character(get_mtime(x)),
                        as.character(attr(get_path(x), "last_written")))
     # Now this is ... a feature: it hasn't changed on disc, because the content
     # doesn't change:
+    Sys.sleep(1)
     y <- write_csv(y)
     RUnit::checkTrue(get_mtime(y) < attr(get_path(y), "last_written"))
 }

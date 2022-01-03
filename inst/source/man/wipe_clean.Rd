@@ -4,10 +4,13 @@
 \alias{wipe_clean}
 \title{Remove All Objects From an Environment}
 \usage{
-wipe_clean(environment)
+wipe_clean(environment = getOption("wipe_clean_environment"), all_names = TRUE)
 }
 \arguments{
-\item{environment}{The environment that should be wiped clean.}
+\item{environment}{The environment that should be wiped clean.
+Defaults to \code{\link{.GlobalEnv}}.}
+
+\item{all_names}{See argument \code{all.names} for \code{\link{ls}}.}
 }
 \value{
 A character vector containing the names of objects removed, but
@@ -17,6 +20,9 @@ called for its side effect of removing all objects from the environment.
 Wipe an environment, typically \code{\link{.GlobalEnv}}, clean.
 }
 \examples{
+an_object <- 1
+wipe_clean()
+ls()
 e <- new.env()
 assign("a", 1, envir = e)
 assign("b", 1, envir = e)

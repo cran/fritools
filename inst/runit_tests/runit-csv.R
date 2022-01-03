@@ -160,7 +160,9 @@ test_bulk <- function() {
     expectation <- bulk
     RUnit::checkIdentical(lapply(result, strip_off_attributes),
                           lapply(expectation, strip_off_attributes))
-    dmtime <- file.info(list.files(tempdir(), full.names = TRUE))["mtime"]
+    dmtime <- file.info(list.files(tempdir(),
+                                   full.names = TRUE,
+                                   pattern = ".*\\.csv"))["mtime"]
     mtime <- lapply(bulk, get_mtime)
     mtime <- as.data.frame(do.call(c, mtime))
     RUnit::checkTrue(all(mtime == dmtime))

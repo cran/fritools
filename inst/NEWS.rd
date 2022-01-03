@@ -1,6 +1,15 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 3.1.0}{
+\itemize{
+\item Added a global option to pass \code{.GlobalEnv} as default environment to
+\code{wipe_clean()}.
+\item Added calls to 'Sys.sleep(1)' to unit testing to ensure that the files' time
+stamps are correct.
+}
+}
+
 \section{Changes in version 3.0.0}{
 \subsection{Major changes}{
 \itemize{

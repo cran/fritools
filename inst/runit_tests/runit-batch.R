@@ -2,9 +2,9 @@ if (get_boolean_envvar("IS_RUNIT")) {
     if (interactive()) pkgload::load_all(".")
     test_is_batch <- function() {
         result <- system("R --vanilla --silent -e 'fritools::is_batch()'",
-                         intern = TRUE)[2]
+                         intern = TRUE)
         expectation <- "[1] TRUE"
-        RUnit::checkIdentical(result, expectation)
+        RUnit::checkTrue(expectation %in% result)
     }
 
     if (interactive()) {
@@ -20,7 +20,7 @@ if (get_boolean_envvar("IS_RUNIT")) {
         result <- readLines(paste0(tempfile, ".Rout"))
         result <- grep("\\[1\\]", result, value = TRUE)
         result <- sub("[1] ", "", gsub("\\\"", "", result), fixed = TRUE)
-        RUnit::checkIdentical(result, tempfile)
+        RUnit::checkTrue(tempfile %in% result)
     }
 
     if (interactive()) {
@@ -34,7 +34,7 @@ if (get_boolean_envvar("IS_RUNIT")) {
         writeLines("fritools::get_rscript_script_path()", tempfile)
         result <- system(paste("Rscript", tempfile), intern = TRUE)
         result <- sub("[1] ", "", gsub("\\\"", "", result), fixed = TRUE)
-        RUnit::checkIdentical(result, tempfile)
+        RUnit::checkTrue(tempfile %in% result)
     }
 
     if (interactive()) {
@@ -55,7 +55,7 @@ if (get_boolean_envvar("IS_RUNIT")) {
         # Rscript
         result <- system(paste("Rscript", tempfile), intern = TRUE)
         result <- sub("[1] ", "", gsub("\\\"", "", result), fixed = TRUE)
-        RUnit::checkIdentical(result, tempfile)
+        RUnit::checkTrue(tempfile %in% result)
     }
 
     if (interactive()) {
@@ -74,4 +74,8 @@ if (get_boolean_envvar("IS_RUNIT")) {
         RUnit::checkIdentical(result, basename(tempfile))
         system(paste("R CMD BATCH --interactive", tempfile))
     }
+    if (interactive()) {
+        test_get_script_name()
+    }
+
 }
