@@ -1,6 +1,15 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 3.2.0}{
+\itemize{
+\item Added function \code{round_half_away_from_zero()} that implements commercial
+rounding.
+\item Added function \code{str2num()} to convert string reprensentations of (potentially
+German) numbers.
+}
+}
+
 \section{Changes in version 3.1.0}{
 \itemize{
 \item Added a global option to pass \code{.GlobalEnv} as default environment to

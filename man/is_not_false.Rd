@@ -27,7 +27,13 @@ Sometimes you need to know whether or not an object exists and is not set to
 }
 \examples{
 a  <- 1
+b  <- FALSE
+c  <- NULL
 is_not_false(a)
+is_not_false(b)
+is_not_false(c)
+is_not_false(c, null_is_false = FALSE)
+is_not_false(not_defined)
 f <- function() {
     print(a)
     print(is_not_false(a))
@@ -47,6 +53,16 @@ f <- function() {
                        inherits = FALSE))
 }
 f()
+### We use this to check whether an option is set to something 
+### different than FALSE:
+# Make sure an option is not set:
+set_options("test" = NULL, package = "fritools")
+tmp <- get_options("test")
+is_not_false(tmp)
+is_not_false(tmp, null_is_false = FALSE)
+# Does not work on the option directly as it is not an object defined:
+options("foo" = NULL)
+is_not_false(getOption("foo"), null_is_false = FALSE)
 }
 \seealso{
 Other logical helpers: 

@@ -1,3 +1,10 @@
+# fritools 3.2.0
+
+* Added function `round_half_away_from_zero()` that implements commercial
+  rounding.
+* Added function `str2num()` to convert string reprensentations of (potentially
+  German) numbers.
+
 # fritools 3.1.0
 
 * Added a global option to pass `.GlobalEnv` as default environment to 

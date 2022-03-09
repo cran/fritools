@@ -37,6 +37,8 @@ Other bits and pieces:
 \code{\link{golden_ratio}()},
 \code{\link{is_difftime_less}()},
 \code{\link{is_valid_primary_key}()},
+\code{\link{round_half_away_from_zero}()},
+\code{\link{str2num}()},
 \code{\link{strip_off_attributes}()},
 \code{\link{tapply}()},
 \code{\link{throw}()},
