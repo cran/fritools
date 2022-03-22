@@ -18,9 +18,9 @@ fromto(
 \arguments{
 \item{x}{A vector.}
 
-\item{from}{A pattern.}
+\item{from}{A pattern, use NA to start with the first item.}
 
-\item{to}{Another pattern.}
+\item{to}{Another pattern, use NA to stop with the last item.}
 
 \item{from_i}{If the from pattern matches multiple times, which one is to be
 used.}
@@ -38,12 +38,14 @@ from and from_i.}
 The extracted vector.
 }
 \description{
-This comes in handy to cut lines from a file read by \code{\link{read.csv}}.
+This comes in handy to cut lines from a file read by \code{\link{readLines}}.
 }
 \examples{
-foo <- c("f1", "A", "f2", rep("B", 4), "t1", "f3", "C", "t2",
-         rep("D", 4), "t3")
+foo <- c("First", "f1", "A", "f2", rep("B", 4), "t1", "f3", "C", "t2",
+         rep("D", 4), "t3", "Last")
 fromto(foo, "^f", "^t")
+fromto(foo, NA, "^t")
+fromto(foo, "^f", NA)
 fromto(foo, "^f", "^t", from_i = 2)
 fromto(foo, "^f", "^t", from_i = 2, to_i = 2)
 fromto(foo, "^f", "^t", from_i = 2, to_i = 2, shift_from = 1, shift_to = -1)

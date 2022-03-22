@@ -24,6 +24,23 @@ test_fromto <- function() {
     expectation <- c("A", "f2", "B", "B", "B", "B", "t1", "f3",
                      "C", "t2", "D", "D")
     RUnit::checkIdentical(result, expectation)
+    # give NA
+    foo <- c("f1", "A", "f2", rep("B", 4), "t1", "f3", "C", "t2",
+             rep("D", 4), "t3")
+    result <- fromto(foo, "^A", "^B", to_i = 3)
+    expectation <- c("A", "f2", "B", "B", "B")
+    RUnit::checkIdentical(result, expectation)
+
+    result <- fromto(foo, NA, "^B", to_i = 3)
+    expectation <- c("f1", "A", "f2", "B", "B", "B")
+    RUnit::checkIdentical(result, expectation)
+
+    result <- fromto(foo, NA, NA, to_i = 3)
+    expectation <- foo
+    RUnit::checkIdentical(result, expectation)
+
+    RUnit::checkException(fromto(x = foo, from = "^Not_there", to = "B"))
+    RUnit::checkException(fromto(x = foo, from = NA, to = "^Not_there"))
 }
 
 if (interactive()) {

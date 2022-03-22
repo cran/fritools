@@ -85,7 +85,7 @@ is_null_or_true <- function(x)
 #'                        inherits = FALSE))
 #' }
 #' f()
-#' ### We use this to check whether an option is set to something 
+#' ### We use this to check whether an option is set to something
 #' ### different than FALSE:
 #' # Make sure an option is not set:
 #' set_options("test" = NULL, package = "fritools")

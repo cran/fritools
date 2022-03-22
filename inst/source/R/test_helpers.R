@@ -71,7 +71,7 @@ is_running_on_fvafrcu_machines <- function(type = c("any", "cu", "fvafr")) {
     r <- switch(match.arg(type),
                 "cu" = h,
                 "fva" = v || w,
-                "any" =,
+                "any" = ,
                 h || v || w)
     return(r)
 }

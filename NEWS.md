@@ -1,15 +1,24 @@
+# fritools 3.3.0
+
+* Added `view()` as an unix equivalent to `shell.exec()`.
+* Added `vim()` as a wrapper to `file.edit()`.
+* Added `file_copy()` to force copying while backing up.
+* Added `file_save()` to create backup copies for files.
+* Added appropriate error messages to `fromto()` and allowing for NA in its
+  arguments `from` and `to` to read from first item and to last item.
+
 # fritools 3.2.0
 
 * Added function `round_half_away_from_zero()` that implements commercial
   rounding.
-* Added function `str2num()` to convert string reprensentations of (potentially
+* Added function `str2num()` to convert string representations of (potentially
   German) numbers.
 
 # fritools 3.1.0
 
 * Added a global option to pass `.GlobalEnv` as default environment to 
   `wipe_clean()`.
-* Added calls to 'Sys.sleep(1)' to unit testing to ensure that the files' time
+* Added calls to `Sys.sleep(1)` to unit testing to ensure that the files' time
   stamps are correct.
 
 # fritools 3.0.0

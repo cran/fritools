@@ -1,10 +1,10 @@
 #' Round Half Away From Zero
 #'
-#' Commerical rounding is done a lot, especially with invoices. There is even 
-#' standard 1333 by the German Institute for Standardisation.  
+#' Commercial rounding is done a lot, especially with invoices. There is even
+#' standard 1333 by the German Institute for Standardization.
 #' \code{\link{round}} rounds half to even, see \code{\link{round}}'s Details
 #' section.
-#' @param x A number to be rounded. 
+#' @param x A number to be rounded.
 #' @param digits The number of digits, as in \code{\link{round}}.
 #' @return The rounded number.
 #' @export

@@ -43,11 +43,15 @@ Other logical helpers:
 \code{\link{is_windows}()}
 
 Other operating system functions: 
+\code{\link{file_copy}()},
+\code{\link{file_save}()},
 \code{\link{get_boolean_envvar}()},
 \code{\link{get_run_r_tests}()},
 \code{\link{is_installed}()},
 \code{\link{is_r_package_installed}()},
 \code{\link{is_windows}()},
+\code{\link{view}()},
+\code{\link{vim}()},
 \code{\link{with_dir}()}
 }
 \concept{logical helpers}

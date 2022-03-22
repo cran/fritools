@@ -18,8 +18,8 @@ round_commercially(x, digits = 0)
 The rounded number.
 }
 \description{
-Commerical rounding is done a lot, especially with invoices. There is even 
-standard 1333 by the German Institute for Standardisation.  
+Commercial rounding is done a lot, especially with invoices. There is even
+standard 1333 by the German Institute for Standardization.
 \code{\link{round}} rounds half to even, see \code{\link{round}}'s Details
 section.
 

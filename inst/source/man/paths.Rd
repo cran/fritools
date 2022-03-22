@@ -42,7 +42,9 @@ get_path(x)
 }
 \seealso{
 Other file utilities: 
+\code{\link{file_copy}()},
 \code{\link{file_modified_last}()},
+\code{\link{file_save}()},
 \code{\link{find_files}()},
 \code{\link{get_mtime}()},
 \code{\link{get_unique_string}()},

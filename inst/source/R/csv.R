@@ -92,7 +92,7 @@ NULL
 #' @description
 #' \code{read_csv} is a wrapper to determine whether to use
 #' \code{\link[utils:read.csv2]{utils:read.csv2}} or
-#' \code{\link[utils:read.csv2]{utils:read.csv2}}.
+#' \code{\link[utils:read.csv]{utils:read.csv}}.
 #' It sets the above three arguments.
 #' @rdname csv
 #' @aliases read_csv

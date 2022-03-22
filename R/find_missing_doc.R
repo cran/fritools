@@ -7,7 +7,6 @@
 #' @param path Path to a (package) directory.
 #' @param list_families List the function families defined so far.
 #' @family searching functions
-#' @examples
 NULL
 
 
@@ -57,7 +56,7 @@ find_missing_family <- function(path, list_families = TRUE, clean = TRUE) {
                             split_code_file(code_file, wdir,
                                             write_to_disk = FALSE))
     }
-    with_family <- search_files("^#'.*@family", path = wdir, verbose = FALSE)
+    with_family <- search_files("^#' *@family", path = wdir, verbose = FALSE)
     with_doc <- search_files("^#' ", path = wdir, verbose = FALSE)
     with_rd_name <- search_files("^#' @rdname", path = wdir, verbose = FALSE)
     files_with_family <- summary(with_family)[["file"]]

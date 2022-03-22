@@ -40,7 +40,7 @@ functions are \code{\link{data.frame}s} with the following attributes:
 
 \code{read_csv} is a wrapper to determine whether to use
 \code{\link[utils:read.csv2]{utils:read.csv2}} or
-\code{\link[utils:read.csv2]{utils:read.csv2}}.
+\code{\link[utils:read.csv]{utils:read.csv}}.
 It sets the above three arguments.
 
 \code{write_csv} compares the \code{hash} value stored in the object's

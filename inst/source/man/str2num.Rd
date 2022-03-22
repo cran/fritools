@@ -13,7 +13,7 @@ str2num(x)
 The number as a numeric.
 }
 \description{
-If you read text containing  (possibly German, ie the decimals separated by
+If you read text containing  (possibly German, i.e. the decimals separated by
 comma and dots inserted for what they think of as readability) numbers, you
 may want to convert them to numeric.
 }

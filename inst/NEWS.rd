@@ -1,11 +1,22 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 3.3.0}{
+\itemize{
+\item Added \code{view()} as an unix equivalent to \code{shell.exec()}.
+\item Added \code{vim()} as a wrapper to \code{file.edit()}.
+\item Added \code{file_copy()} to force copying while backing up.
+\item Added \code{file_save()} to create backup copies for files.
+\item Added appropriate error messages to \code{fromto()} and allowing for NA in its
+arguments \code{from} and \code{to} to read from first item and to last item.
+}
+}
+
 \section{Changes in version 3.2.0}{
 \itemize{
 \item Added function \code{round_half_away_from_zero()} that implements commercial
 rounding.
-\item Added function \code{str2num()} to convert string reprensentations of (potentially
+\item Added function \code{str2num()} to convert string representations of (potentially
 German) numbers.
 }
 }
@@ -14,7 +25,7 @@ German) numbers.
 \itemize{
 \item Added a global option to pass \code{.GlobalEnv} as default environment to
 \code{wipe_clean()}.
-\item Added calls to 'Sys.sleep(1)' to unit testing to ensure that the files' time
+\item Added calls to \code{Sys.sleep(1)} to unit testing to ensure that the files' time
 stamps are correct.
 }
 }

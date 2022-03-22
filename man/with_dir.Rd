@@ -27,11 +27,15 @@ with_dir(temp_dir, getwd())
 }
 \seealso{
 Other operating system functions: 
+\code{\link{file_copy}()},
+\code{\link{file_save}()},
 \code{\link{get_boolean_envvar}()},
 \code{\link{get_run_r_tests}()},
 \code{\link{is_installed}()},
 \code{\link{is_r_package_installed}()},
 \code{\link{is_success}()},
-\code{\link{is_windows}()}
+\code{\link{is_windows}()},
+\code{\link{view}()},
+\code{\link{vim}()}
 }
 \concept{operating system functions}
