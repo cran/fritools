@@ -41,6 +41,7 @@ Other logical helpers:
 \code{\link{is_windows}()}
 
 Other operating system functions: 
+\code{\link{clipboard_path}()},
 \code{\link{file_copy}()},
 \code{\link{file_save}()},
 \code{\link{get_boolean_envvar}()},
@@ -50,6 +51,7 @@ Other operating system functions:
 \code{\link{is_windows}()},
 \code{\link{view}()},
 \code{\link{vim}()},
+\code{\link{wipe_tempdir}()},
 \code{\link{with_dir}()}
 
 Other package functions: 

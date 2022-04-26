@@ -11,8 +11,11 @@ test_file_save <- function() {
     f1 <- paste0(f, ".txt")
     touch(f1)
     RUnit::checkIdentical(length(dir(dirname(f), pattern = basename(f))), 3L)
-    file_save(f1) # file.copy gives a warning
+    file_save(f1)
     RUnit::checkIdentical(length(dir(dirname(f), pattern = basename(f))), 4L)
+    # now both files already exist
+    RUnit::checkTrue(any(file_save(f, f1), overwrite = TRUE))
+    RUnit::checkTrue(!any(file_save(f, f1)))
 }
 if (interactive()) {
     test_file_save()

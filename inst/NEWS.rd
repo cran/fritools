@@ -1,6 +1,25 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 3.4.0}{
+\itemize{
+\item Made \code{vim()} warn instead of throw when called non-interactively.
+\item \code{touch()} now digests paths to several files.
+Replaced argument \code{path} by \code{...} but the ui did not change.
+\item \code{vim()} now digests paths to several files.
+Replaced argument \code{file} by \code{...} but the ui did not change.
+\item \code{file_save()} now digests paths to several files.
+Replaced argument \code{x} by \code{...} but the ui did not change.
+\item \code{file_copy()} now digests paths to several files.
+\item Added \code{delete_trailing_whitespace()}.
+\item Added \code{develop_test()}.
+\item Added \code{wipe_tempdir()}.
+\item Added 'clipboard_path()` to help me with paths under Windows.
+\item \code{view()} now tries to use \code{program} only if it is installed.
+\item \code{is_files_current()} now warns, if any file is newer than \code{Sys.time()}.
+}
+}
+
 \section{Changes in version 3.3.0}{
 \itemize{
 \item Added \code{view()} as an unix equivalent to \code{shell.exec()}.

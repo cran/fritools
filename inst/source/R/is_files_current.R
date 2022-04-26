@@ -44,5 +44,7 @@ is_files_current <- function(..., newer_than = 1, units = "week",
     res <- res && is_difftime_less(min(times), Sys.time(),
                                    less_than = newer_than,
                                    units = units)
+    if (difftime(max(times), Sys.time()) > 0)
+        warning("At least one file is newer than Sys.time().")
     return(res)
 }

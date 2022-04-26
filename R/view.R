@@ -1,5 +1,5 @@
 #' View a File or Directory
-#' 
+#'
 #' Call \code{shell.exec} on windows, mimic \code{shell.exec}
 #' otherwise.
 #' @param path A path to a file or directory.
@@ -13,9 +13,9 @@
 #' view(path)
 view <- function(path, program = NA) {
     if (interactive()) {
-        if (!file.exists(path)) 
-            throw(paste0("Can't find ", path, " on your system.")) 
-        if (!is.na(program)) {
+        if (!file.exists(path))
+            throw(paste0("Can't find ", path, " on your system."))
+        if (!is.na(program) && is_installed(program)) {
             system2(program, path, wait = FALSE)
         } else {
             if (fritools::is_windows()) {
@@ -27,8 +27,8 @@ view <- function(path, program = NA) {
                     if (dir.exists(path)) {
                         list.files(path, full.names = TRUE)
                     } else {
-                        throw(paste0("Don't know how to open ", path, ".")) 
-                    } 
+                        throw(paste0("Don't know how to open ", path, "."))
+                    }
                 }
             }
         }

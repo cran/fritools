@@ -5,7 +5,7 @@ test_file_copy <- function() {
     RUnit::checkTrue(isFALSE(file_copy(f2, f1)))
     touch(f1)
     touch(f2)
-    touch(f2) # make sure that f2 is newer than f1
+    touch(f2)  # make sure that f2 is newer than f1
     RUnit::checkTrue(isFALSE(file_copy(f1, f2, stop_on_error = FALSE)))
     RUnit::checkException(file_copy(f1, f2, stop_on_error = TRUE))
     RUnit::checkTrue(file_copy(f2, f1))
@@ -19,12 +19,25 @@ test_file_copy <- function() {
     file_names <- list.files(dir, pattern = "first.*\\.R")
     RUnit::checkIdentical(length(file_names), 1L)
     RUnit::checkIdentical("first.R", file_names)
-    touch(f1)
+    Sys.sleep(1); touch(f1)
     RUnit::checkTrue(file_copy(f1, dir))
     file_names <- list.files(dir, pattern = "first.*\\.R")
     RUnit::checkIdentical(length(file_names), 2L)
     RUnit::checkTrue(any(grepl(pattern, file_names)))
-
+    expectation <- c(FALSE, TRUE)
+    result <- file_copy(c(f1, f2), dir)
+    if (interactive()) {
+        print(result)
+        print(expectation)
+        print("#%% times")
+        print(sapply(dir(dir, full.names = TRUE), file.mtime))
+        print(sapply(list(f1, f2), file.mtime))
+    }
+    RUnit::checkIdentical(result, expectation)
+    Sys.sleep(1); touch(f1)
+    expectation <- c(TRUE, FALSE)
+    result <- file_copy(c(f1, f2), dir, stop_on_error = FALSE)
+    RUnit::checkIdentical(result, expectation)
 }
 if (interactive()) {
     test_file_copy()

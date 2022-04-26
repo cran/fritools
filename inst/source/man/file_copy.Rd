@@ -16,8 +16,8 @@ file_copy(from, to, stop_on_error = FALSE, ...)
 \item{...}{Arguments passed to \code{\link{file.copy}}.}
 }
 \value{
-\code{\link[base:TRUE]{TRUE}} on success, 
-\code{\link[base:FALSE]{FALSE}} otherwise.
+A vector of  \code{\link[base:TRUE]{boolean}} values indicating
+success or failure.
 }
 \description{
 \code{\link{file.copy}} has an argument \code{overwrite} that allows for
@@ -25,9 +25,15 @@ overwriting existing files. But I often want to overwrite an existing file
 while creating a backup copy of that file.
 }
 \examples{
-touch(f1 <- file.path(tempdir(), "first.R"))
-touch(f2 <- file.path(tempdir(), "second.R"))
-file_copy(f2, f1)
+touch(f1 <- file.path(tempdir(), "first.R"),
+      f2 <- file.path(tempdir(), "second.R"))
+dir.create(t <- file.path(tempdir(), "foo"))
+file_copy(from = c(f2, f1), to = t)
+dir(t)
+touch(f1)
+touch(f2)
+file_copy(from = c(f2, f1), to = t)
+dir(t)
 list.files(tempdir(), pattern = "first.*\\\\.R")
 dir <- file.path(tempdir(), "subdir")
 dir.create(dir)
@@ -38,6 +44,9 @@ list.files(dir, pattern = "first.*\\\\.R")
 }
 \seealso{
 Other file utilities: 
+\code{\link{clipboard_path}()},
+\code{\link{delete_trailing_whitespace}()},
+\code{\link{develop_test}()},
 \code{\link{file_modified_last}()},
 \code{\link{file_save}()},
 \code{\link{find_files}()},
@@ -51,6 +60,7 @@ Other file utilities:
 \code{\link{touch}()}
 
 Other operating system functions: 
+\code{\link{clipboard_path}()},
 \code{\link{file_save}()},
 \code{\link{get_boolean_envvar}()},
 \code{\link{get_run_r_tests}()},
@@ -60,6 +70,7 @@ Other operating system functions:
 \code{\link{is_windows}()},
 \code{\link{view}()},
 \code{\link{vim}()},
+\code{\link{wipe_tempdir}()},
 \code{\link{with_dir}()}
 }
 \concept{file utilities}

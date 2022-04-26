@@ -27,6 +27,7 @@ with_dir(temp_dir, getwd())
 }
 \seealso{
 Other operating system functions: 
+\code{\link{clipboard_path}()},
 \code{\link{file_copy}()},
 \code{\link{file_save}()},
 \code{\link{get_boolean_envvar}()},
@@ -36,6 +37,7 @@ Other operating system functions:
 \code{\link{is_success}()},
 \code{\link{is_windows}()},
 \code{\link{view}()},
-\code{\link{vim}()}
+\code{\link{vim}()},
+\code{\link{wipe_tempdir}()}
 }
 \concept{operating system functions}

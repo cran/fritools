@@ -45,6 +45,7 @@ memory_hogs(unit = "Mb")
 }
 \seealso{
 Other R memory functions: 
-\code{\link{wipe_clean}()}
+\code{\link{wipe_clean}()},
+\code{\link{wipe_tempdir}()}
 }
 \concept{R memory functions}

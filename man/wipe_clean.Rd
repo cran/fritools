@@ -33,6 +33,7 @@ RUnit::checkIdentical(length(ls(envir = e)), 0L)
 }
 \seealso{
 Other R memory functions: 
-\code{\link{memory_hogs}()}
+\code{\link{memory_hogs}()},
+\code{\link{wipe_tempdir}()}
 }
 \concept{R memory functions}

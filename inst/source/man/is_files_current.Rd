@@ -54,6 +54,9 @@ is_files_current(p1, p2, p3, newer_than = 1, units = "secs",
 }
 \seealso{
 Other file utilities: 
+\code{\link{clipboard_path}()},
+\code{\link{delete_trailing_whitespace}()},
+\code{\link{develop_test}()},
 \code{\link{file_copy}()},
 \code{\link{file_modified_last}()},
 \code{\link{file_save}()},

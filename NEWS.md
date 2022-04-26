@@ -1,3 +1,20 @@
+# fritools 3.4.0
+
+* Made `vim()` warn instead of throw when called non-interactively.
+* `touch()` now digests paths to several files.
+  Replaced argument `path` by `...` but the ui did not change.
+* `vim()` now digests paths to several files.
+  Replaced argument `file` by `...` but the ui did not change.
+* `file_save()` now digests paths to several files.
+  Replaced argument `x` by `...` but the ui did not change.
+* `file_copy()` now digests paths to several files.
+* Added `delete_trailing_whitespace()`.
+* Added `develop_test()`.
+* Added `wipe_tempdir()`.
+* Added 'clipboard_path()` to help me with paths under Windows.
+* `view()` now tries to use `program` only if it is installed.
+* `is_files_current()` now warns, if any file is newer than `Sys.time()`.
+
 # fritools 3.3.0
 
 * Added `view()` as an unix equivalent to `shell.exec()`.

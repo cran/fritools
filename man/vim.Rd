@@ -4,10 +4,10 @@
 \alias{vim}
 \title{Edit a File With VIM if Possible}
 \usage{
-vim(file)
+vim(...)
 }
 \arguments{
-\item{file}{See \code{\link{file.edit}}.}
+\item{...}{See \code{\link{file.edit}}.}
 }
 \value{
 See \code{\link{file.edit}}.
@@ -17,12 +17,15 @@ Just a wrapper to \code{\link{file.edit}}, trying to use [g]vim as editor, if
 installed.
 }
 \examples{
-path <- file.path(tempdir(), "foo.txt")
-writeLines(c("abc", "xyz"), con = path)
-vim(path)
+if (interactive()) {
+    path <- file.path(tempdir(), "foo.txt")
+    writeLines(c("abc", "xyz"), con = path)
+    vim(path)
+}
 }
 \seealso{
 Other operating system functions: 
+\code{\link{clipboard_path}()},
 \code{\link{file_copy}()},
 \code{\link{file_save}()},
 \code{\link{get_boolean_envvar}()},
@@ -32,6 +35,7 @@ Other operating system functions:
 \code{\link{is_success}()},
 \code{\link{is_windows}()},
 \code{\link{view}()},
+\code{\link{wipe_tempdir}()},
 \code{\link{with_dir}()}
 }
 \concept{operating system functions}

@@ -2,18 +2,19 @@
 % Please edit documentation in R/file_save.R
 \name{file_save}
 \alias{file_save}
-\title{Create a Copy of a File}
+\title{Create a Copies of  Files}
 \usage{
 file_save(
-  x,
+  ...,
   file_extension_pattern = "\\\\.[A-z]{1,5}$",
   force = TRUE,
-  recursive = dir.exists(x),
-  stop_on_error = TRUE
+  recursive = NA,
+  stop_on_error = TRUE,
+  overwrite = FALSE
 )
 }
 \arguments{
-\item{x}{A path to a file.}
+\item{...}{Paths to files.}
 
 \item{file_extension_pattern}{A Pattern to mark a file extension. If matched,
 the time stamp will get inserted before that pattern.}
@@ -21,29 +22,36 @@ the time stamp will get inserted before that pattern.}
 \item{force}{Force even if \code{file_extension_pattern} is not matched. Set
 to \code{\link{FALSE}} to skip stamping such files.}
 
-\item{recursive}{Passed to \code{\link{file.copy}}.}
+\item{recursive}{Passed to \code{\link{file.copy}}. Defaults to `if the
+current path is a directory, then TRUE, else FALSE`.}
 
 \item{stop_on_error}{Throw an exception on error?}
+
+\item{overwrite}{Passed to \code{\link{file.copy}}.}
 }
 \value{
-\code{\link[base:TRUE]{TRUE}} on success, 
-\code{\link[base:FALSE]{FALSE}} otherwise.
+A vector of  \code{\link[base:TRUE]{boolean}} values indicating
+success or failure.
 }
 \description{
-I often want a timestamped copy as backup of a file or directory.
+I often want a timestamped copies as backup of files or directories.
 }
 \examples{
-f <- tempfile()
-try(file_save(f))
-touch(f)
-file_save(f, recursive = FALSE)
-f <- paste0(file.path(tempfile()), ".txt")
-touch(f)
-file_save(f) # file.copy gives a warning
+f1 <- tempfile()
+f2 <- tempfile()
+try(file_save(f1))
+touch(f1)
+file_save(f1, recursive = FALSE)
+f2 <- paste0(file.path(tempfile()), ".txt")
+touch(f2)
+file_save(f1, f2)
+file_save(f1, f2)
+file_save(f1, f2, overwrite = TRUE)
 dir(tempdir())
 }
 \seealso{
 Other operating system functions: 
+\code{\link{clipboard_path}()},
 \code{\link{file_copy}()},
 \code{\link{get_boolean_envvar}()},
 \code{\link{get_run_r_tests}()},
@@ -53,9 +61,13 @@ Other operating system functions:
 \code{\link{is_windows}()},
 \code{\link{view}()},
 \code{\link{vim}()},
+\code{\link{wipe_tempdir}()},
 \code{\link{with_dir}()}
 
 Other file utilities: 
+\code{\link{clipboard_path}()},
+\code{\link{delete_trailing_whitespace}()},
+\code{\link{develop_test}()},
 \code{\link{file_copy}()},
 \code{\link{file_modified_last}()},
 \code{\link{find_files}()},

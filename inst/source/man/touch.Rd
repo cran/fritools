@@ -2,25 +2,31 @@
 % Please edit documentation in R/touch.R
 \name{touch}
 \alias{touch}
+\alias{touch2}
 \title{Mock the Unix \command{touch} Utility}
 \usage{
-touch(path)
+touch(...)
+
+touch2(...)
 }
 \arguments{
-\item{path}{Path to the file to be touched.}
+\item{...}{Paths to files.}
 }
 \value{
-The Path to the file touched.
+The Paths to the files touched.
 }
 \description{
-Creating a file or ensuring a file's modification time changes.
+Creating files or ensuring that their file modification times change.
+
+\code{touch2} is an alternate - yet not faster - implementation.
 }
 \examples{
-file <- tempfile()
-touch(file)
-t1 <- file.mtime(file)
-touch(file)
-t2 <- file.mtime(file)
+file1 <- tempfile()
+file2 <- tempfile()
+touch(file1, file2)
+t1 <- file.mtime(file1, file2)
+touch(file2)
+t2 <- file.mtime(file1, file2)
 t1 < t2
 file <- file.path(tempfile(), "path", "not", "there.txt")
 touch(file)
@@ -28,6 +34,9 @@ file.exists(file)
 }
 \seealso{
 Other file utilities: 
+\code{\link{clipboard_path}()},
+\code{\link{delete_trailing_whitespace}()},
+\code{\link{develop_test}()},
 \code{\link{file_copy}()},
 \code{\link{file_modified_last}()},
 \code{\link{file_save}()},
