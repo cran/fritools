@@ -1,3 +1,8 @@
+# fritools 3.5.0
+
+* Added `delete_trailing_blank_lines()`.
+* `view()` now uses `base::shQuote()` under Unix.
+
 # fritools 3.4.0
 
 * Made `vim()` warn instead of throw when called non-interactively.

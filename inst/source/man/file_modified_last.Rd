@@ -38,6 +38,7 @@ Other searching functions:
 
 Other file utilities: 
 \code{\link{clipboard_path}()},
+\code{\link{delete_trailing_blank_lines}()},
 \code{\link{delete_trailing_whitespace}()},
 \code{\link{develop_test}()},
 \code{\link{file_copy}()},

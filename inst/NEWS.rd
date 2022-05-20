@@ -1,6 +1,13 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 3.5.0}{
+\itemize{
+\item Added \code{delete_trailing_blank_lines()}.
+\item \code{view()} now uses \code{base::shQuote()} under Unix.
+}
+}
+
 \section{Changes in version 3.4.0}{
 \itemize{
 \item Made \code{vim()} warn instead of throw when called non-interactively.

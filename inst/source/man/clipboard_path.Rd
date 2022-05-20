@@ -36,6 +36,7 @@ Other operating system functions:
 \code{\link{with_dir}()}
 
 Other file utilities: 
+\code{\link{delete_trailing_blank_lines}()},
 \code{\link{delete_trailing_whitespace}()},
 \code{\link{develop_test}()},
 \code{\link{file_copy}()},

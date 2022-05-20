@@ -35,6 +35,7 @@ file an the corresponding unit testing file.
 \seealso{
 Other file utilities: 
 \code{\link{clipboard_path}()},
+\code{\link{delete_trailing_blank_lines}()},
 \code{\link{delete_trailing_whitespace}()},
 \code{\link{file_copy}()},
 \code{\link{file_modified_last}()},

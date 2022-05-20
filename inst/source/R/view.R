@@ -21,13 +21,14 @@ view <- function(path, program = NA) {
             if (fritools::is_windows()) {
                 shell.exec(path)
             } else {
+                qpath <- shQuote(path)
                 if (fritools::is_installed("thunar"))
-                    system2("thunar", path, wait = FALSE)
+                    system2("thunar", qpath, wait = FALSE)
                 else {
-                    if (dir.exists(path)) {
-                        list.files(path, full.names = TRUE)
+                    if (dir.exists(qpath)) {
+                        list.files(qpath, full.names = TRUE)
                     } else {
-                        throw(paste0("Don't know how to open ", path, "."))
+                        throw(paste0("Don't know how to open ", qpath, "."))
                     }
                 }
             }

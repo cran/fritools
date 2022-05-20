@@ -64,13 +64,14 @@ is_running_on_fvafrcu_machines <- function(type = c("any", "cu", "fvafr")) {
         .Platform[["OS.type"]] == "unix" &&
         sys_info[["effective_user"]] %in%
         c("dominik.cullmann", "dominik", "nik")
-    w <- (grepl("^FVAFR-PC.*$", sys_info[["nodename"]]) ||
+    w <- (grepl("^FVAFR-PC.*$", sys_info[["nodename"]])
+          && sys_info[["effective_user"]] == "dominik.cullmann" ||
           grepl("^L-FVAFR-NB84223$", sys_info[["nodename"]])
-      ) && is_windows() && sys_info[["effective_user"]] == "dominik.cullmann"
+      ) && is_windows() 
 
     r <- switch(match.arg(type),
                 "cu" = h,
-                "fva" = v || w,
+                "fvafr" = v || w,
                 "any" = ,
                 h || v || w)
     return(r)
