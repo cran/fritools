@@ -1,3 +1,4 @@
+## -----------------------------------------------------------------------------
 path <- system.file(package = "fritools")
 m <- packager::build_manual(path = path,
                             output_directory = tempdir(),
@@ -6,6 +7,8 @@ path <- strsplit(grep("--output", m[["command"]], value = TRUE),
                  split = "=")[[1]][[2]]
 fritools::view(path, program = "evince")
 
+
+## -----------------------------------------------------------------------------
 path <- system.file(package = "fritools")
 if (file.exists(file.path(path, "source")))
     path <- file.path(path, "source")
@@ -16,3 +19,4 @@ if (length(missing) > 1) {
 } else {
     message("All functions with context.")
 }
+

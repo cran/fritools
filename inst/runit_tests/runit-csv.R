@@ -37,7 +37,8 @@ test_csv <- function() {
     if (fritools::is_running_on_fvafrcu_machines())
         RUnit::checkIdentical(strip_off_attributes(get_path(a)), f)
 
-    mtime <- file.info(f)[["mtime"]]; Sys.sleep(1)
+    mtime <- file.info(f)[["mtime"]]
+    Sys.sleep(1)
 
     #% read file, setup expectation
     a <- read_csv(f)
@@ -82,7 +83,8 @@ test_csv <- function() {
     ##% on a: hash not updated, still writing:
     RUnit::checkTrue(mtime < file.info(f)[["mtime"]])
     ##% on result: hash already updated, not writing with digest:
-    mtime <- file.info(f)[["mtime"]]; Sys.sleep(1)
+    mtime <- file.info(f)[["mtime"]]
+    Sys.sleep(1)
     write_csv(result)
     if (has_digest()) {
         RUnit::checkIdentical(mtime, file.info(f)[["mtime"]])

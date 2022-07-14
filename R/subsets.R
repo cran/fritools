@@ -21,12 +21,11 @@ subset_sizes <- function(n, k) {
     } else {
         if (n %% k == 0) {
             res <- rep(n / k, k)
-        }
-        else {
-        fl <- floor(n / k)
-        ce <- ceiling(n / k)
-        res <- c(rep(ce, round((n / k - fl) * k)),
-                 rep(fl, round((1 - (n / k - fl)) * k)))
+        } else {
+            fl <- floor(n / k)
+            ce <- ceiling(n / k)
+            res <- c(rep(ce, round((n / k - fl) * k)),
+                     rep(fl, round((1 - (n / k - fl)) * k)))
         }
     }
     return(res)

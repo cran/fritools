@@ -86,12 +86,15 @@ tapply <- function(object, index, func = NULL, ..., default = NA,
     idx <- as.logical(lengths(ans))
     ans <- lapply(X = ans[idx], FUN = func, ...)
     ansmat <- array(if (simplify && all(lengths(ans) == 1L)) {
-        ans <- unlist(ans, recursive = FALSE, use.names = FALSE)
-        if (!is.null(ans) && is.na(default) && is.atomic(ans))
-            vector(typeof(ans))
-        else default
-    }
-    else vector("list", prod(extent)), dim = extent, dimnames = namelist)
+                        ans <- unlist(ans, recursive = FALSE, use.names = FALSE)
+                        if (!is.null(ans) && is.na(default) && is.atomic(ans))
+                            vector(typeof(ans))
+                        else
+                            default
+                   } else {
+                       vector("list", prod(extent))
+                   },
+                   dim = extent, dimnames = namelist)
     if (length(ans)) {
         ansmat[idx] <- ans
     }

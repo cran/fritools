@@ -30,13 +30,20 @@ file_save <- function(..., file_extension_pattern = "\\.[A-z]{1,5}$",
                        force = TRUE, recursive = NA,
                        stop_on_error = TRUE, overwrite = FALSE) {
     l <- list(...)
-    res <- sapply(l, function(x) .file_save( x = x,
-                  file_extension_pattern = file_extension_pattern,
-                       force = force, recursive = dir.exists(x),
-                       stop_on_error = stop_on_error, overwrite = overwrite),
-                  USE.NAMES = FALSE)
+    fep <- file_extension_pattern # sooth lintr
+    res <- sapply(l, function(x) {
+                      res <- .file_save(x = x,
+                                        file_extension_pattern = fep,
+                                        force = force,
+                                        recursive = dir.exists(x),
+                                        stop_on_error = stop_on_error,
+                                        overwrite = overwrite)
+                      return(res)
+                       },
+                      USE.NAMES = FALSE)
     return(res)
 }
+
 .file_save <- function(x, file_extension_pattern = "\\.[A-z]{1,5}$",
                        force = TRUE, recursive = dir.exists(x),
                        stop_on_error = TRUE, overwrite = FALSE) {

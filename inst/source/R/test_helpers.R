@@ -67,7 +67,7 @@ is_running_on_fvafrcu_machines <- function(type = c("any", "cu", "fvafr")) {
     w <- (grepl("^FVAFR-PC.*$", sys_info[["nodename"]])
           && sys_info[["effective_user"]] == "dominik.cullmann" ||
           grepl("^L-FVAFR-NB84223$", sys_info[["nodename"]])
-      ) && is_windows() 
+      ) && is_windows()
 
     r <- switch(match.arg(type),
                 "cu" = h,

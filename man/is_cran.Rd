@@ -18,7 +18,7 @@ elements of
    \code{Sys.getenv('_n_R_CHECK4CRAN_')} if available and 5 if not.}
 }
 \value{
-A logical scalar with attributes \samp{'Sys.getenv'} containing the
+A logical scalar with attributes \samp{'sys_getenv'} containing the
  results of \code{Sys.getenv()} and 'matches' containing \code{i} per step 3
  above.
 }

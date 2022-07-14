@@ -5,7 +5,7 @@ test_find_files <- function() {
     if (interactive()) unlink(temp_dir, recursive = TRUE)
     path <- file.path(temp_dir, "foo")
     dir.create(path, recursive = TRUE)
-    files <- sort(unname(sapply(file.path(path,
+    files <- sort(unname(sapply(file.path(path, # Exclude Linting false positive
                                           paste0(sample(letters, 10),
                                                  ".", c("R", "Rnw", "txt"))),
                                 touch)))
@@ -65,7 +65,7 @@ test_find_selection <- function() {
     if (interactive()) unlink(temp_dir, recursive = TRUE)
     path <- file.path(temp_dir, "foo")
     dir.create(path, recursive = TRUE)
-    files <- sort(unname(sapply(file.path(path,
+    files <- sort(unname(sapply(file.path(path, # Exclude Linting false positive
                                           paste0(sample(letters, 10),
                                                  ".", c("R", "Rnw", "txt"))),
                                 touch)))

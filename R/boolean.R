@@ -38,8 +38,7 @@ is_false <- function(x) {
 #' is_null_or_true(NULL) # TRUE
 #' suppressWarnings(rm("not_defined"))
 #' try(is_null_or_true(not_defined)) # error
-is_null_or_true <- function(x)
-    return(isTRUE(x) || is.null(x))
+is_null_or_true <- function(x) return(isTRUE(x) || is.null(x))
 
 #' Is an Object Set and not Set to \code{\link[base:FALSE]{FALSE}}?
 #'

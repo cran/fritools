@@ -1,5 +1,5 @@
 if (interactive()) pkgload::load_all(".")
-test_delete_trailing_whitespace <- function() {
+test_delete_trailing_white <- function() {
     template <- system.file("files", "blanks.txt", package = "fritools")
     input <- tempfile()
     file.copy(template, input)

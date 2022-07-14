@@ -12,19 +12,17 @@
 #' writeLines(c("abc", "xyz"), con = path)
 #' view(path)
 view <- function(path, program = NA) {
+    qpath <- shQuote(normalizePath(path, mustWork = TRUE))
     if (interactive()) {
-        if (!file.exists(path))
-            throw(paste0("Can't find ", path, " on your system."))
         if (!is.na(program) && is_installed(program)) {
-            system2(program, path, wait = FALSE)
+            system2(program, qpath, wait = FALSE)
         } else {
             if (fritools::is_windows()) {
-                shell.exec(path)
+                shell.exec(path) # Exclude Linting: this is windows only
             } else {
-                qpath <- shQuote(path)
-                if (fritools::is_installed("thunar"))
+                if (fritools::is_installed("thunar")) {
                     system2("thunar", qpath, wait = FALSE)
-                else {
+                } else {
                     if (dir.exists(qpath)) {
                         list.files(qpath, full.names = TRUE)
                     } else {

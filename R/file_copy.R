@@ -43,7 +43,7 @@ file_copy <- function(from, to, stop_on_error = FALSE, ...) {
         } else {
             warning(msg)
         }
-    } 
+    }
     is_target_exists <- file.exists(target)
     if (any(is_target_exists)) {
         do.call("file_save",

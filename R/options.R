@@ -1,5 +1,5 @@
-# programmatically set options
 .options <- function(name, value) {
+    # programmatically set options
     eval(parse(text = paste("options(", name, "= value)")))
 }
 
@@ -103,5 +103,7 @@ get_options <- function(..., package_name = .packages()[1],
 #' set_options(list(force = FALSE))
 #' get_options(flatten_list = FALSE)
 #' is_force()
-is_force <- function(x = .packages()[1])
-    return(is_null_or_true(getOption(x)[["force"]]))
+is_force <- function(x = .packages()[1]) {
+    res <- is_null_or_true(getOption(x)[["force"]])
+    return(res)
+}

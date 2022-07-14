@@ -23,7 +23,8 @@ if (get_boolean_envvar("IS_RUNIT") && get_run_r_tests()) {
         RUnit::checkIdentical(tarball, package_tarball)
         touch(file.path(tempdir, "foo.tar.gz"))
         expectation <- file.path(tempdir, "bar.tar.gz")
-        touch(expectation); touch(expectation)
+        Sys.sleep(1)
+        touch(expectation)
         # touch twice to ensure that expectation is than bar.tar.gz
         RUnit::checkIdentical(fritools:::get_current_tarball(tempdir),
                               expectation)

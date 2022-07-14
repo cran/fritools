@@ -1,6 +1,6 @@
 #' Wipe Clean the \code{tempdir()}
 #'
-#' I often need a clean temporary directory. 
+#' I often need a clean temporary directory.
 #' @param recreate Use the method described in the examples section of
 #' \code{\link{tempdir}} (using \code{tempdir(check = TRUE)}, this results in a
 #' new path.)
@@ -28,5 +28,3 @@ wipe_tempdir <- function(recreate = FALSE) {
     }
     return(invisible(res))
 }
-
-

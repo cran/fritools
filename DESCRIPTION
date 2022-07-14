@@ -1,7 +1,7 @@
 Package: fritools
 Title: Utilities for the Forest Research Institute of the State
         Baden-Wuerttemberg
-Version: 3.5.0
+Version: 3.5.1
 Authors@R: 
     person(given = "Andreas Dominik",
            family = "Cullmann",
@@ -24,15 +24,15 @@ Depends: R (>= 3.3.0)
 Imports: methods, stats, utils
 Suggests: callr, checkmate, covr, desc, devtools, digest, knitr,
         packager (>= 1.9.0), pkgload, reshape, rmarkdown, RUnit,
-        testthat (>= 3.0.0), tinytest, whoami
-VignetteBuilder: knitr
+        testthat (>= 3.0.0), tinytest, whoami, rasciidoc
+VignetteBuilder: rasciidoc, knitr
 Encoding: UTF-8
 Language: en-US
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.0
 Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2022-05-20 15:14:10 UTC; qwer
+Packaged: 2022-07-14 14:56:06 UTC; qwer
 Author: Andreas Dominik Cullmann [aut, cre]
 Maintainer: Andreas Dominik Cullmann <fvafrcu@mailbox.org>
 Repository: CRAN
-Date/Publication: 2022-05-20 15:50:05 UTC
+Date/Publication: 2022-07-14 15:30:02 UTC

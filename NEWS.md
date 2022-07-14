@@ -1,3 +1,10 @@
+# fritools 3.5.1
+
+* `view()` now normalizes the path first in order to deal with blanks in the
+  path.
+* Added example to vignette.
+* Linted exhaustively.
+
 # fritools 3.5.0
 
 * Added `delete_trailing_blank_lines()`.

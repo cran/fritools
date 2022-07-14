@@ -1,6 +1,15 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 3.5.1}{
+\itemize{
+\item \code{view()} now normalizes the path first in order to deal with blanks in the
+path.
+\item Added example to vignette.
+\item Linted exhaustively.
+}
+}
+
 \section{Changes in version 3.5.0}{
 \itemize{
 \item Added \code{delete_trailing_blank_lines()}.

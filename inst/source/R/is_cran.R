@@ -37,7 +37,7 @@
 #'    \code{Sys.getenv()} have names matching x.  Defaults to
 #'    \code{Sys.getenv('_n_R_CHECK4CRAN_')} if available and 5 if not.
 #' @return
-#'  A logical scalar with attributes \samp{'Sys.getenv'} containing the
+#'  A logical scalar with attributes \samp{'sys_getenv'} containing the
 #'  results of \code{Sys.getenv()} and 'matches' containing \code{i} per step 3
 #'  above.
 #' @export
@@ -68,7 +68,7 @@ is_cran <- function(cran_pattern, n_r_check4cran) {
     for (pati in cran_pattern)
         i <- i[grep(pati, ngete[i])]
     is_cran <- (length(i) >= n_r_check4cran)
-    attr(is_cran, "sys.getenv") <- gete
+    attr(is_cran, "sys_getenv") <- gete
     attr(is_cran, "matches") <- i
     return(is_cran)
 }
