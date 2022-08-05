@@ -15,15 +15,20 @@ clipboard_path <- function() {
     if (interactive()) {
         scanned <- scan(file = "clipboard", what = "")
         if (is_windows()) {
+            items <- unlist(strsplit(scanned, split = "\\\\"))
             value <- paste0("file.path(\"",
-                            (paste(unlist(strsplit(scanned, split = "\\\\")),
-                                   collapse = "\", \"")), "\")")
+                            paste(items, collapse = "\", \""),
+                            "\")")
             utils::writeClipboard(value)
             message("Copied `", value, "` to clipboard.")
+        } else {
+            items <- unlist(strsplit(scanned, split = "/"))
+            value <- paste0("file.path('",
+                            paste(items, collapse = "', '"),
+                            "')")
+            message(gsub("'", "\"", value))
         }
-        res <-  do.call("file.path",
-                        as.list(unlist(strsplit(scanned,
-                                                split = "\\\\"))))
+        res <-  do.call("file.path", as.list(items))
         if (!file.exists(res))
             warning("Are you sure you copied a path to the clipboard?",
                     "\nGot ", scanned)

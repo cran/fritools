@@ -1,3 +1,11 @@
+# fritools 3.6.0
+
+* `split_code_file()` now works with files with hidden functions (i.e. function
+  whose names start with a period).
+* Under unix, `clipboard_path()` now prints the path as `file.path` to the console.
+* Added `count_groups()`, a specialized wrapper to `stats::aggregate()`, gives 
+  results similar to `dplyr::count()`.
+
 # fritools 3.5.1
 
 * `view()` now normalizes the path first in order to deal with blanks in the

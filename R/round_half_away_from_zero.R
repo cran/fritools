@@ -8,7 +8,7 @@
 #' @param digits The number of digits, as in \code{\link{round}}.
 #' @return The rounded number.
 #' @export
-#' @family bits and pieces
+#' @family statistics
 #' @examples
 #' x <- 22.5
 #' round_half_away_from_zero(x)

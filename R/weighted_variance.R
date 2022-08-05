@@ -4,7 +4,7 @@
 #' @param x A numeric \code{\link{vector}} or \code{\link{data.frame}}.
 #' @param ... Other arguments ignored.
 #' @export
-#' @family bits and pieces
+#' @family statistics
 weighted_variance <- function(x, ...) {
     UseMethod("weighted_variance", x)
 }

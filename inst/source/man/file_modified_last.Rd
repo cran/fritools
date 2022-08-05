@@ -7,7 +7,7 @@
 file_modified_last(...)
 }
 \arguments{
-\item{...}{Arguments passed to \code{\link{list.files}}.}
+\item{...}{Arguments passed to \code{\link{find_files}}.}
 }
 \value{
 The path to the file last modified.

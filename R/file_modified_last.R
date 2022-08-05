@@ -1,7 +1,7 @@
 #' Get the File Modified Last
 #'
 #' I often look for the  file modified last under some directory.
-#' @param ... Arguments passed to \code{\link{list.files}}.
+#' @param ... Arguments passed to \code{\link{find_files}}.
 #' @return The path to the file last modified.
 #' @family searching functions
 #' @family file utilities

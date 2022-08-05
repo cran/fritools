@@ -1,6 +1,16 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 3.6.0}{
+\itemize{
+\item \code{split_code_file()} now works with files with hidden functions (i.e. function
+whose names start with a period).
+\item Under unix, \code{clipboard_path()} now prints the path as \code{file.path} to the console.
+\item Added \code{count_groups()}, a specialized wrapper to \code{stats::aggregate()}, gives
+results similar to \code{dplyr::count()}.
+}
+}
+
 \section{Changes in version 3.5.1}{
 \itemize{
 \item \code{view()} now normalizes the path first in order to deal with blanks in the

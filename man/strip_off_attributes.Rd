@@ -29,10 +29,8 @@ Other bits and pieces:
 \code{\link{is_difftime_less}()},
 \code{\link{is_valid_primary_key}()},
 \code{\link{r_cmd_install}()},
-\code{\link{round_half_away_from_zero}()},
 \code{\link{str2num}()},
 \code{\link{tapply}()},
-\code{\link{throw}()},
-\code{\link{weighted_variance}()}
+\code{\link{throw}()}
 }
 \concept{bits and pieces}

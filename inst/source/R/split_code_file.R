@@ -34,7 +34,7 @@ split_code_file <- function(file, output_directory = tempdir(),
            encoding = encoding)
     content <- readLines(file, encoding = encoding)
     funs <- NULL
-    names <- ls(e)
+    names <- ls(e, all.names = TRUE)
     for (name in names) {
         if (is.function(e[[name]])) {
             funs <- rbind(funs,
