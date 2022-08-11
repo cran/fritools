@@ -61,11 +61,9 @@
 #' find_files(path = tempdir(), pattern = ".*",
 #'            select = list(size = c(min = 1000))
 #'            )
-find_files <- function(file_names = NA, path = ".",
-                       pattern = ".*\\.[RrSs]$|.*\\.[RrSs]nw$",
-                       all_files = TRUE, recursive = FALSE,
-                       ignore_case = FALSE, find_all = FALSE,
-                       select = NA) {
+find_files <- function(path = ".", pattern = ".*\\.[RrSs]$|.*\\.[RrSs]nw$",
+                       file_names = NA, all_files = TRUE, recursive = FALSE,
+                       ignore_case = FALSE, find_all = FALSE, select = NA) {
     if (isTRUE(is.na(file_names))) {
         file_paths <- list.files(path = path, pattern = pattern,
                                   all.files = all_files,

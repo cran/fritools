@@ -3,7 +3,7 @@ test_delete_trailing_white <- function() {
     template <- system.file("files", "blanks.txt", package = "fritools")
     input <- tempfile()
     file.copy(template, input)
-    delete_trailing_whitespace(input)
+    delete_trailing_whitespace(file_names = input)
     result <- readLines(input)
     template <- readLines(template)
     RUnit::checkIdentical(nchar(result),

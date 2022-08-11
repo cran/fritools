@@ -55,7 +55,9 @@ fritools::tapply(object = mtcars,
 }
 \seealso{
 Other statistics: 
+\code{\link{column_sums}()},
 \code{\link{count_groups}()},
+\code{\link{relative_difference}()},
 \code{\link{round_half_away_from_zero}()}
 }
 \concept{statistics}

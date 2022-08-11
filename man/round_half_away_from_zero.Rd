@@ -34,7 +34,9 @@ round(-x)
 }
 \seealso{
 Other statistics: 
+\code{\link{column_sums}()},
 \code{\link{count_groups}()},
+\code{\link{relative_difference}()},
 \code{\link{weighted_variance}()}
 }
 \concept{statistics}

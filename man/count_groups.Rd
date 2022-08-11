@@ -25,6 +25,8 @@ RUnit::checkEquals(dplyr::count(mtcars, am, gear),
 }
 \seealso{
 Other statistics: 
+\code{\link{column_sums}()},
+\code{\link{relative_difference}()},
 \code{\link{round_half_away_from_zero}()},
 \code{\link{weighted_variance}()}
 }

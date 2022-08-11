@@ -3,11 +3,11 @@ test_delete_trailing_blank <- function() {
     template <- system.file("files", "blanks.txt", package = "fritools")
     input <- tempfile()
     file.copy(template, input)
-    delete_trailing_blank_lines(input)
+    delete_trailing_blank_lines(file_names = input)
     result <- readLines(input)
     template <- readLines(template)
     RUnit::checkIdentical(length(result), as.integer(length(template) - 2))
 }
 if (interactive()) {
-    test_delete_trailing_blank_lines()
+    test_delete_trailing_blank()
 }

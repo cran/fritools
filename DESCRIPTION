@@ -1,7 +1,7 @@
 Package: fritools
 Title: Utilities for the Forest Research Institute of the State
         Baden-Wuerttemberg
-Version: 3.6.0
+Version: 3.7.0
 Authors@R: 
     person(given = "Andreas Dominik",
            family = "Cullmann",
@@ -32,8 +32,8 @@ Language: en-US
 RoxygenNote: 7.2.1
 Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2022-08-05 16:39:58 UTC; qwer
+Packaged: 2022-08-11 22:34:18 UTC; qwer
 Author: Andreas Dominik Cullmann [aut, cre]
 Maintainer: Andreas Dominik Cullmann <fvafrcu@mailbox.org>
 Repository: CRAN
-Date/Publication: 2022-08-05 17:20:06 UTC
+Date/Publication: 2022-08-11 23:00:08 UTC

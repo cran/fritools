@@ -5,9 +5,9 @@
 \title{Find Files on Disk}
 \usage{
 find_files(
-  file_names = NA,
   path = ".",
   pattern = ".*\\\\.[RrSs]$|.*\\\\.[RrSs]nw$",
+  file_names = NA,
   all_files = TRUE,
   recursive = FALSE,
   ignore_case = FALSE,
@@ -16,12 +16,12 @@ find_files(
 )
 }
 \arguments{
-\item{file_names}{character vector of file names (to be checked if the files
-exist).}
-
 \item{path}{see \code{\link{list.files}}.}
 
 \item{pattern}{see \code{\link{list.files}}.}
+
+\item{file_names}{character vector of file names (to be checked if the files
+exist).}
 
 \item{all_files}{see \code{\link{list.files}}, argument \code{all.files}.}
 

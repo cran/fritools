@@ -37,5 +37,9 @@ Other searching functions:
 \code{\link{search_files}()},
 \code{\link{search_rows}()},
 \code{\link{summary.filesearch}()}
+
+Other vector comparing functions: 
+\code{\link{relative_difference}()}
 }
 \concept{searching functions}
+\concept{vector comparing functions}

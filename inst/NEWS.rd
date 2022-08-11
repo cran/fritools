@@ -1,6 +1,15 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 3.7.0}{
+\itemize{
+\item Changed argument order for \code{find_files()} from \verb{names, path, pattern} to
+\verb{path, pattern, names} for convenience.
+\item Added \code{relative_difference()},  a convenience wrapper to \code{base::all.equal()}
+\item Added \code{column_sums()}, a convenience wrapper to \code{base::colSums()}.
+}
+}
+
 \section{Changes in version 3.6.0}{
 \itemize{
 \item \code{split_code_file()} now works with files with hidden functions (i.e. function

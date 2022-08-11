@@ -8,6 +8,7 @@
 #' @param differences_only Report only the differences?
 #' @export
 #' @family searching functions
+#' @family vector comparing functions
 #' @return A matrix containing the side-by-side comparison.
 #' @examples
 #' data(mtcars)

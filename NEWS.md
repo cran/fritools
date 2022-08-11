@@ -1,3 +1,10 @@
+# fritools 3.7.0
+
+* Changed argument order for `find_files()` from `names, path, pattern` to
+  `path, pattern, names` for convenience.
+* Added `relative_difference()`,  a convenience wrapper to `base::all.equal()`
+* Added `column_sums()`, a convenience wrapper to `base::colSums()`.
+
 # fritools 3.6.0
 
 * `split_code_file()` now works with files with hidden functions (i.e. function
