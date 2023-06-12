@@ -2,13 +2,13 @@
 % Please edit documentation in R/batch.R
 \name{get_script_path}
 \alias{get_script_path}
-\title{Get the Path of the R Code File}
+\title{Get the Path of the '\R' Code File}
 \usage{
 get_script_path()
 }
 \value{
 A vector of \code{\link{length}} 1 and \code{\link{mode}}
-character giving the name of the R code file if R was run via
+character giving the name of the \R code file if \R was run via
 \command{R CMD BATCH} or
 \command{Rscript}.
 }

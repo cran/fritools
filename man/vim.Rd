@@ -2,7 +2,7 @@
 % Please edit documentation in R/vim.R
 \name{vim}
 \alias{vim}
-\title{Edit a File With VIM if Possible}
+\title{Edit a File With '\command{VIM}' if Possible}
 \usage{
 vim(...)
 }

@@ -1,4 +1,4 @@
-#' Is \R Running on CRAN?
+#' Is '\R' Running on CRAN?
 #'
 #' \emph{This is a verbatim copy of \code{fda::CRAN} of
 #' \pkg{fda} version 5.1.9.}

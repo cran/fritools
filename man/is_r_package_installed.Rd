@@ -2,7 +2,7 @@
 % Please edit documentation in R/installed.R
 \name{is_r_package_installed}
 \alias{is_r_package_installed}
-\title{Is an \R Package Installed?}
+\title{Is an '\R' Package Installed?}
 \usage{
 is_r_package_installed(x, version = "0")
 }

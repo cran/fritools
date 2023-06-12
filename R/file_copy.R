@@ -1,4 +1,4 @@
-#' Force Copying a File While backing it up
+#' Force Copying a File While Backing it up
 #'
 #' \code{\link{file.copy}} has an argument \code{overwrite} that allows for
 #' overwriting existing files. But I often want to overwrite an existing file

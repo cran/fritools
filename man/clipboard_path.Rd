@@ -2,7 +2,7 @@
 % Please edit documentation in R/clipboard_path.R
 \name{clipboard_path}
 \alias{clipboard_path}
-\title{Copy a Path from Clipboard to \R}
+\title{Copy a Path from Clipboard to '\R'}
 \usage{
 clipboard_path()
 }
@@ -43,8 +43,10 @@ Other file utilities:
 \code{\link{file_modified_last}()},
 \code{\link{file_save}()},
 \code{\link{find_files}()},
+\code{\link{get_lines_between_tags}()},
 \code{\link{get_mtime}()},
 \code{\link{get_unique_string}()},
+\code{\link{grep_file}()},
 \code{\link{is_files_current}()},
 \code{\link{is_path}()},
 \code{\link{paths}},

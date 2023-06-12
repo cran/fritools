@@ -29,16 +29,6 @@ files.
 I tend to find files with dozens of functions. They don't read well.
 So I split a code file into multiple files each containing a single function.
 }
-\examples{
-infile <- system.file("files", "test_helpers.R", package = "fritools")
-\dontrun{
-   file.show(infile)
-}
-paths <- split_code_file(file = infile)
-\dontrun{
-   file.show(paths[2])
-}
-}
 \seealso{
 Other file utilities: 
 \code{\link{clipboard_path}()},
@@ -49,8 +39,10 @@ Other file utilities:
 \code{\link{file_modified_last}()},
 \code{\link{file_save}()},
 \code{\link{find_files}()},
+\code{\link{get_lines_between_tags}()},
 \code{\link{get_mtime}()},
 \code{\link{get_unique_string}()},
+\code{\link{grep_file}()},
 \code{\link{is_files_current}()},
 \code{\link{is_path}()},
 \code{\link{paths}},

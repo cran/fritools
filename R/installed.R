@@ -1,4 +1,4 @@
-#' Is an \R Package Installed?
+#' Is an '\R' Package Installed?
 #'
 #' Is an \R package installed?
 #' @param x Name of the package as character string.

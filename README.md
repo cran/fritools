@@ -1,5 +1,5 @@
-[![pipeline status](https://gitlab.com/fvafrcu/fritools/badges/master/pipeline.svg)](https://gitlab.com/fvafrcu/fritools/-/commits/master)    
-[![coverage report](https://gitlab.com/fvafrcu/fritools/badges/master/coverage.svg)](https://gitlab.com/fvafrcu/fritools/-/commits/master)
+[![pipeline status](https://gitlab.com/fvafrcu/fritools2/badges/master/pipeline.svg)](https://gitlab.com/fvafrcu/fritools2/-/commits/master)    
+[![coverage report](https://gitlab.com/fvafrcu/fritools2/badges/master/coverage.svg)](https://gitlab.com/fvafrcu/fritools2/-/commits/master)
 <!-- 
     [![Build Status](https://travis-ci.org/fvafrcu/fritools.svg?branch=master)](https://travis-ci.org/fvafrcu/fritools)
     [![Coverage Status](https://codecov.io/github/fvafrcu/fritools/coverage.svg?branch=master)](https://codecov.io/github/fvafrcu/fritools?branch=master)
@@ -33,7 +33,8 @@ help("fritools-package", package = "fritools")
 #> Details:
 #> 
 #>      You will find the details in
-#>      'vignette("An_Introduction_to_fritools", package = "fritools")'.
+#>      'vignette("Not_an_Introduction_to_fritools", package =
+#>      "fritools")'.
 ```
 
 ## Installation

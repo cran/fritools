@@ -7,8 +7,7 @@
 wipe_clean(environment = getOption("wipe_clean_environment"), all_names = TRUE)
 }
 \arguments{
-\item{environment}{The environment that should be wiped clean.
-Defaults to \code{\link{.GlobalEnv}}.}
+\item{environment}{The environment that should be wiped clean.}
 
 \item{all_names}{See argument \code{all.names} for \code{\link{ls}}.}
 }
@@ -17,7 +16,8 @@ A character vector containing the names of objects removed, but
 called for its side effect of removing all objects from the environment.
 }
 \description{
-Wipe an environment, typically \code{\link{.GlobalEnv}}, clean.
+Wipe an environment clean. This is similar to the broom button in
+\command{RStudio}.
 }
 \examples{
 an_object <- 1

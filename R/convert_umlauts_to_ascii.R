@@ -1,4 +1,4 @@
-#' Convert German umlauts to a more or less suitable ascii representation.
+#' Convert German Umlauts to a More or Less Suitable `ascii` Representation
 #'
 #' @param x A string or \code{data.frame}.
 #' @return \bold{x} with the umlauts converted to ascii.

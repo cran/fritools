@@ -8,7 +8,7 @@
 #' @examples
 #' dir <- tempfile()
 #' dir.create(dir)
-#' file.copy(system.file("runit_tests", package = "fritools"), dir,
+#' file.copy(system.file("tinytest", package = "fritools"), dir,
 #'           recursive = TRUE)
 #' delete_trailing_whitespace(path = dir, recursive = TRUE)
 #' unlink(dir, recursive = TRUE)

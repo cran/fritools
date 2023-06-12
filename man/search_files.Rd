@@ -44,6 +44,7 @@ Other searching functions:
 \code{\link{file_modified_last}()},
 \code{\link{find_files}()},
 \code{\link{fromto}()},
+\code{\link{grep_file}()},
 \code{\link{missing_docs}},
 \code{\link{search_rows}()},
 \code{\link{summary.filesearch}()}
@@ -57,8 +58,10 @@ Other file utilities:
 \code{\link{file_modified_last}()},
 \code{\link{file_save}()},
 \code{\link{find_files}()},
+\code{\link{get_lines_between_tags}()},
 \code{\link{get_mtime}()},
 \code{\link{get_unique_string}()},
+\code{\link{grep_file}()},
 \code{\link{is_files_current}()},
 \code{\link{is_path}()},
 \code{\link{paths}},

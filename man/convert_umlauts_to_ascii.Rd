@@ -4,7 +4,7 @@
 \alias{convert_umlauts_to_ascii}
 \alias{convert_umlauts_to_ascii.character}
 \alias{convert_umlauts_to_ascii.data.frame}
-\title{Convert German umlauts to a more or less suitable ascii representation.}
+\title{Convert German Umlauts to a More or Less Suitable `ascii` Representation}
 \usage{
 convert_umlauts_to_ascii(x)
 
@@ -19,7 +19,7 @@ convert_umlauts_to_ascii(x)
 \bold{x} with the umlauts converted to ascii.
 }
 \description{
-Convert German umlauts to a more or less suitable ascii representation.
+Convert German Umlauts to a More or Less Suitable `ascii` Representation
 }
 \examples{
 string <- paste("this is \u00e4 string")

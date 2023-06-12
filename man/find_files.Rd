@@ -6,7 +6,7 @@
 \usage{
 find_files(
   path = ".",
-  pattern = ".*\\\\.[RrSs]$|.*\\\\.[RrSs]nw$",
+  pattern = NULL,
   file_names = NA,
   all_files = TRUE,
   recursive = FALSE,
@@ -83,8 +83,8 @@ find_files(path = tempdir(), pattern = paste0("^", basename(files[1]), "$"))
 try(find_files(file_names = tempfile(), path = tempdir()))
 #\% select by file size:
 write.csv(mtcars, file.path(tempdir(), "mtcars.csv"))
-find_files(path = tempdir(), pattern = ".*")
-find_files(path = tempdir(), pattern = ".*",
+find_files(path = tempdir())
+find_files(path = tempdir(),
            select = list(size = c(min = 1000))
            )
 }
@@ -93,6 +93,7 @@ Other searching functions:
 \code{\link{compare_vectors}()},
 \code{\link{file_modified_last}()},
 \code{\link{fromto}()},
+\code{\link{grep_file}()},
 \code{\link{missing_docs}},
 \code{\link{search_files}()},
 \code{\link{search_rows}()},
@@ -106,8 +107,10 @@ Other file utilities:
 \code{\link{file_copy}()},
 \code{\link{file_modified_last}()},
 \code{\link{file_save}()},
+\code{\link{get_lines_between_tags}()},
 \code{\link{get_mtime}()},
 \code{\link{get_unique_string}()},
+\code{\link{grep_file}()},
 \code{\link{is_files_current}()},
 \code{\link{is_path}()},
 \code{\link{paths}},

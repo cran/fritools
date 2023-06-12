@@ -2,7 +2,7 @@
 % Please edit documentation in R/is_r_cmd_check.R
 \name{is_r_cmd_check}
 \alias{is_r_cmd_check}
-\title{Is the Current R Process an \command{R CMD check}?}
+\title{Is the Current R Process an '\command{R CMD check}'?}
 \usage{
 is_r_cmd_check()
 }
@@ -33,6 +33,7 @@ Other logical helpers:
 \code{\link{is_windows}()}
 
 Other test helpers: 
+\code{\link{develop_test}()},
 \code{\link{get_boolean_envvar}()},
 \code{\link{get_run_r_tests}()},
 \code{\link{is_cran}()},

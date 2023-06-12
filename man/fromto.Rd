@@ -56,6 +56,7 @@ Other searching functions:
 \code{\link{compare_vectors}()},
 \code{\link{file_modified_last}()},
 \code{\link{find_files}()},
+\code{\link{grep_file}()},
 \code{\link{missing_docs}},
 \code{\link{search_files}()},
 \code{\link{search_rows}()},

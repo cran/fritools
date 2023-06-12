@@ -11,15 +11,6 @@
 #' @return \code{\link[base:invisible]{Invisibly}} a vector of paths to the new
 #' files.
 #' @family file utilities
-#' @examples
-#' infile <- system.file("files", "test_helpers.R", package = "fritools")
-#' \dontrun{
-#'    file.show(infile)
-#' }
-#' paths <- split_code_file(file = infile)
-#' \dontrun{
-#'    file.show(paths[2])
-#' }
 split_code_file <- function(file, output_directory = tempdir(),
                             encoding = getOption("encoding"),
                             write_to_disk = getOption("write_to_disk")) {

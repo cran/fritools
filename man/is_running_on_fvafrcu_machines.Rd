@@ -2,9 +2,9 @@
 % Please edit documentation in R/test_helpers.R
 \name{is_running_on_fvafrcu_machines}
 \alias{is_running_on_fvafrcu_machines}
-\title{Is the Machine Running the Current \R Process Owned by FVAFRCU?}
+\title{Is the Machine Running the Current '\R' Process Owned by FVAFRCU?}
 \usage{
-is_running_on_fvafrcu_machines(type = c("any", "cu", "fvafr"))
+is_running_on_fvafrcu_machines(type = c("any", "cu", "bwi", "fvafr"))
 }
 \arguments{
 \item{type}{An optional selection.}
@@ -21,6 +21,7 @@ is_running_on_fvafrcu_machines()
 }
 \seealso{
 Other test helpers: 
+\code{\link{develop_test}()},
 \code{\link{get_boolean_envvar}()},
 \code{\link{get_run_r_tests}()},
 \code{\link{is_cran}()},

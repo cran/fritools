@@ -8,7 +8,7 @@ memory_hogs(
   unit = c("b", "Kb", "Mb", "Gb", "Tb", "Pb"),
   return_numeric = TRUE,
   ...,
-  envir = .GlobalEnv
+  envir = parent.frame()
 )
 }
 \arguments{
@@ -37,11 +37,6 @@ vd <- rep(mtcars, 100)
 memory_hogs()
 memory_hogs(unit = "Mb", decreasing = TRUE)
 memory_hogs(unit = "Mb", decreasing = TRUE, return_numeric = FALSE)
-\dontrun{
-# remove the two largest objects:
-rm(list = names(tail(memory_hogs(decreasing = FALSE), n = 2)))
-memory_hogs(unit = "Mb")
-}
 }
 \seealso{
 Other R memory functions: 

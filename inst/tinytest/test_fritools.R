@@ -1,6 +1,6 @@
 if (interactive()) {
-    pkgload::load_all()
-    library("tinytest")
+  pkgload::load_all()
+  library("tinytest")
 }
 
 unlink(dir(tempdir(), full.names = TRUE))
@@ -10,7 +10,7 @@ a <- write_csv(cars, file = f)
 expect_true(file.exists(f))
 expect_identical(strip_off_attributes(get_path(a)), f)
 
-#% get_path
+# % get_path
 x <- 3
 # no path set
 expect_error(get_path(x))

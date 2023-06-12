@@ -1,3 +1,24 @@
+# fritools 4.1.0
+
+* Renamed the package to `fritools`.
+* Add `rename_package()`.
+* We do not check on the number of columns anymore since `utils::read.table()`
+  seems do get the columns right anyways. However it manages.
+* _`find_files()`: changed default to argument `pattern` 
+  from `".*\\.[RrSs]$|.*\\.[RrSs]nw$"` to `NULL`_.
+* Hardened `find_files()` against failing `pattern`s on windows.
+* `is_running_on_fvafrcu_machines()` now has value `bwi` for argument `type`.
+  This is `TRUE` for the nfi notebook only.
+* Add function `grep_file()`.
+
+# fritools 4.0.0
+
+* Got rid of suggested packages `packager` and `rasciidoc`.
+* Switched from RUnit to tinytest. Excluded RUnit tests from tarball due to CRAN
+  requirement. I can still find them in 
+  [(https://gitlab.com/fvafrcu/fritools2/-/tree/master/inst/runit_tests)](https://gitlab.com/fvafrcu/fritools2/-/tree/master/inst/runit_tests).
+
+
 # fritools 3.7.0
 
 * Changed argument order for `find_files()` from `names, path, pattern` to

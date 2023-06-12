@@ -28,6 +28,9 @@ interest.}
 
 \item{weight}{The name of the column in \code{x} giving the weights.}
 }
+\value{
+A numeric giving the (weighted) variance of \code{x}.
+}
 \description{
 Calculate a weighted variance.
 }

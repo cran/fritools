@@ -2,7 +2,7 @@
 % Please edit documentation in R/is_cran.R
 \name{is_cran}
 \alias{is_cran}
-\title{Is \R Running on CRAN?}
+\title{Is '\R' Running on CRAN?}
 \usage{
 is_cran(cran_pattern, n_r_check4cran)
 }
@@ -59,6 +59,7 @@ if (!is_cran()) {
 }
 \seealso{
 Other test helpers: 
+\code{\link{develop_test}()},
 \code{\link{get_boolean_envvar}()},
 \code{\link{get_run_r_tests}()},
 \code{\link{is_r_cmd_check}()},

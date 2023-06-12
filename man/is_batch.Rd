@@ -2,7 +2,8 @@
 % Please edit documentation in R/batch.R
 \name{is_batch}
 \alias{is_batch}
-\title{Is R Run in Batch Mode (via \command{R CMD BATCH} or \command{Rscript})?}
+\title{Is '\R' Run in Batch Mode (via '\command{R CMD BATCH}' or
+'\command{Rscript}')?}
 \usage{
 is_batch()
 }

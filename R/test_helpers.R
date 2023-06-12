@@ -45,7 +45,7 @@ get_boolean_envvar <- function(x, stop_on_failure = FALSE) {
     return(r)
 }
 
-#' Is the Machine Running the Current \R Process Owned by FVAFRCU?
+#' Is the Machine Running the Current '\R' Process Owned by FVAFRCU?
 #'
 #' Is the machine running the current \R process known to me?
 #' @template return_boolean
@@ -55,7 +55,8 @@ get_boolean_envvar <- function(x, stop_on_failure = FALSE) {
 #' @export
 #' @examples
 #' is_running_on_fvafrcu_machines()
-is_running_on_fvafrcu_machines <- function(type = c("any", "cu", "fvafr")) {
+is_running_on_fvafrcu_machines <- function(type = c("any", "cu", "bwi",
+                                                    "fvafr")) {
     sys_info <- Sys.info()
     h <- sys_info[["nodename"]] %in% c("h6", "h7") &&
         .Platform[["OS.type"]] == "unix" &&
@@ -64,16 +65,18 @@ is_running_on_fvafrcu_machines <- function(type = c("any", "cu", "fvafr")) {
         .Platform[["OS.type"]] == "unix" &&
         sys_info[["effective_user"]] %in%
         c("dominik.cullmann", "dominik", "nik")
-    w <- (grepl("^FVAFR-PC.*$", sys_info[["nodename"]])
-          && sys_info[["effective_user"]] == "dominik.cullmann" ||
-          grepl("^L-FVAFR-NB84223$", sys_info[["nodename"]])
-      ) && is_windows()
+    f <- grepl("^FVAFR-.*$", sys_info[["nodename"]]) &&
+        sys_info[["effective_user"]] == "dominik.cullmann" &&
+        is_windows()
+    b <- grepl("^L-FVAFR-NB84223$", sys_info[["nodename"]]) &&
+        is_windows()
 
     r <- switch(match.arg(type),
                 "cu" = h,
-                "fvafr" = v || w,
+                "fvafr" = v || f,
+                "bwi" = b,
                 "any" = ,
-                h || v || w)
+                h || v || b || f)
     return(r)
 }
 

@@ -19,6 +19,9 @@ as \code{target}, for \code{type = all.equal} this can be thought of as the
 
 \item{type}{The method to be used. See Details.}
 }
+\value{
+A vector of relative differences.
+}
 \description{
 We often try to compare vectors on near equality. This is a wrapper to
 \code{\link{all.equal}} for our convenience. It also implements relative

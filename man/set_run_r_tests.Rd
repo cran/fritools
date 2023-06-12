@@ -27,6 +27,7 @@ get_run_r_tests()
 }
 \seealso{
 Other test helpers: 
+\code{\link{develop_test}()},
 \code{\link{get_boolean_envvar}()},
 \code{\link{get_run_r_tests}()},
 \code{\link{is_cran}()},

@@ -373,14 +373,18 @@ is_read_successfully <- function(x, file, is_header, is_rownames, sep) {
     ncol <- as.integer(check_ascii_file(file, sep)[["number_of_fields"]] -
                        as.numeric(is_rownames))
     is_identical <- identical(nrow, nrow(x)) && identical(ncol, ncol(x))
+    # utils::read.table reads columns correctly, even if the contain the column
+    # separator. However it does so. So we _do not_ check on the number of
+    # columns here:
+    is_identical <- identical(nrow, nrow(x))
     return(is_identical)
 }
 
 assert_read_successfully <- function(x, file, is_header, is_rownames, sep) {
     if (!is_read_successfully(x, file, is_header, is_rownames, sep)) {
-        warning("You might want to change argument ",
+        warning("You might want to change argument `quote` ",
                 "(to function utils::read.csv or fritools::read_csv) ",
-                "`quote` to \"\".")
+                "to \"\".")
         throw(paste0("File ", file, " not read successfully!"))
     }
 }

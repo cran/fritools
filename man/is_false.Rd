@@ -2,7 +2,7 @@
 % Please edit documentation in R/boolean.R
 \name{is_false}
 \alias{is_false}
-\title{Provide \code{isFALSE} for R < 3.5.0}
+\title{Provide \code{isFALSE} for '\R' < 3.5.0}
 \usage{
 is_false(x)
 }
@@ -16,7 +16,8 @@ is_false(x)
 otherwise.
 }
 \description{
-I still use R 3.3.3 for testing, \code{isFALSE()} was introduced in R 3.5.0.
+I still use \R 3.3.3 for testing, \code{isFALSE()} was introduced in \R
+3.5.0.
 }
 \examples{
 is_false("not false")

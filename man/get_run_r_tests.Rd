@@ -38,6 +38,7 @@ get_run_r_tests()
 }
 \seealso{
 Other test helpers: 
+\code{\link{develop_test}()},
 \code{\link{get_boolean_envvar}()},
 \code{\link{is_cran}()},
 \code{\link{is_r_cmd_check}()},

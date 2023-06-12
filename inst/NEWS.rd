@@ -1,6 +1,30 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 4.1.0}{
+\itemize{
+\item Renamed the package to \code{fritools}.
+\item Add \code{rename_package()}.
+\item We do not check on the number of columns anymore since \code{utils::read.table()}
+seems do get the columns right anyways. However it manages.
+\item \emph{\code{find_files()}: changed default to argument \code{pattern}
+from \code{".*\\\\.[RrSs]$|.*\\\\.[RrSs]nw$"} to \code{NULL}}.
+\item Hardened \code{find_files()} against failing \code{pattern}s on windows.
+\item \code{is_running_on_fvafrcu_machines()} now has value \code{bwi} for argument \code{type}.
+This is \code{TRUE} for the nfi notebook only.
+\item Add function \code{grep_file()}.
+}
+}
+
+\section{Changes in version 4.0.0}{
+\itemize{
+\item Got rid of suggested packages \code{packager} and \code{rasciidoc}.
+\item Switched from RUnit to tinytest. Excluded RUnit tests from tarball due to CRAN
+requirement. I can still find them in
+\href{https://gitlab.com/fvafrcu/fritools2/-/tree/master/inst/runit_tests}{(https://gitlab.com/fvafrcu/fritools2/-/tree/master/inst/runit_tests)}.
+}
+}
+
 \section{Changes in version 3.7.0}{
 \itemize{
 \item Changed argument order for \code{find_files()} from \verb{names, path, pattern} to

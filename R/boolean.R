@@ -1,6 +1,7 @@
-#' Provide \code{isFALSE} for R < 3.5.0
+#' Provide \code{isFALSE} for '\R' < 3.5.0
 #'
-#' I still use R 3.3.3 for testing, \code{isFALSE()} was introduced in R 3.5.0.
+#' I still use \R 3.3.3 for testing, \code{isFALSE()} was introduced in \R
+#' 3.5.0.
 #'
 #' @param x The object to be tested.
 #' @return \code{\link[base:TRUE]{TRUE}} if the object is set to

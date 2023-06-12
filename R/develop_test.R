@@ -11,14 +11,8 @@
 #' create one?
 #' @template return_invisibly_null
 #' @export
-#' @family test_helpers
+#' @family test helpers
 #' @family file utilities
-#' @examples
-#' \dontrun{
-#'     develop_test(file = "R/develop_test.R", force_runit = TRUE)
-#'     unlink("inst/tinytest/test_develop_test.R")
-#'     unlink("inst/runit_tests/runit-develop_test.R")
-#' }
 develop_test <- function(file, force_runit = FALSE, force_tiny = TRUE) {
     if (!file.exists(file)) stop("No such file: ", file)
     files <- list("source" = file)

@@ -14,7 +14,7 @@
 #' \code{\link{all.equal}} onto the two
 #' vectors. Method \code{type = difference} is somewhat the same as the default,
 #' method \code{type = change} takes account of the sign of the differences.
-#' @return
+#' @return A vector of relative differences.
 #' @export
 #' @family statistics
 #' @family vector comparing functions

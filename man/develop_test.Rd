@@ -25,14 +25,17 @@ Looking at the output of
 \code{\link[covr:zero_coverage]{covr::zero_coverage}}, I want to open a code
 file an the corresponding unit testing file.
 }
-\examples{
-\dontrun{
-    develop_test(file = "R/develop_test.R", force_runit = TRUE)
-    unlink("inst/tinytest/test_develop_test.R")
-    unlink("inst/runit_tests/runit-develop_test.R")
-}
-}
 \seealso{
+Other test helpers: 
+\code{\link{get_boolean_envvar}()},
+\code{\link{get_run_r_tests}()},
+\code{\link{is_cran}()},
+\code{\link{is_r_cmd_check}()},
+\code{\link{is_running_on_fvafrcu_machines}()},
+\code{\link{is_running_on_gitlab_com}()},
+\code{\link{run_r_tests_for_known_hosts}()},
+\code{\link{set_run_r_tests}()}
+
 Other file utilities: 
 \code{\link{clipboard_path}()},
 \code{\link{delete_trailing_blank_lines}()},
@@ -41,8 +44,10 @@ Other file utilities:
 \code{\link{file_modified_last}()},
 \code{\link{file_save}()},
 \code{\link{find_files}()},
+\code{\link{get_lines_between_tags}()},
 \code{\link{get_mtime}()},
 \code{\link{get_unique_string}()},
+\code{\link{grep_file}()},
 \code{\link{is_files_current}()},
 \code{\link{is_path}()},
 \code{\link{paths}},
@@ -51,4 +56,4 @@ Other file utilities:
 \code{\link{touch}()}
 }
 \concept{file utilities}
-\concept{test_helpers}
+\concept{test helpers}

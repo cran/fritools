@@ -17,16 +17,6 @@ The path to the temporary directory.
 \description{
 I often need a clean temporary directory.
 }
-\examples{
-\dontrun{
-dir.create(t <- file.path(tempdir(), "foo"))
-touch(f1 <- file.path(t, "first.R"),
-      f2 <- file.path(t, "second.R"))
-dir(tempdir(), recursive = TRUE)
-wipe_tempdir()
-dir(tempdir(), recursive = TRUE)
-}
-}
 \seealso{
 Other R memory functions: 
 \code{\link{memory_hogs}()},

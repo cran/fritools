@@ -2,23 +2,23 @@
 % Please edit documentation in R/batch.R
 \name{get_script_name}
 \alias{get_script_name}
-\title{Get the Name of the R Code File or set it to \code{default}}
+\title{Get the Name of the '\R' Code File or set it to \code{default}}
 \usage{
 get_script_name(default = "interactive_R_session")
 }
 \arguments{
-\item{default}{the name to return if R is run interactively.}
+\item{default}{the name to return if \R is run interactively.}
 }
 \value{
 A vector of \code{\link{length}} 1 and \code{\link{mode}}
-character giving the name of the R code file if R was run via
+character giving the name of the \R code file if \R was run via
 \command{R CMD BATCH} or
 \command{Rscript}, the given default otherwise.
 }
 \description{
 The code file name is retrieved only for \command{R CMD BATCH} and
 \command{Rscript},
-if R is used interactively, the name is set to \code{default},
+if \R is used interactively, the name is set to \code{default},
 even if you're working with code stored in a (named) file on disk.
 }
 \examples{

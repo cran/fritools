@@ -2,7 +2,7 @@
 % Please edit documentation in R/file_copy.R
 \name{file_copy}
 \alias{file_copy}
-\title{Force Copying a File While backing it up}
+\title{Force Copying a File While Backing it up}
 \usage{
 file_copy(from, to, stop_on_error = FALSE, ...)
 }
@@ -51,8 +51,10 @@ Other file utilities:
 \code{\link{file_modified_last}()},
 \code{\link{file_save}()},
 \code{\link{find_files}()},
+\code{\link{get_lines_between_tags}()},
 \code{\link{get_mtime}()},
 \code{\link{get_unique_string}()},
+\code{\link{grep_file}()},
 \code{\link{is_files_current}()},
 \code{\link{is_path}()},
 \code{\link{paths}},

@@ -19,7 +19,7 @@ Trailing whitespace is a classical lint.
 \examples{
 dir <- tempfile()
 dir.create(dir)
-file.copy(system.file("runit_tests", package = "fritools"), dir,
+file.copy(system.file("tinytest", package = "fritools"), dir,
           recursive = TRUE)
 delete_trailing_whitespace(path = dir, recursive = TRUE)
 unlink(dir, recursive = TRUE)
@@ -33,8 +33,10 @@ Other file utilities:
 \code{\link{file_modified_last}()},
 \code{\link{file_save}()},
 \code{\link{find_files}()},
+\code{\link{get_lines_between_tags}()},
 \code{\link{get_mtime}()},
 \code{\link{get_unique_string}()},
+\code{\link{grep_file}()},
 \code{\link{is_files_current}()},
 \code{\link{is_path}()},
 \code{\link{paths}},

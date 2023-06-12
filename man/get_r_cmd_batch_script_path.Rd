@@ -2,12 +2,12 @@
 % Please edit documentation in R/batch.R
 \name{get_r_cmd_batch_script_path}
 \alias{get_r_cmd_batch_script_path}
-\title{Get the Path of the R Code File in Case of an \command{R CMD BATCH} Run}
+\title{Get the Path of the '\R' Code File in Case of an '\command{R CMD BATCH}' Run}
 \usage{
 get_r_cmd_batch_script_path()
 }
 \value{
-A vector of \code{\link{mode}} character giving the name of the R
+A vector of \code{\link{mode}} character giving the name of the \R
 code file. Will be character(0) if not in an \command{R CMD BATCH} run.
 }
 \description{

@@ -2,7 +2,7 @@
 % Please edit documentation in R/paths.R
 \name{get_mtime}
 \alias{get_mtime}
-\title{Get the \code{mtime} Attribute to or from an Object}
+\title{Get the \code{mtime} Attribute from an Object}
 \usage{
 get_mtime(x)
 }
@@ -33,7 +33,9 @@ Other file utilities:
 \code{\link{file_modified_last}()},
 \code{\link{file_save}()},
 \code{\link{find_files}()},
+\code{\link{get_lines_between_tags}()},
 \code{\link{get_unique_string}()},
+\code{\link{grep_file}()},
 \code{\link{is_files_current}()},
 \code{\link{is_path}()},
 \code{\link{paths}},

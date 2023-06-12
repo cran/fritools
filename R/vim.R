@@ -12,7 +12,7 @@ call_vim <- function(file, title = file) {
     system2(vim, args = c("-p", file))
 }
 
-#' Edit a File With VIM if Possible
+#' Edit a File With '\command{VIM}' if Possible
 #'
 #' Just a wrapper to \code{\link{file.edit}}, trying to use [g]vim as editor, if
 #' installed.
