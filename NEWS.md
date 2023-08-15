@@ -1,3 +1,7 @@
+# fritools 4.1.1
+
+* Fixed CRAN notes on Escaped LaTeX specials.
+
 # fritools 4.1.0
 
 * Renamed the package to `fritools`.
@@ -16,7 +20,7 @@
 * Got rid of suggested packages `packager` and `rasciidoc`.
 * Switched from RUnit to tinytest. Excluded RUnit tests from tarball due to CRAN
   requirement. I can still find them in 
-  [(https://gitlab.com/fvafrcu/fritools2/-/tree/master/inst/runit_tests)](https://gitlab.com/fvafrcu/fritools2/-/tree/master/inst/runit_tests).
+  [(https://gitlab.com/fvafrcu/fritools/-/tree/master/inst/runit_tests)](https://gitlab.com/fvafrcu/fritools/-/tree/master/inst/runit_tests).
 
 
 # fritools 3.7.0

@@ -1,7 +1,7 @@
-f088bb73ef5a25db6d46aa10ff78a405 *DESCRIPTION
+1379c63297798624c69ee3c824b635b9 *DESCRIPTION
 55baec5eae898cdedfb0f5c1d7fefa2e *LICENSE
 650c2640d4b4e2e68df30a59fff79f47 *NAMESPACE
-fba2e3c4c447acb367cbcd6d12463492 *NEWS.md
+18fcb3bb12be4ba1689bce08708c571a *NEWS.md
 a04e98891a8770d462c654a524283b8c *R/batch.R
 12d8acab844928d013b4e7b7be5e347f *R/boolean.R
 14987a34b666679d7be1f8a6c98b0b8b *R/call.R
@@ -63,13 +63,13 @@ abd6a86dcdd8611eadfb7643bb5216b8 *R/touch.R
 6fbd9c586a39523df24cb02e2fa90885 *R/wipe_tempdir.R
 49ab4c033fc032a5a2fa8a5be22862b2 *R/with_dir.R
 7675252227e32b1d3770db6a4b4bce78 *R/zzz.R
-93c710dddd81bd514bc3754a7341598d *README.md
+b9d6a946f10be85283994770fe12332c *README.md
 694dd88bb990b7184a74082bd820e9b6 *build/vignette.rds
-af2a94c4ead99e5afa6e8ef172042eb1 *inst/NEWS.rd
+18ff8d1f9bf355763af75025d7e1c4c8 *inst/NEWS.rd
 781c29e9b10af61697c35dc4ed57683a *inst/WORDLIST
 55b8fef9304765feb2edccab93b5e38d *inst/doc/Not_an_Introduction_to_fritools.R
 4cc639aef8c6765dea486ecb1d01568b *inst/doc/Not_an_Introduction_to_fritools.Rnw
-e8403988be22cae51b75d1aaa295dc68 *inst/doc/Not_an_Introduction_to_fritools.pdf
+87e592d021968cc256364effcf0d5906 *inst/doc/Not_an_Introduction_to_fritools.pdf
 17e43963ef34adf58fc0cb738dcc4d88 *inst/files/blanks.txt
 f112d76aed61ecf23861c5646801eff0 *inst/files/test_helpers.R
 8cc3fdd2b13f227de4895c09614c1aa8 *inst/source/R/batch.R

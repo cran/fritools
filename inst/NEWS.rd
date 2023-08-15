@@ -1,6 +1,12 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 4.1.1}{
+\itemize{
+\item Fixed CRAN notes on Escaped LaTeX specials.
+}
+}
+
 \section{Changes in version 4.1.0}{
 \itemize{
 \item Renamed the package to \code{fritools}.
@@ -21,7 +27,7 @@ This is \code{TRUE} for the nfi notebook only.
 \item Got rid of suggested packages \code{packager} and \code{rasciidoc}.
 \item Switched from RUnit to tinytest. Excluded RUnit tests from tarball due to CRAN
 requirement. I can still find them in
-\href{https://gitlab.com/fvafrcu/fritools2/-/tree/master/inst/runit_tests}{(https://gitlab.com/fvafrcu/fritools2/-/tree/master/inst/runit_tests)}.
+\href{https://gitlab.com/fvafrcu/fritools/-/tree/master/inst/runit_tests}{(https://gitlab.com/fvafrcu/fritools/-/tree/master/inst/runit_tests)}.
 }
 }
 
@@ -231,7 +237,7 @@ now a wrapper to that.
 such a simple task.
 \item Added function \code{compare_vectors()} which returns a side-by-side comparison of
 two vectors.
-\item Updated test\_helper to recognize machines running at the Forest Research
+\item Updated test_helper to recognize machines running at the Forest Research
 Institute of the state of Baden-Wuerttemberg.
 }
 }
@@ -254,15 +260,15 @@ from package \code{packager}.
 \item Got the compilation of utilities from
 \itemize{
 \item rasciidoc/R/utils.R: *
-\item packager/R/is\_version\_sufficient.R: *
-\item rasciidoc/R/is\_version\_sufficient.R: *
-\item document/R/test\_helpers.R: *
+\item packager/R/is_version_sufficient.R: *
+\item rasciidoc/R/is_version_sufficient.R: *
+\item document/R/test_helpers.R: *
 \item fakemake/R/tools.R: *
 \item cleanr/R/utils.R: *
-\item bundeswaldinventur/R/utils.R: golden\_ratio()
+\item bundeswaldinventur/R/utils.R: golden_ratio()
 \item cuutils/R/utils.R: *
 \item cuutils/R/?.R: ?
-\item packager/R/package\_version.R
+\item packager/R/package_version.R
 }
 }
 }
