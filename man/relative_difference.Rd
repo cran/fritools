@@ -53,6 +53,7 @@ Other statistics:
 \code{\link{column_sums}()},
 \code{\link{count_groups}()},
 \code{\link{round_half_away_from_zero}()},
+\code{\link{sloboda}()},
 \code{\link{weighted_variance}()}
 
 Other vector comparing functions: 

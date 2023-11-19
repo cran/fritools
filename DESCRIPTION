@@ -1,7 +1,7 @@
 Package: fritools
 Title: Utilities for the Forest Research Institute of the State
         Baden-Wuerttemberg
-Version: 4.1.1
+Version: 4.2.0
 Authors@R: 
     person(given = "Andreas Dominik",
            family = "Cullmann",
@@ -17,16 +17,16 @@ URL: https://gitlab.com/fvafrcu/fritools
 Depends: R (>= 3.3.0)
 Imports: methods, stats, utils
 Suggests: callr, checkmate, covr, desc, devtools, digest, dplyr,
-        pkgload, reshape, rmarkdown, RUnit, testthat (>= 3.0.0),
-        tinytest, whoami
+        microbenchmark, pkgload, reshape, rmarkdown, RUnit, testthat
+        (>= 3.0.0), tinytest, whoami
 Encoding: UTF-8
 Language: en-US
 RoxygenNote: 7.2.3
 VignetteBuilder: utils
 Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2023-08-15 21:56:55 UTC; qwer
+Packaged: 2023-11-18 23:35:21 UTC; qwer
 Author: Andreas Dominik Cullmann [aut, cre]
 Maintainer: Andreas Dominik Cullmann <fvafrcu@mailbox.org>
 Repository: CRAN
-Date/Publication: 2023-08-15 22:30:02 UTC
+Date/Publication: 2023-11-19 00:00:02 UTC

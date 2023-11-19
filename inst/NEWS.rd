@@ -1,6 +1,12 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 4.2.0}{
+\itemize{
+\item Added Sloboda's growth function: \code{sloboda()}.
+}
+}
+
 \section{Changes in version 4.1.1}{
 \itemize{
 \item Fixed CRAN notes on Escaped LaTeX specials.

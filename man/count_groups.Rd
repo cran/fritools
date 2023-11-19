@@ -28,6 +28,7 @@ Other statistics:
 \code{\link{column_sums}()},
 \code{\link{relative_difference}()},
 \code{\link{round_half_away_from_zero}()},
+\code{\link{sloboda}()},
 \code{\link{weighted_variance}()}
 }
 \concept{statistics}

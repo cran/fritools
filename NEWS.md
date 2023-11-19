@@ -1,3 +1,7 @@
+# fritools 4.2.0
+
+* Added Sloboda's growth function: `sloboda()`.
+
 # fritools 4.1.1
 
 * Fixed CRAN notes on Escaped LaTeX specials.
