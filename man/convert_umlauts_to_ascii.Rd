@@ -33,6 +33,7 @@ convert_umlauts_to_ascii(df)
 }
 \seealso{
 Other German umlaut converters: 
-\code{\link{convert_umlauts_to_tex}()}
+\code{\link{convert_umlauts_to_tex}()},
+\code{\link{get_german_umlauts}()}
 }
 \concept{German umlaut converters}

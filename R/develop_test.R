@@ -2,7 +2,7 @@
 #'
 #' Looking at the output of
 #' \code{\link[covr:zero_coverage]{covr::zero_coverage}}, I want to open a code
-#' file an the corresponding unit testing file.
+#' file and the corresponding unit testing file.
 #' @param file The path to the code file, assuming the working directory to be
 #' the root of an R package under development.
 #' @param force_runit If there is no corresponding \pkg{RUnit} test file:

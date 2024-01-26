@@ -1,6 +1,12 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 4.3.0}{
+\itemize{
+\item Added \code{get_german_umlauts()}.
+}
+}
+
 \section{Changes in version 4.2.0}{
 \itemize{
 \item Added Sloboda's growth function: \code{sloboda()}.

@@ -23,7 +23,7 @@ create one?}
 \description{
 Looking at the output of
 \code{\link[covr:zero_coverage]{covr::zero_coverage}}, I want to open a code
-file an the corresponding unit testing file.
+file and the corresponding unit testing file.
 }
 \seealso{
 Other test helpers: 

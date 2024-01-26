@@ -13,7 +13,7 @@ sloboda(a, b, c, y0, t0, t, type = c("classic", "kaendler"), k = 65)
 
 \item{c}{Sloboda's \eqn{\beta_{1}}.}
 
-\item{y0}{Sloboda's \eqn{\beta_{1}}.}
+\item{y0}{Sloboda's \eqn{y_{0}}.}
 
 \item{t0}{Sloboda's \eqn{t_{0}}.}
 

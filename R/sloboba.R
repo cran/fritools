@@ -20,7 +20,7 @@
 #' @param a Sloboda's \eqn{\beta_{3}}.
 #' @param b Sloboda's \eqn{\beta_{2}}.
 #' @param c Sloboda's \eqn{\beta_{1}}.
-#' @param y0 Sloboda's \eqn{\beta_{1}}.
+#' @param y0 Sloboda's \eqn{y_{0}}.
 #' @param t0 Sloboda's \eqn{t_{0}}.
 #' @param t Sloboda's \eqn{t}.
 #' @param k Sloboda's \eqn{k}.

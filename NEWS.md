@@ -1,3 +1,7 @@
+# fritools 4.3.0
+
+* Added `get_german_umlauts()`.
+
 # fritools 4.2.0
 
 * Added Sloboda's growth function: `sloboda()`.
