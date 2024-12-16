@@ -1,6 +1,19 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 4.4.0}{
+\itemize{
+\item Added \code{char2factor()}.
+\item Added \code{rownames2col()}.
+\item Added \code{pause()}
+\item Added \code{string2words()}.
+\item Added \code{get_session_string()}.
+\item Added \code{runsed()}.
+\item Added tests for \code{relative_difference()}.
+\item Harden testing for FVA against upper case user names.
+}
+}
+
 \section{Changes in version 4.3.0}{
 \itemize{
 \item Added \code{get_german_umlauts()}.

@@ -1,3 +1,14 @@
+# fritools 4.4.0
+
+* Added `char2factor()`.
+* Added `rownames2col()`.
+* Added `pause()`
+* Added `string2words()`.
+* Added `get_session_string()`.
+* Added `runsed()`.
+* Added tests for `relative_difference()`.
+* Harden testing for FVA against upper case user names.
+
 # fritools 4.3.0
 
 * Added `get_german_umlauts()`.

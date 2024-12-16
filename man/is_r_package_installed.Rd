@@ -57,10 +57,12 @@ Other operating system functions:
 Other package functions: 
 \code{\link{get_package_version}()},
 \code{\link{is_version_sufficient}()},
-\code{\link{load_internal_functions}()}
+\code{\link{load_internal_functions}()},
+\code{\link{rename_package}()}
 
 Other version functions: 
 \code{\link{get_package_version}()},
+\code{\link{get_session_string}()},
 \code{\link{is_version_sufficient}()}
 }
 \concept{logical helpers}

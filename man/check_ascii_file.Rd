@@ -27,7 +27,7 @@ check_ascii_file(f)
 Other CSV functions: 
 \code{\link{bulk_read_csv}()},
 \code{\link{bulk_write_csv}()},
-\code{\link{csv2csv}()},
-\code{\link{csv}}
+\code{\link{csv}},
+\code{\link{csv2csv}()}
 }
 \concept{CSV functions}

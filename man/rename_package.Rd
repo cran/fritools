@@ -16,4 +16,12 @@ Run for its side effect.
 Does not change the path, we just rename the package, not the repo
 and we must not change git remotes!
 }
+\seealso{
+Other package functions: 
+\code{\link{get_package_version}()},
+\code{\link{is_r_package_installed}()},
+\code{\link{is_version_sufficient}()},
+\code{\link{load_internal_functions}()}
+}
+\concept{package functions}
 \keyword{internal}

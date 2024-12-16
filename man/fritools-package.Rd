@@ -2,6 +2,7 @@
 % Please edit documentation in R/fritools-package.R
 \docType{package}
 \name{fritools-package}
+\alias{fritools}
 \alias{fritools-package}
 \title{Utilities for the Forest Research Institute of the State
 Baden-Wuerttemberg}
@@ -11,5 +12,16 @@ Miscellaneous utilities, tools and helper functions.
 \details{
 You will find the details in\cr
 \code{vignette("Not_an_Introduction_to_fritools", package = "fritools")}.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://gitlab.com/fvafrcu/fritools}
+}
+
+}
+\author{
+\strong{Maintainer}: Andreas Dominik Cullmann \email{fvafrcu@mailbox.org}
+
 }
 \keyword{package}

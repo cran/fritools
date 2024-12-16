@@ -33,6 +33,7 @@ Other searching functions:
 \code{\link{fromto}()},
 \code{\link{grep_file}()},
 \code{\link{missing_docs}},
+\code{\link{runsed}()},
 \code{\link{search_files}()},
 \code{\link{search_rows}()},
 \code{\link{summary.filesearch}()}
@@ -52,6 +53,7 @@ Other file utilities:
 \code{\link{is_files_current}()},
 \code{\link{is_path}()},
 \code{\link{paths}},
+\code{\link{runsed}()},
 \code{\link{search_files}()},
 \code{\link{split_code_file}()},
 \code{\link{touch}()}

@@ -81,7 +81,7 @@ bulk <- bulk_read_csv(f)
 Other CSV functions: 
 \code{\link{bulk_write_csv}()},
 \code{\link{check_ascii_file}()},
-\code{\link{csv2csv}()},
-\code{\link{csv}}
+\code{\link{csv}},
+\code{\link{csv2csv}()}
 }
 \concept{CSV functions}

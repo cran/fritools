@@ -28,6 +28,7 @@ load_internal_functions("fritools")
 Other package functions: 
 \code{\link{get_package_version}()},
 \code{\link{is_r_package_installed}()},
-\code{\link{is_version_sufficient}()}
+\code{\link{is_version_sufficient}()},
+\code{\link{rename_package}()}
 }
 \concept{package functions}

@@ -41,7 +41,7 @@ Implement the growth function
             beta_{2}/((beta_{3}-1) t^(beta_{3}-1)) -
             beta_{2}/((beta_{3}-1) t_0^(beta_{3}-1)))
 }
-published in 
+published in
 \cite{Sloboda, B., 1971: Zur Darstellung von Wachstumsprozessen mit Hilfe von
 Differentialgleichungen erster Ordnung. Mitt. d. Baden-Württembergischen
 Forstlichen Versuchs- und Forschungsanstalt}.

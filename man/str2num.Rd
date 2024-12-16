@@ -26,10 +26,14 @@ print(str2num(words[7]), digits = 9)
 }
 \seealso{
 Other bits and pieces: 
+\code{\link{char2factor}()},
 \code{\link{golden_ratio}()},
 \code{\link{is_difftime_less}()},
 \code{\link{is_valid_primary_key}()},
+\code{\link{pause}()},
 \code{\link{r_cmd_install}()},
+\code{\link{rownames2col}()},
+\code{\link{string2words}()},
 \code{\link{strip_off_attributes}()},
 \code{\link{tapply}()},
 \code{\link{throw}()}

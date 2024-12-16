@@ -7,7 +7,7 @@
 relative_difference(
   current,
   reference,
-  type = c("all.equal", "difference", "change")
+  type = c("all.equal", "difference", "change", "change2")
 )
 }
 \arguments{
@@ -43,6 +43,11 @@ plot(relative_difference(x, y, "difference"), x)
 # They do approximately the same:
 max(relative_difference(relative_difference(x, y),
                             relative_difference(x, y, "difference")))
+# But "all.equal" is _much_ slower:
+microbenchmark::microbenchmark(all_equal = relative_difference(x, y),
+                               difference = relative_difference(x, y,
+                                                                "difference")
+                               )
 # Takes sign into account:
 plot(relative_difference(x, y, "change"), x)
 max(relative_difference(relative_difference(x, y),

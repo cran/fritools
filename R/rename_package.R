@@ -6,6 +6,7 @@
 #' @param path The path to the package.
 #' @param path The new package name.
 #' @return Run for its side effect.
+#' @family package functions
 #' @keywords internal
 rename_package <- function(path, to) {
     if (!file.exists(file.path(path, "DESCRIPTION")))

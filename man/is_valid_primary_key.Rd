@@ -34,10 +34,14 @@ is_valid_primary_key(cars, "id")
 }
 \seealso{
 Other bits and pieces: 
+\code{\link{char2factor}()},
 \code{\link{golden_ratio}()},
 \code{\link{is_difftime_less}()},
+\code{\link{pause}()},
 \code{\link{r_cmd_install}()},
+\code{\link{rownames2col}()},
 \code{\link{str2num}()},
+\code{\link{string2words}()},
 \code{\link{strip_off_attributes}()},
 \code{\link{tapply}()},
 \code{\link{throw}()}

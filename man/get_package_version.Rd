@@ -32,13 +32,15 @@ is_version_sufficient(installed = get_package_version("base"),
 }
 \seealso{
 Other version functions: 
+\code{\link{get_session_string}()},
 \code{\link{is_r_package_installed}()},
 \code{\link{is_version_sufficient}()}
 
 Other package functions: 
 \code{\link{is_r_package_installed}()},
 \code{\link{is_version_sufficient}()},
-\code{\link{load_internal_functions}()}
+\code{\link{load_internal_functions}()},
+\code{\link{rename_package}()}
 }
 \concept{package functions}
 \concept{version functions}

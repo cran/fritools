@@ -36,6 +36,7 @@ Other searching functions:
 \code{\link{find_files}()},
 \code{\link{fromto}()},
 \code{\link{grep_file}()},
+\code{\link{runsed}()},
 \code{\link{search_files}()},
 \code{\link{search_rows}()},
 \code{\link{summary.filesearch}()}

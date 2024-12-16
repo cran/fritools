@@ -58,6 +58,7 @@ Other searching functions:
 \code{\link{find_files}()},
 \code{\link{grep_file}()},
 \code{\link{missing_docs}},
+\code{\link{runsed}()},
 \code{\link{search_files}()},
 \code{\link{search_rows}()},
 \code{\link{summary.filesearch}()}

@@ -35,6 +35,17 @@ help("fritools-package", package = "fritools")
 #>      You will find the details in
 #>      'vignette("Not_an_Introduction_to_fritools", package =
 #>      "fritools")'.
+#> 
+#> Author(s):
+#> 
+#>      *Maintainer*: Andreas Dominik Cullmann
+#>      <mailto:fvafrcu@mailbox.org>
+#> 
+#> See Also:
+#> 
+#>      Useful links:
+#> 
+#>         • <https://gitlab.com/fvafrcu/fritools>
 ```
 
 ## Installation

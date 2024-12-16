@@ -45,10 +45,12 @@ Other logical helpers:
 Other package functions: 
 \code{\link{get_package_version}()},
 \code{\link{is_r_package_installed}()},
-\code{\link{load_internal_functions}()}
+\code{\link{load_internal_functions}()},
+\code{\link{rename_package}()}
 
 Other version functions: 
 \code{\link{get_package_version}()},
+\code{\link{get_session_string}()},
 \code{\link{is_r_package_installed}()}
 }
 \concept{logical helpers}

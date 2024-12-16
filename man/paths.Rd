@@ -56,6 +56,7 @@ Other file utilities:
 \code{\link{grep_file}()},
 \code{\link{is_files_current}()},
 \code{\link{is_path}()},
+\code{\link{runsed}()},
 \code{\link{search_files}()},
 \code{\link{split_code_file}()},
 \code{\link{touch}()}
