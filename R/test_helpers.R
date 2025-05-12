@@ -58,9 +58,9 @@ get_boolean_envvar <- function(x, stop_on_failure = FALSE) {
 is_running_on_fvafrcu_machines <- function(type = c("any", "cu", "bwi",
                                                     "fvafr")) {
     sys_info <- Sys.info()
-    h <- sys_info[["nodename"]] %in% c("h6", "h7") &&
+    h <- grepl("^h[0-9]*$", sys_info[["nodename"]] ) &&
         .Platform[["OS.type"]] == "unix" &&
-        sys_info[["effective_user"]] == "qwer"
+        sys_info[["effective_user"]] %in% c("fvafrcu", "qwer")
     v <- grepl("^fvafr.*CU.*$", sys_info[["nodename"]]) &&
         .Platform[["OS.type"]] == "unix" &&
         sys_info[["effective_user"]] %in%

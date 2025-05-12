@@ -4,7 +4,7 @@
 #' Miscellaneous utilities, tools and helper functions.
 #'
 #' You will find the details in\cr
-#' \code{vignette("An_Introduction_to_fritools", package = "fritools")}.
+#' \code{vignette("Not_an_Introduction_to_fritools", package = "fritools")}.
 #'
 #' @name fritools-package
 #' @aliases fritools-package

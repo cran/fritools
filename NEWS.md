@@ -1,3 +1,11 @@
+# fritools 4.5.0
+
+* Added `escape_non_ascii()`.
+* Added `is_scalar()`.
+* Added `is_convertible2numeric()`.
+* Added `is_true()`.
+* Added `file_string()`.
+
 # fritools 4.4.0
 
 * Added `char2factor()`.

@@ -1,4 +1,4 @@
-#' Is the Current R Process an \command{R CMD check}?
+#' Is the Current R Process an '\command{R CMD check}'?
 #'
 #' Check for system variables to guess whether or not this is an
 #' \command{R CMD check}.

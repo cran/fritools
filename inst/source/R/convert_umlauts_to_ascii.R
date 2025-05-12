@@ -1,4 +1,4 @@
-#' Convert German umlauts to a more or less suitable ascii representation.
+#' Convert German Umlauts to a More or Less Suitable `ascii` Representation
 #'
 #' @param x A string or \code{data.frame}.
 #' @return \bold{x} with the umlauts converted to ascii.
@@ -16,13 +16,13 @@ convert_umlauts_to_ascii <- function(x) {
 #' print(convert_umlauts_to_ascii(string))
 convert_umlauts_to_ascii.character <- function(x) { # Exclude Linting
     s <- iconv(enc2native(x), to = "UTF-8", sub = "unicode")
-    s <- gsub("\u00e4", "ae", s)
-    s <- gsub("\u00c4", "Ae", s)
-    s <- gsub("\u00f6", "oe", s)
-    s <- gsub("\u00d6", "Oe", s)
-    s <- gsub("\u00fc", "ue", s)
-    s <- gsub("\u00dc", "Ue", s)
-    s <- gsub("\u00df", "sz", s)
+    s <- gsub(get_german_umlauts("ae"), "ae", s)
+    s <- gsub(get_german_umlauts("Ae"), "Ae", s)
+    s <- gsub(get_german_umlauts("oe"), "oe", s)
+    s <- gsub(get_german_umlauts("Oe"), "Oe", s)
+    s <- gsub(get_german_umlauts("ue"), "ue", s)
+    s <- gsub(get_german_umlauts("Ue"), "Ue", s)
+    s <- gsub(get_german_umlauts("sz"), "sz", s)
     return(s)
 }
 

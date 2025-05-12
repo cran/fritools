@@ -25,7 +25,6 @@ strip_off_attributes(y)
 \code{\link[base:unname]{base::unname}}
 
 Other bits and pieces: 
-\code{\link{char2factor}()},
 \code{\link{golden_ratio}()},
 \code{\link{is_difftime_less}()},
 \code{\link{is_valid_primary_key}()},

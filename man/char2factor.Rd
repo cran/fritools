@@ -23,17 +23,8 @@ x <- c("beech", "oak", "spruce", "fir")
 char2factor(x)
 }
 \seealso{
-Other bits and pieces: 
-\code{\link{golden_ratio}()},
-\code{\link{is_difftime_less}()},
-\code{\link{is_valid_primary_key}()},
-\code{\link{pause}()},
-\code{\link{r_cmd_install}()},
-\code{\link{rownames2col}()},
-\code{\link{str2num}()},
-\code{\link{string2words}()},
-\code{\link{strip_off_attributes}()},
-\code{\link{tapply}()},
-\code{\link{throw}()}
+Other vector functions: 
+\code{\link{escape_non_ascii}()},
+\code{\link{file_string}()}
 }
-\concept{bits and pieces}
+\concept{vector functions}

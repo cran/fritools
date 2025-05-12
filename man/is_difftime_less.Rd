@@ -52,7 +52,6 @@ is_difftime_less(a, c, verbose = TRUE, stop_on_error = TRUE)
 }
 \seealso{
 Other bits and pieces: 
-\code{\link{char2factor}()},
 \code{\link{golden_ratio}()},
 \code{\link{is_valid_primary_key}()},
 \code{\link{pause}()},

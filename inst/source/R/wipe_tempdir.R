@@ -8,15 +8,6 @@
 #' @family operating system functions
 #' @return The path to the temporary directory.
 #' @export
-#' @examples
-#' \dontrun{
-#' dir.create(t <- file.path(tempdir(), "foo"))
-#' touch(f1 <- file.path(t, "first.R"),
-#'       f2 <- file.path(t, "second.R"))
-#' dir(tempdir(), recursive = TRUE)
-#' wipe_tempdir()
-#' dir(tempdir(), recursive = TRUE)
-#' }
 wipe_tempdir <- function(recreate = FALSE) {
     if (isTRUE(recreate)) {
         unlink(tempdir(), recursive = TRUE, force = TRUE)

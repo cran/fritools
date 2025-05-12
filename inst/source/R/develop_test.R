@@ -2,7 +2,7 @@
 #'
 #' Looking at the output of
 #' \code{\link[covr:zero_coverage]{covr::zero_coverage}}, I want to open a code
-#' file an the corresponding unit testing file.
+#' file and the corresponding unit testing file.
 #' @param file The path to the code file, assuming the working directory to be
 #' the root of an R package under development.
 #' @param force_runit If there is no corresponding \pkg{RUnit} test file:
@@ -11,14 +11,8 @@
 #' create one?
 #' @template return_invisibly_null
 #' @export
-#' @family test_helpers
+#' @family test helpers
 #' @family file utilities
-#' @examples
-#' \dontrun{
-#'     develop_test(file = "R/develop_test.R", force_runit = TRUE)
-#'     unlink("inst/tinytest/test_develop_test.R")
-#'     unlink("inst/runit_tests/runit-develop_test.R")
-#' }
 develop_test <- function(file, force_runit = FALSE, force_tiny = TRUE) {
     if (!file.exists(file)) stop("No such file: ", file)
     files <- list("source" = file)

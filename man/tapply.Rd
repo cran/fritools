@@ -67,7 +67,6 @@ stats::weighted.mean(subset[["mpg"]], subset[["wt"]]) == wm
 }
 \seealso{
 Other bits and pieces: 
-\code{\link{char2factor}()},
 \code{\link{golden_ratio}()},
 \code{\link{is_difftime_less}()},
 \code{\link{is_valid_primary_key}()},

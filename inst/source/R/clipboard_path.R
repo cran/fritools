@@ -1,4 +1,4 @@
-#' Copy a Path from Clipboard to \R
+#' Copy a Path from Clipboard to '\R'
 #'
 #' I often have to work under Windows, where file paths cannot just be pasted
 #' into the code, so I adapted code from

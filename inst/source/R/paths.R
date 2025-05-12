@@ -78,7 +78,7 @@ set_path <- function(x, path, action = c(NA, "read", "write"),
     return(x)
 }
 
-#' Get the \code{mtime} Attribute to or from an Object
+#' Get the \code{mtime} Attribute from an Object
 #'
 #' We set modification times on some objects, this is a convenience wrappers to
 #' \code{\link{attr}}.

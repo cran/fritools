@@ -57,20 +57,26 @@
 #' try(find_files(file_names = tempfile(), path = tempdir()))
 #' #% select by file size:
 #' write.csv(mtcars, file.path(tempdir(), "mtcars.csv"))
-#' find_files(path = tempdir(), pattern = ".*")
-#' find_files(path = tempdir(), pattern = ".*",
+#' find_files(path = tempdir())
+#' find_files(path = tempdir(),
 #'            select = list(size = c(min = 1000))
 #'            )
-find_files <- function(path = ".", pattern = ".*\\.[RrSs]$|.*\\.[RrSs]nw$",
+find_files <- function(path = ".", pattern = NULL,
                        file_names = NA, all_files = TRUE, recursive = FALSE,
                        ignore_case = FALSE, find_all = FALSE, select = NA) {
     if (isTRUE(is.na(file_names))) {
-        file_paths <- list.files(path = path, pattern = pattern,
+        # BEWARE: Strangely, `pattern` is not hardened on windows,
+        # so we use grep afterwards
+        file_paths <- list.files(path = path, pattern = NULL,
                                   all.files = all_files,
                                   recursive = recursive,
                                   ignore.case = ignore_case,
                                   full.names = TRUE,
                                   include.dirs = FALSE, no.. = TRUE)
+        if (!is.null(pattern)) {
+            file_paths <- file_paths[grep(pattern, basename(file_paths),
+                                          ignore.case = ignore_case)]
+        }
         if (!all(sapply(select, is.na))) {
             selection <- lapply(select,
                                 function(x) {

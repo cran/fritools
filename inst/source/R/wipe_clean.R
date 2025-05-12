@@ -1,8 +1,8 @@
 #' Remove All Objects From an Environment
 #'
-#' Wipe an environment, typically \code{\link{.GlobalEnv}}, clean.
+#' Wipe an environment clean. This is similar to the broom button in
+#' \command{RStudio}.
 #' @param environment The environment that should be wiped clean.
-#' Defaults to \code{\link{.GlobalEnv}}.
 #' @param all_names See argument \code{all.names} for \code{\link{ls}}.
 #' @return A character vector containing the names of objects removed, but
 #' called for its side effect of removing all objects from the environment.

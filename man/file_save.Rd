@@ -71,6 +71,7 @@ Other file utilities:
 \code{\link{develop_test}()},
 \code{\link{file_copy}()},
 \code{\link{file_modified_last}()},
+\code{\link{file_string}()},
 \code{\link{find_files}()},
 \code{\link{get_lines_between_tags}()},
 \code{\link{get_mtime}()},

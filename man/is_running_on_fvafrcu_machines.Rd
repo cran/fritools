@@ -43,7 +43,10 @@ Other logical helpers:
 \code{\link{is_r_cmd_check}()},
 \code{\link{is_r_package_installed}()},
 \code{\link{is_running_on_gitlab_com}()},
+\code{\link{is_scalar}()},
+\code{\link{is_scalar_convertible2numeric}()},
 \code{\link{is_success}()},
+\code{\link{is_true}()},
 \code{\link{is_version_sufficient}()},
 \code{\link{is_windows}()}
 }

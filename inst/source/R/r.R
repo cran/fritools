@@ -73,7 +73,7 @@ r_cmd_check <- function(..., path = ".", defaults = c("--no-build-vignettes"),
 #' else it is interpreted as a path to a directory.
 #' @export
 #' @keywords internal
-#' @family  bits and pieces
+#' @family bits and pieces
 #' @return The return value of \code{\link{system2}}.
 r_cmd_install <- function(..., path = ".",
                         r = get_r_binary(),

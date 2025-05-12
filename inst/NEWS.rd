@@ -1,6 +1,16 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 4.5.0}{
+\itemize{
+\item Added \code{escape_non_ascii()}.
+\item Added \code{is_scalar()}.
+\item Added \code{is_convertible2numeric()}.
+\item Added \code{is_true()}.
+\item Added \code{file_string()}.
+}
+}
+
 \section{Changes in version 4.4.0}{
 \itemize{
 \item Added \code{char2factor()}.

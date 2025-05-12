@@ -3,6 +3,7 @@
 #' Calculate a weighted variance.
 #' @param x A numeric \code{\link{vector}} or \code{\link{data.frame}}.
 #' @param ... Other arguments ignored.
+#' @return A numeric giving the (weighted) variance of \code{x}.
 #' @export
 #' @family statistics
 weighted_variance <- function(x, ...) {

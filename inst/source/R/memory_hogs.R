@@ -19,13 +19,8 @@
 #' memory_hogs()
 #' memory_hogs(unit = "Mb", decreasing = TRUE)
 #' memory_hogs(unit = "Mb", decreasing = TRUE, return_numeric = FALSE)
-#' \dontrun{
-#' # remove the two largest objects:
-#' rm(list = names(tail(memory_hogs(decreasing = FALSE), n = 2)))
-#' memory_hogs(unit = "Mb")
-#' }
 memory_hogs <- function(unit =  c("b", "Kb", "Mb", "Gb", "Tb", "Pb"),
-                        return_numeric = TRUE, ..., envir = .GlobalEnv) {
+                        return_numeric = TRUE, ..., envir = parent.frame()) {
     u <- match.arg(unit)
     f <- function(x) {
         object_sizes <- utils::object.size(get(x, envir = envir))

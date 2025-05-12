@@ -34,7 +34,6 @@ is_valid_primary_key(cars, "id")
 }
 \seealso{
 Other bits and pieces: 
-\code{\link{char2factor}()},
 \code{\link{golden_ratio}()},
 \code{\link{is_difftime_less}()},
 \code{\link{pause}()},
