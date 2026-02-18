@@ -8,7 +8,8 @@ split_code_file(
   file,
   output_directory = tempdir(),
   encoding = getOption("encoding"),
-  write_to_disk = getOption("write_to_disk")
+  write_to_disk = getOption("write_to_disk"),
+  keep_header = TRUE
 )
 }
 \arguments{
@@ -20,6 +21,8 @@ split_code_file(
 
 \item{write_to_disk}{Set the output_directory to
 \code{dirname(file)}? Just a shortcut.}
+
+\item{keep_header}{Keep a header found in your code file?}
 }
 \value{
 \code{\link[base:invisible]{Invisibly}} a vector of paths to the new

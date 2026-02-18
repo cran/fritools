@@ -7,13 +7,15 @@
 #' @param encoding The encoding passed to \code{\link{source}}.
 #' @param write_to_disk Set the output_directory to
 #' \code{dirname(file)}? Just a shortcut.
+#' @param keep_header Keep a header found in your code file?
 #' @export
 #' @return \code{\link[base:invisible]{Invisibly}} a vector of paths to the new
 #' files.
 #' @family file utilities
 split_code_file <- function(file, output_directory = tempdir(),
                             encoding = getOption("encoding"),
-                            write_to_disk = getOption("write_to_disk")) {
+                            write_to_disk = getOption("write_to_disk"),
+                            keep_header = TRUE) {
     status <- FALSE
     if (isTRUE(write_to_disk)) {
         output_directory <- dirname(file)
@@ -34,7 +36,11 @@ split_code_file <- function(file, output_directory = tempdir(),
         }
     }
     if (! 1 %in% funs[["start_index"]]) {
-        msg <- paste0("There is a header at the top of file ", file, "!")
+        header_file <- file.path(output_directory, basename(file))
+        msg <- paste0("There is a header at the top of file ", file, "!",
+                      "\nWriting to ", header_file, ".")
+        if (isTRUE(keep_header)) 
+            writeLines(content[1:(min(funs[["start_index"]]) - 1)], header_file)
         warning(msg)
     }
     function_files <- NULL

@@ -1,3 +1,10 @@
+# fritools 4.6.0
+
+* Added `convert_umlauts_to_utf8()`.
+* Added `convert_to_power_of_ten()` and `convert_from_power_of_ten()`,
+    `df_to_powers_of_ten()` and `df_from_powers_of_ten()`.
+* `split_code_file()` now also keeps headers.
+
 # fritools 4.5.0
 
 * Added `escape_non_ascii()`.

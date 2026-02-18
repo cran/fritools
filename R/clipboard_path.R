@@ -2,8 +2,8 @@
 #'
 #' I often have to work under Windows, where file paths cannot just be pasted
 #' into the code, so I adapted code from
-#' \url{https://www.r-bloggers.com/2015/12/stop-fiddling-
-#' around-with-copied-paths-in-windows-r/}.
+#' \code{https://www.r-bloggers.com/2015/12/stop-fiddling-
+#' around-with-copied-paths-in-windows-r/}, which is down now.
 #' Under Windows, the de-windowsified path is copied to the clipboard.
 #' @note It makes only sense to call \code{clipboard_path} in an interactive \R
 #' session.

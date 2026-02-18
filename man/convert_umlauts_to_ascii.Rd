@@ -22,10 +22,10 @@ convert_umlauts_to_ascii(x)
 Convert German Umlauts to a More or Less Suitable `ascii` Representation
 }
 \examples{
-string <- paste("this is \u00e4 string")
+string <- "this is \u00e4 string"
 print(string)
 print(convert_umlauts_to_ascii(string))
-string <- paste("this is \u00e4 string")
+string <- "this is \u00e4 string"
 df <- data.frame(v1 = c(string, "foobar"),
                  v2 = c("foobar", string), v3 = 3:4)
 names(df)[3] <- "y\u00dfy"
@@ -34,6 +34,7 @@ convert_umlauts_to_ascii(df)
 \seealso{
 Other German umlaut converters: 
 \code{\link{convert_umlauts_to_tex}()},
+\code{\link{convert_umlauts_to_utf8}()},
 \code{\link{get_german_umlauts}()}
 }
 \concept{German umlaut converters}

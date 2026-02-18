@@ -46,7 +46,8 @@ Other file utilities:
 
 Other vector functions: 
 \code{\link{char2factor}()},
-\code{\link{escape_non_ascii}()}
+\code{\link{escape_non_ascii}()},
+\code{\link{powers_of_ten}}
 }
 \concept{file utilities}
 \concept{vector functions}

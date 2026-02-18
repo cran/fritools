@@ -36,6 +36,7 @@ round(-x)
 Other statistics: 
 \code{\link{column_sums}()},
 \code{\link{count_groups}()},
+\code{\link{powers_of_ten}},
 \code{\link{relative_difference}()},
 \code{\link{sloboda}()},
 \code{\link{weighted_variance}()}

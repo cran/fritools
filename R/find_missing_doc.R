@@ -28,8 +28,12 @@ find_missing_see_also <- function(path, list_families = TRUE) {
         families <- NULL
         for (file in files_with_seealso) {
             families <- c(families,
-                          fromto(x = readLines(file), from = "^Other.*:",
-                                 to = ".*", shift_to = -1))
+                          tryCatch(
+                                   fromto(x = readLines(file),
+                                          from = "^Other.*:",
+                                          to = ".*", shift_to = -1),
+                                   error = function(e) NULL)
+            )
         }
         message("Families so far: \n",
                 paste(unique(sub(": *$", "", families)), collapse = "\n"))
@@ -47,10 +51,10 @@ find_missing_family <- function(path, list_families = TRUE, clean = TRUE) {
     wdir <- tempfile()
     dir.create(wdir)
     if (isTRUE(clean)) on.exit(unlink(wdir, recursive = TRUE))
-    function_files <- NULL
     code_files <- list.files(file.path(path, "R"), full.names = TRUE)
     code_files <- grep("(-package.R|zzz.R)$", code_files, value = TRUE,
                        invert = TRUE)
+    function_files <- NULL
     for (code_file in code_files) {
         function_files <- c(function_files,
                             split_code_file(code_file, wdir,

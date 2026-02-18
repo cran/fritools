@@ -57,6 +57,7 @@ max(relative_difference(relative_difference(x, y),
 Other statistics: 
 \code{\link{column_sums}()},
 \code{\link{count_groups}()},
+\code{\link{powers_of_ten}},
 \code{\link{round_half_away_from_zero}()},
 \code{\link{sloboda}()},
 \code{\link{weighted_variance}()}

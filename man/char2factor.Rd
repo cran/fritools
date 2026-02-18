@@ -25,6 +25,7 @@ char2factor(x)
 \seealso{
 Other vector functions: 
 \code{\link{escape_non_ascii}()},
-\code{\link{file_string}()}
+\code{\link{file_string}()},
+\code{\link{powers_of_ten}}
 }
 \concept{vector functions}

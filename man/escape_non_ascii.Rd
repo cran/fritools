@@ -26,6 +26,7 @@ writeLines(escape_non_ascii(readLines(f)), f)
 \seealso{
 Other vector functions: 
 \code{\link{char2factor}()},
-\code{\link{file_string}()}
+\code{\link{file_string}()},
+\code{\link{powers_of_ten}}
 }
 \concept{vector functions}

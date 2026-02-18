@@ -18,8 +18,10 @@ get_session_string <- function() {
     res <- paste(x$R.version$version.string,
                  paste0("Platform: ", x$platform),
                  paste0("Running under: ", x$running),
-                 paste0("Attached: ", paste0(mkLabel(x, "otherPkgs"), collapse = " + ")),
-                 paste0("Loaded: ", paste0(mkLabel(x, "loadedOnly"), collapse = " + ")),
+                 paste0("Attached: ", paste0(mkLabel(x, "otherPkgs"),
+                                             collapse = " + ")),
+                 paste0("Loaded: ", paste0(mkLabel(x, "loadedOnly"),
+                                           collapse = " + ")),
                  get_unique_string(),
                  sep = " -- ")
     return(res)

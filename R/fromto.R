@@ -6,7 +6,7 @@
 #' @param to Another pattern, use NA to stop with the last item.
 #' @param from_i If the from pattern matches multiple times, which one is to be
 #' used.
-#' @param to_i Analogously to to_i.
+#' @param to_i Analogously to from_i.
 #' @param shift_from The number of items to shift from the item selected via
 #' from and from_i.
 #' @param shift_to Analogously to shift_from.

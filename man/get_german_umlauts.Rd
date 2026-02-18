@@ -36,6 +36,7 @@ paste0("Cologne is K", get_german_umlauts("oe"), "ln. In LaTeX it's K",
 \seealso{
 Other German umlaut converters: 
 \code{\link{convert_umlauts_to_ascii}()},
-\code{\link{convert_umlauts_to_tex}()}
+\code{\link{convert_umlauts_to_tex}()},
+\code{\link{convert_umlauts_to_utf8}()}
 }
 \concept{German umlaut converters}

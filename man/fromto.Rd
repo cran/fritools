@@ -25,7 +25,7 @@ fromto(
 \item{from_i}{If the from pattern matches multiple times, which one is to be
 used.}
 
-\item{to_i}{Analogously to to_i.}
+\item{to_i}{Analogously to from_i.}
 
 \item{shift_from}{The number of items to shift from the item selected via
 from and from_i.}

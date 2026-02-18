@@ -1,6 +1,15 @@
 \name{NEWS}
 \title{NEWS}
 
+\section{Changes in version 4.6.0}{
+\itemize{
+\item Added \code{convert_umlauts_to_utf8()}.
+\item Added \code{convert_to_power_of_ten()} and \code{convert_from_power_of_ten()},
+\code{df_to_powers_of_ten()} and \code{df_from_powers_of_ten()}.
+\item \code{split_code_file()} now also keeps headers.
+}
+}
+
 \section{Changes in version 4.5.0}{
 \itemize{
 \item Added \code{escape_non_ascii()}.

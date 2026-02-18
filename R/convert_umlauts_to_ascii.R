@@ -11,7 +11,7 @@ convert_umlauts_to_ascii <- function(x) {
 #' @rdname convert_umlauts_to_ascii
 #' @export
 #' @examples
-#' string <- paste("this is \u00e4 string")
+#' string <- "this is \u00e4 string"
 #' print(string)
 #' print(convert_umlauts_to_ascii(string))
 convert_umlauts_to_ascii.character <- function(x) { # Exclude Linting
@@ -29,7 +29,7 @@ convert_umlauts_to_ascii.character <- function(x) { # Exclude Linting
 #' @rdname convert_umlauts_to_ascii
 #' @export
 #' @examples
-#' string <- paste("this is \u00e4 string")
+#' string <- "this is \u00e4 string"
 #' df <- data.frame(v1 = c(string, "foobar"),
 #'                  v2 = c("foobar", string), v3 = 3:4)
 #' names(df)[3] <- "y\u00dfy"

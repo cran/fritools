@@ -60,6 +60,7 @@ fritools::tapply(object = mtcars,
 Other statistics: 
 \code{\link{column_sums}()},
 \code{\link{count_groups}()},
+\code{\link{powers_of_ten}},
 \code{\link{relative_difference}()},
 \code{\link{round_half_away_from_zero}()},
 \code{\link{sloboda}()}

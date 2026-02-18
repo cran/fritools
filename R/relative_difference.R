@@ -37,7 +37,8 @@
 #' max(relative_difference(relative_difference(x, y),
 #'                         abs(relative_difference(x, y, "change"))))
 relative_difference <- function(current, reference,
-                                type = c("all.equal", "difference", "change", "change2")) {
+                                type = c("all.equal", "difference",
+                                         "change", "change2")) {
      switch(match.arg(type),
            "all.equal" = {
                m <- cbind(current = current, reference = reference)

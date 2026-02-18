@@ -27,6 +27,7 @@ names(iris) # no column sum for `Species`
 \seealso{
 Other statistics: 
 \code{\link{count_groups}()},
+\code{\link{powers_of_ten}},
 \code{\link{relative_difference}()},
 \code{\link{round_half_away_from_zero}()},
 \code{\link{sloboda}()},
